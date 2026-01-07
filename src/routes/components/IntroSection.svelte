@@ -2,7 +2,7 @@
 	import introImage from '$lib/assets/images/classroom-2787754_1280.jpg';
 </script>
 
-<section class="horizontal-section relative min-h-screen min-w-screen">
+<section class="relative min-h-screen min-w-screen">
 	<div class="container mx-auto mt-20 flex gap-10 p-5 max-md:flex-col max-md:items-center">
 		<div class="max-w-lg space-y-4">
 			<h2 class="mb-4 text-3xl font-bold text-[#0f2a92]">What do we do at SpringSide Academy?</h2>

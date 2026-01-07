@@ -175,7 +175,7 @@
 
 <div>
 	<section
-		class="horizontal-section relative min-h-screen min-w-screen"
+		class="relative min-h-screen min-w-screen"
 		aria-label="Hero carousel"
 		onmouseenter={stopAutoSlide}
 		onmouseleave={startAutoSlide}
