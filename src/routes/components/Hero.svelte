@@ -22,32 +22,20 @@
 	const slides = [
 		{
 			id: 1,
-			title: 'Excellence in Education',
-			subtitle: 'Since 1985',
+			title: 'Ready to start new journey at Spring Side Academy?',
+			subtitle: 'Building a Stronger Tomorrow',
 			description:
-				'A premier educational institution dedicated to holistic development and academic excellence for students from preschool to high school.',
-			image: heroImage5,
-			// cta: 'Schedule a Tour',
-			// cta2: 'Apply Now',
-			color: 'bg-[#4e68bf]',
-			stats: [
-				{
-					top: '1,200+',
-					bottom: 'students'
-				},
-				{
-					top: '15:1',
-					bottom: 'ratio'
-				},
-				{
-					top: '98%',
-					bottom: 'graduation'
-				},
-				{
-					top: '35+',
-					bottom: 'clubs'
-				}
-			]
+				'Our community thrives on collaboration, compassion, and commitment. We foster an environment where everyone contributes to building a better future together.',
+			image: heroImage1, // Assuming this is an imported or predefined image variable
+			cta: 'Join us now',
+			cta2: 'Get Intouch',
+			color: 'bg-[#ffb3c1]'
+			//   stats: {
+			//     service: '10K+ Volunteer Hours',   // Increased service hours
+			//     events: '50+ Yearly',               // More events annually
+			//     parents: '90% Active Participation', // Slightly adjusted parent involvement
+			//     alumni: '3,000+'                   // Increased number of alumni
+			//   }
 		},
 		{
 			id: 2,
@@ -113,20 +101,32 @@
 		},
 		{
 			id: 5,
-			title: 'Community & Values',
-			subtitle: 'Building a Stronger Tomorrow',
+			title: 'Excellence in Education',
+			subtitle: 'Since 1985',
 			description:
-				'Our community thrives on collaboration, compassion, and commitment. We foster an environment where everyone contributes to building a better future together.',
-			image: heroImage6, // Assuming this is an imported or predefined image variable
-			cta: 'Join the Movement',
-			cta2: 'Get Involved',
-			color: 'bg-[#ffb3c1]'
-			//   stats: {
-			//     service: '10K+ Volunteer Hours',   // Increased service hours
-			//     events: '50+ Yearly',               // More events annually
-			//     parents: '90% Active Participation', // Slightly adjusted parent involvement
-			//     alumni: '3,000+'                   // Increased number of alumni
-			//   }
+				'A premier educational institution dedicated to holistic development and academic excellence for students from preschool to high school.',
+			image: heroImage5,
+			// cta: 'Schedule a Tour',
+			// cta2: 'Apply Now',
+			color: 'bg-[#4e68bf]',
+			stats: [
+				{
+					top: '1,200+',
+					bottom: 'students'
+				},
+				{
+					top: '15:1',
+					bottom: 'ratio'
+				},
+				{
+					top: '98%',
+					bottom: 'graduation'
+				},
+				{
+					top: '35+',
+					bottom: 'clubs'
+				}
+			]
 		}
 	];
 
@@ -139,7 +139,7 @@
 		if (autoSlide) {
 			interval = setInterval(() => {
 				activeSlide = (activeSlide + 1) % slides.length;
-			}, 5000);
+			}, 9000);
 		}
 	};
 
@@ -230,7 +230,7 @@
 									>
 										<Button
 											size="md"
-											class="poppins-bold bg-[#0f2a92] px-8 py-3 text-lg font-semibold text-[#510c04] text-white transition-transform hover:scale-105"
+											class="poppins-bold cursor-pointer bg-[#0f2a92] px-8 py-3 text-lg font-semibold text-[#510c04] text-white transition duration-500 hover:scale-105 hover:bg-white hover:text-[#0f2a92]"
 										>
 											<CalendarMonthOutline class="poppins-bold mr-2 h-6 w-6 shrink-0" />
 											{slide.cta}
@@ -238,7 +238,7 @@
 										<Button
 											size="md"
 											color="alternative"
-											class="poppins-bold border-2 border-white bg-transparent px-8 py-3 text-lg font-semibold text-white hover:bg-white/20"
+											class="poppins-bold border-2 border-white bg-transparent px-8 py-3 text-lg font-semibold text-white transition duration-500 hover:bg-white/20 hover:text-[#fff]"
 										>
 											<ArrowRightOutline class="poppins-bold mr-2 h-6 w-6 shrink-0" />
 											{slide.cta2}

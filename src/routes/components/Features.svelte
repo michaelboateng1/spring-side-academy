@@ -10,17 +10,17 @@
 	></div>
 
 	<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-		<!-- <div class="section-heading mb-16 text-center">
-					<h2 class="mb-4 text-4xl font-black tracking-tight text-slate-900 md:text-5xl">
-						Why Choose <span
-							class="bg-gradient-to-r from-[#fe0002] to-[#04095d] bg-clip-text text-transparent"
-							>Shining Vessels</span
-						> Academy?
-					</h2>
-					<p class="mx-auto mt-6 max-w-3xl text-xl text-slate-600">
-						A holistic approach to education that prepares students for life.
-					</p>
-				</div> -->
+		<div class="section-heading mb-16 text-center">
+			<h2 class="mb-4 text-4xl font-black tracking-tight text-slate-900 md:text-5xl">
+				Why Choose <span
+					class="bg-gradient-to-r from-[#0f2a92] to-[#04095d] bg-clip-text text-transparent"
+					>Spring Side</span
+				> Academy?
+			</h2>
+			<p class="mx-auto mt-6 max-w-3xl text-xl text-slate-600">
+				A holistic approach to education that prepares students for life.
+			</p>
+		</div>
 		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 			<div class="feature-card group relative">
 				<div

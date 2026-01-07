@@ -1,55 +1,60 @@
 <script>
 	import { onMount } from 'svelte';
 
+	import studentModel1 from '$lib/assets/images/studentModel1.jpg';
+	import studentModel2 from '$lib/assets/images/StudentsModel2.jpg';
+	import studentModel3 from '$lib/assets/images/studentModel3.jpg';
+	import studentModel4 from '$lib/assets/images/StudentModel4.jpg';
+
 	const schoolImages = [
 		{
 			id: 1,
-			url: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80',
+			url: studentModel1,
 			title: 'Graduation Day',
 			desc: 'Celebrating our graduates'
 		},
 		{
 			id: 2,
-			url: 'https://images.unsplash.com/photo-1524178234883-043d5c3f3cf4?w=800&q=80',
+			url: studentModel2,
 			title: 'Science Lab',
 			desc: 'Students conducting experiments'
 		},
 		{
 			id: 3,
-			url: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80',
+			url: studentModel3,
 			title: 'Library Studies',
 			desc: 'Quiet study time in our library'
 		},
 		{
 			id: 4,
-			url: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=800&q=80',
+			url: studentModel4,
 			title: 'Classroom Learning',
 			desc: 'Interactive classroom session'
-		},
-		{
-			id: 5,
-			url: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&q=80',
-			title: 'Sports Day',
-			desc: 'Annual sports competition'
-		},
-		{
-			id: 6,
-			url: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80',
-			title: 'Art Exhibition',
-			desc: 'Student artwork showcase'
-		},
-		{
-			id: 7,
-			url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80',
-			title: 'Group Project',
-			desc: 'Collaborative learning'
-		},
-		{
-			id: 8,
-			url: 'https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?w=800&q=80',
-			title: 'Computer Lab',
-			desc: 'Technology education'
 		}
+		// {
+		// 	id: 5,
+		// 	url: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&q=80',
+		// 	title: 'Sports Day',
+		// 	desc: 'Annual sports competition'
+		// },
+		// {
+		// 	id: 6,
+		// 	url: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80',
+		// 	title: 'Art Exhibition',
+		// 	desc: 'Student artwork showcase'
+		// },
+		// {
+		// 	id: 7,
+		// 	url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80',
+		// 	title: 'Group Project',
+		// 	desc: 'Collaborative learning'
+		// },
+		// {
+		// 	id: 8,
+		// 	url: 'https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?w=800&q=80',
+		// 	title: 'Computer Lab',
+		// 	desc: 'Technology education'
+		// }
 	];
 
 	let isScrolling = $state(true);
