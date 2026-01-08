@@ -37,6 +37,18 @@
 	input[type='search']::-webkit-search-cancel-button {
 		display: none;
 	}
+
+	/* Disable horizontal scroll on mobile */
+	html,
+	body {
+		overflow-x: hidden;
+	}
+
+	/* Ensure no elements overflow viewport width */
+	body {
+		width: 100vw;
+		max-width: 100%;
+	}
 }
 
 @font-face {

@@ -98,24 +98,51 @@
 		});
 
 		// Horizontal scroll for main sections
-		const sections = gsap.utils.toArray('.horizontal-section');
-		if (sections.length > 0) {
-			gsap.to(sections, {
-				xPercent: -100 * (sections.length - 1),
-				ease: 'none',
-				scrollTrigger: {
-					trigger: '.horizontal-scroll-wrapper',
-					pin: true,
-					scrub: 1,
-					// snap: {
-					// 	snapTo: 1 / (sections.length - 1),
-					// 	duration: 0,
-					// 	delay: 0
-					// },
-					end: () => '+=' + sections.length * window.innerWidth
-				}
-			});
-		}
+
+		let mm = gsap.matchMedia();
+
+		// 1024px is the standard 'lg' breakpoint
+		mm.add('(min-width: 1024px)', () => {
+			const sections = gsap.utils.toArray('.horizontal-section');
+
+			if (sections.length > 0) {
+				gsap.to(sections, {
+					// Ensure each section is treated as 100vw
+					xPercent: -100 * (sections.length - 1),
+					ease: 'none',
+					scrollTrigger: {
+						trigger: '.horizontal-scroll-wrapper',
+						pin: true,
+						scrub: 1,
+						// Dynamic end based on the total width of sections
+						end: () => `+=${document.querySelector('.horizontal-sections').offsetWidth}`,
+						invalidateOnRefresh: true
+					}
+				});
+			}
+		});
+
+		// Cleanup animations when component unmounts
+		return () => mm.revert();
+
+		// const sections = gsap.utils.toArray('.horizontal-section');
+		// if (sections.length > 0 && window.innerWidth >= 1024) {
+		// 	gsap.to(sections, {
+		// 		xPercent: -100 * (sections.length - 1),
+		// 		ease: 'none',
+		// 		scrollTrigger: {
+		// 			trigger: '.horizontal-scroll-wrapper',
+		// 			pin: true,
+		// 			scrub: 1,
+		// 			// snap: {
+		// 			// 	snapTo: 1 / (sections.length - 1),
+		// 			// 	duration: 0,
+		// 			// 	delay: 0
+		// 			// },
+		// 			end: () => '+=' + sections.length * window.innerWidth
+		// 		}
+		// 	});
+		// }
 	});
 </script>
 
@@ -126,7 +153,7 @@
 <Banner />
 
 <div class="horizontal-scroll-wrapper relative">
-	<div class="horizontal-sections flex">
+	<div class="horizontal-sections flex flex-col lg:flex-row lg:flex-nowrap">
 		<!-- Features Section -->
 		<Features />
 
@@ -146,3 +173,24 @@
 		<!-- <ThankYou /> -->
 	</div>
 </div>
+
+<style>
+	/* Reset for mobile */
+	.horizontal-sections {
+		width: 100%;
+	}
+
+	/* Desktop overrides */
+	@media (min-width: 1024px) {
+		.horizontal-sections {
+			width: fit-content; /* Allows the row to expand horizontally */
+			display: flex;
+		}
+
+		/* Ensure each component takes up exactly one screen width on desktop */
+		:global(.horizontal-section) {
+			width: 100vw;
+			flex-shrink: 0;
+		}
+	}
+</style>
