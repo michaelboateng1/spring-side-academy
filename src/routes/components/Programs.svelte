@@ -3,16 +3,16 @@
 >
 	<!-- Decorative elements -->
 	<div
-		class="absolute top-0 right-0 h-[600px] w-[600px] rounded-full bg-[#fe0002]/10 blur-3xl"
+		class="absolute top-0 right-0 h-[600px] w-[600px] rounded-full bg-[#bac9ff]/10 blur-3xl"
 	></div>
 	<div
-		class="absolute bottom-0 left-0 h-[500px] w-[500px] rounded-full bg-[#04095d]/10 blur-3xl"
+		class="absolute bottom-0 left-0 h-[500px] w-[500px] rounded-full bg-[#0f2a92]/10 blur-3xl"
 	></div>
 
 	<div class="relative mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
 		<div class="mb-16 text-center">
 			<h2 class="mb-6 text-5xl font-black tracking-tight text-slate-900 md:text-6xl">
-				Our <span class="bg-gradient-to-r from-[#fe0002] to-[#04095d] bg-clip-text text-transparent"
+				Our <span class="bg-gradient-to-r from-[#0f2a92] to-[#04095d] bg-clip-text text-transparent"
 					>Programs</span
 				>
 			</h2>
@@ -25,15 +25,15 @@
 		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 			<!-- Elementary Program -->
 			<div class="group relative">
+				<!-- <div
+					class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#0f2a92] to-[#04095d] opacity-25 blur-lg transition duration-500 group-hover:opacity-75"
+				></div> -->
 				<div
-					class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#fe0002] to-[#04095d] opacity-25 blur-lg transition duration-500 group-hover:opacity-75"
-				></div>
-				<div
-					class="relative h-full rounded-3xl bg-white p-8 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+					class="relative h-full rounded-3xl bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
 				>
 					<div class="mb-6">
 						<div
-							class="mb-4 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-[#fe0002] to-[#ff3333] text-white shadow-lg transition-transform duration-300 group-hover:scale-110"
+							class="mb-4 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0f2a92] to-[#0f2a92] text-white shadow-lg transition-transform duration-300 group-hover:scale-110"
 						>
 							<svg
 								class="h-10 w-10"
@@ -50,7 +50,7 @@
 							</svg>
 						</div>
 						<h3 class="mb-2 text-3xl font-black text-slate-900">Elementary</h3>
-						<p class="text-sm font-bold tracking-wider text-[#fe0002] uppercase">Grades K-5</p>
+						<p class="text-sm font-bold tracking-wider text-[#0f2a92] uppercase">Grades K-5</p>
 					</div>
 					<p class="mb-6 leading-relaxed text-slate-600">
 						Building strong foundations in literacy, numeracy, and social-emotional learning through
@@ -59,7 +59,7 @@
 					<ul class="mb-6 space-y-3">
 						<li class="flex items-start gap-2 text-slate-700">
 							<svg
-								class="mt-0.5 h-5 w-5 flex-shrink-0 text-[#fe0002]"
+								class="mt-0.5 h-5 w-5 flex-shrink-0 text-[#0f2a92]"
 								fill="currentColor"
 								viewBox="0 0 20 20"
 							>
@@ -73,7 +73,7 @@
 						</li>
 						<li class="flex items-start gap-2 text-slate-700">
 							<svg
-								class="mt-0.5 h-5 w-5 flex-shrink-0 text-[#fe0002]"
+								class="mt-0.5 h-5 w-5 flex-shrink-0 text-[#0f2a92]"
 								fill="currentColor"
 								viewBox="0 0 20 20"
 							>
@@ -87,7 +87,7 @@
 						</li>
 						<li class="flex items-start gap-2 text-slate-700">
 							<svg
-								class="mt-0.5 h-5 w-5 flex-shrink-0 text-[#fe0002]"
+								class="mt-0.5 h-5 w-5 flex-shrink-0 text-[#0f2a92]"
 								fill="currentColor"
 								viewBox="0 0 20 20"
 							>
@@ -102,7 +102,7 @@
 					</ul>
 					<a
 						href="/admissions"
-						class="inline-flex items-center gap-2 font-bold text-[#fe0002] transition-all duration-300 hover:gap-3"
+						class="inline-flex items-center gap-2 font-bold text-[#0f2a92] transition-all duration-300 hover:gap-3"
 					>
 						Learn More
 						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -117,17 +117,17 @@
 				</div>
 			</div>
 
-			<!-- Middle School Program -->
+			<!-- Primary School Program -->
 			<div class="group relative">
+				<!-- <div
+					class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#04095d] to-[#0f2a92] opacity-25 blur-lg transition duration-500 group-hover:opacity-75"
+				></div> -->
 				<div
-					class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#04095d] to-[#fe0002] opacity-25 blur-lg transition duration-500 group-hover:opacity-75"
-				></div>
-				<div
-					class="relative h-full rounded-3xl bg-white p-8 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+					class="relative h-full rounded-3xl bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
 				>
 					<div class="mb-6">
 						<div
-							class="mb-4 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-[#04095d] to-[#fe0002] text-white shadow-lg transition-transform duration-300 group-hover:scale-110"
+							class="mb-4 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-[#04095d] to-[#0f2a92] text-white shadow-lg transition-transform duration-300 group-hover:scale-110"
 						>
 							<svg
 								class="h-10 w-10"
@@ -143,8 +143,8 @@
 								/>
 							</svg>
 						</div>
-						<h3 class="mb-2 text-3xl font-black text-slate-900">Middle School</h3>
-						<p class="text-sm font-bold tracking-wider text-[#04095d] uppercase">Grades 6-8</p>
+						<h3 class="mb-2 text-3xl font-black text-slate-900">Primary School</h3>
+						<p class="text-sm font-bold tracking-wider text-[#04095d] uppercase">Grades 1-6</p>
 					</div>
 					<p class="mb-6 leading-relaxed text-slate-600">
 						Developing critical thinking, leadership skills, and academic excellence during these
@@ -211,13 +211,13 @@
 				</div>
 			</div>
 
-			<!-- High School Program -->
+			<!-- JHS Program -->
 			<div class="group relative">
+				<!-- <div
+					class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#0f2a92] via-[#04095d] to-[#0f2a92] opacity-25 blur-lg transition duration-500 group-hover:opacity-75"
+				></div> -->
 				<div
-					class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#fe0002] via-[#04095d] to-[#fe0002] opacity-25 blur-lg transition duration-500 group-hover:opacity-75"
-				></div>
-				<div
-					class="relative h-full rounded-3xl bg-white p-8 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+					class="relative h-full rounded-3xl bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
 				>
 					<div class="mb-6">
 						<div
@@ -241,11 +241,11 @@
 								/>
 							</svg>
 						</div>
-						<h3 class="mb-2 text-3xl font-black text-slate-900">High School</h3>
-						<p class="text-sm font-bold tracking-wider text-[#04095d] uppercase">Grades 9-12</p>
+						<h3 class="mb-2 text-3xl font-black text-slate-900">Junior High School</h3>
+						<p class="text-sm font-bold tracking-wider text-[#04095d] uppercase">Grades 7-9</p>
 					</div>
 					<p class="mb-6 leading-relaxed text-slate-600">
-						College-preparatory curriculum with AP courses, career exploration, and university
+						High School preparatory curriculum with AP courses, career exploration, and high school
 						counseling support.
 					</p>
 					<ul class="mb-6 space-y-3">
@@ -275,7 +275,7 @@
 									clip-rule="evenodd"
 								/>
 							</svg>
-							<span>College counseling</span>
+							<span>High school counseling</span>
 						</li>
 						<li class="flex items-start gap-2 text-slate-700">
 							<svg
@@ -313,10 +313,10 @@
 		<!-- Additional Info Banner -->
 		<div class="relative mt-16">
 			<div
-				class="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#fe0002] to-[#04095d] opacity-20 blur-xl"
+				class="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#0f2a92] to-[#04095d] opacity-20 blur-xl"
 			></div>
 			<div
-				class="relative rounded-3xl bg-gradient-to-r from-[#fe0002] via-[#04095d] to-[#fe0002] p-8 text-center shadow-2xl md:p-12"
+				class="relative rounded-3xl bg-gradient-to-r from-[#0f2a92] via-[#04095d] to-[#0f2a92] p-8 text-center shadow-2xl md:p-12"
 			>
 				<h3 class="mb-4 text-3xl font-black text-white md:text-4xl">
 					Extended Learning Opportunities

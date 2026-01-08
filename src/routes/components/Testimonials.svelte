@@ -1,16 +1,16 @@
 <section
-	class="horizontal-section testimonials-section relative min-w-screen flex-shrink-0 overflow-hidden bg-white py-24 sm:py-32"
+	class="horizontal-section testimonials-section relative min-w-screen flex-shrink-0 items-center overflow-hidden bg-white py-24 sm:py-32"
 >
 	<div class="absolute inset-0 opacity-30">
-		<div class="absolute top-0 left-1/4 h-96 w-96 rounded-full bg-[#fe0002]/10 blur-3xl"></div>
-		<div class="absolute right-1/4 bottom-0 h-96 w-96 rounded-full bg-[#04095d]/10 blur-3xl"></div>
+		<div class="absolute top-0 left-1/4 h-96 w-96 rounded-full bg-[#0f2a92]/10 blur-3xl"></div>
+		<div class="absolute right-1/4 bottom-0 h-96 w-96 rounded-full bg-[#0f2a92]/10 blur-3xl"></div>
 	</div>
 
 	<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="section-heading mb-16 text-center">
 			<h2 class="mb-4 text-4xl font-black tracking-tight text-slate-900 md:text-5xl">
 				What Our <span
-					class="bg-gradient-to-r from-[#fe0002] to-[#04095d] bg-clip-text text-transparent"
+					class="bg-gradient-to-r from-[#0f2a92] to-[#04095d] bg-clip-text text-transparent"
 					>Community</span
 				> Says
 			</h2>
@@ -19,7 +19,7 @@
 		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 			<div class="testimonial-card group relative">
 				<div
-					class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#fe0002] to-[#04095d] opacity-25 blur transition duration-500 group-hover:opacity-75"
+					class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#0f2a92] to-[#fff] opacity-25 blur transition duration-500 group-hover:opacity-75"
 				></div>
 				<div class="relative h-full rounded-2xl bg-white p-8 shadow-xl">
 					<!-- Quote icon -->
@@ -31,12 +31,12 @@
 						</svg>
 					</div>
 					<p class="relative z-10 mb-6 text-lg leading-relaxed text-slate-700">
-						"Shining Vessels Academy has transformed my daughter's love for learning. The teachers
-						are dedicated and the environment is truly nurturing."
+						"Spring Side Academy has transformed my daughter's love for learning. The teachers are
+						dedicated and the environment is truly nurturing."
 					</p>
 					<div class="relative z-10 flex items-center gap-4">
 						<div
-							class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#fe0002] to-[#04095d] text-lg font-bold text-white shadow-lg"
+							class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#0f2a92] to-[#04095d] text-lg font-bold text-white shadow-lg"
 						>
 							AO
 						</div>
@@ -56,7 +56,7 @@
 			</div>
 			<div class="testimonial-card group relative">
 				<div
-					class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-purple-400 to-pink-500 opacity-25 blur transition duration-500 group-hover:opacity-75"
+					class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#ccc] to-[#0f2a92] opacity-25 blur transition duration-500 group-hover:opacity-75"
 				></div>
 				<div class="relative h-full rounded-2xl bg-white p-8 shadow-xl">
 					<div class="absolute top-6 right-6 text-purple-200">
@@ -72,7 +72,7 @@
 					</p>
 					<div class="relative z-10 flex items-center gap-4">
 						<div
-							class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-purple-400 to-pink-500 text-lg font-bold text-white shadow-lg"
+							class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#ccc] to-[#0f2a92] text-lg font-bold text-white shadow-lg"
 						>
 							KM
 						</div>

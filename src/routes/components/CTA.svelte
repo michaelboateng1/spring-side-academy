@@ -1,5 +1,5 @@
 <section
-	class="horizontal-section cta-section relative min-w-screen flex-shrink-0 overflow-hidden bg-gradient-to-br from-[#04095d] via-[#06097a] to-[#04095d] py-24 sm:py-32"
+	class="horizontal-section cta-section relative min-w-screen flex-shrink-0 overflow-hidden bg-gradient-to-br from-[#04095d] via-[#06097a] to-[#0f2a92] py-24 sm:py-32"
 >
 	<!-- Animated background patterns -->
 	<div class="absolute inset-0">
@@ -21,15 +21,15 @@
 		<div class="text-center">
 			<h2 class="mb-6 text-4xl font-black tracking-tight text-white md:text-6xl">
 				Ready to Join Our <br class="hidden sm:block" />
-				<span class="bg-gradient-to-r from-[#fe0002] to-[#ff5555] bg-clip-text text-transparent">
-					Community?
-				</span>
+				<!-- <span class="bg-gradient-to-r from-[#fe0002] to-[#ff5555] bg-clip-text text-transparent"> -->
+				Community?
+				<!-- </span> -->
 			</h2>
 			<p
 				class="mx-auto mt-6 max-w-3xl text-xl leading-relaxed font-light text-indigo-100 md:text-2xl"
 			>
-				Discover how Shining Vessels Academy can help your child reach their full potential.
-				Schedule a tour or start your application today.
+				Discover how Spring Side Academy can help your child reach their full potential. Schedule a
+				tour or start your application today.
 			</p>
 			<div class="mt-12 flex flex-col items-center justify-center gap-6 sm:flex-row">
 				<a

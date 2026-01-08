@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import schoolLogo from '$lib/assets/images/schoolLogo.jpg';
+	import schoolLogo from '$lib/assets/images/schoolLogo.png';
 
 	import { page } from '$app/stores';
 
