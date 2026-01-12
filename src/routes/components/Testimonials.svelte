@@ -1,5 +1,5 @@
 <section
-	class="horizontal-section testimonials-section relative min-w-screen flex-shrink-0 items-center overflow-hidden bg-white py-24 sm:py-32"
+	class=" w-screen max-w-full flex-shrink-0 items-center overflow-hidden bg-white py-24 sm:py-32"
 >
 	<div class="absolute inset-0 opacity-30">
 		<div class="absolute top-0 left-1/4 h-96 w-96 rounded-full bg-[#0f2a92]/10 blur-3xl"></div>

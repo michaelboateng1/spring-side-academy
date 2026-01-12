@@ -7,9 +7,11 @@
 	import IntroSection from './components/IntroSection.svelte';
 	import Banner from './components/Banner.svelte';
 	import Features from './components/Features.svelte';
+	import DisplayVideo from './components/DisplayVideo.svelte';
 	import ImageScrollSection from './components/ImageScrollSection.svelte';
 	import Testimonials from './components/Testimonials.svelte';
 	import CTA from './components/CTA.svelte';
+	import ImageSlides from './components/ImageSlides.svelte';
 	import Programs from './components/Programs.svelte';
 	import ThankYou from './components/ThankYou.svelte';
 
@@ -146,6 +148,14 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Spring Side Academy | Home Page</title>
+	<meta
+		name="description"
+		content="Building confident learners and future leaders through quality education, innovation, and a supportive learning environment."
+	/>
+</svelte:head>
+
 <Hero />
 
 <IntroSection />
@@ -161,10 +171,9 @@
 		<ImageScrollSection />
 
 		<!-- Testimonials Section -->
-		<Testimonials />
+		<DisplayVideo />
 
 		<!-- CTA Section -->
-		<CTA />
 
 		<!-- Programs Section -->
 		<Programs />
@@ -173,6 +182,10 @@
 		<!-- <ThankYou /> -->
 	</div>
 </div>
+
+<CTA />
+<Testimonials />
+<ImageSlides />
 
 <style>
 	/* Reset for mobile */

@@ -1,10 +1,42 @@
 <script>
 	import ImageScroller from './ImageScroller.svelte';
+	import bookSVG from '$lib/assets/svg/book-303927.svg';
+	import bookSVG2 from '$lib/assets/svg/book-6780766.svg';
+	import booksSVG from '$lib/assets/svg/books-6780765.svg';
+	import pencilSVG from '$lib/assets/svg/pencil-sharpener-149613.svg';
 </script>
 
 <section
 	class="horizontal-section stats-section relative min-w-screen flex-shrink-0 overflow-hidden bg-gradient-to-br from-[#0f2a92] via-[#0f2a92] to-[#04095d] py-24 sm:py-32"
 >
+	<img
+		src={bookSVG}
+		class="absolute top-0 left-0 h-[200px] w-[200px] opacity-[0.15]"
+		width="100"
+		height="100"
+		alt=""
+	/>
+	<img
+		src={bookSVG2}
+		class="absolute top-1/2 left-1/2 h-[800px] w-[800px] -translate-1/2 -rotate-20 transform opacity-[0.15]"
+		width="100"
+		height="100"
+		alt=""
+	/>
+	<img
+		src={booksSVG}
+		class="absolute -right-30 bottom-0 h-[500px] w-[500px] rotate-45 transform opacity-[0.15]"
+		width="100"
+		height="100"
+		alt=""
+	/>
+	<img
+		src={pencilSVG}
+		class="absolute top-0 right-0 h-[300px] w-[300px] opacity-[0.15]"
+		width="100"
+		height="100"
+		alt=""
+	/>
 	<!-- Animated background -->
 	<div class="absolute inset-0 opacity-20">
 		<div

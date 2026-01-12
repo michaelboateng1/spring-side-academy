@@ -20,7 +20,7 @@
 
 <Header />
 
-<main class="min-h-[calc(100vh-200px)]">
+<main class="min-h-[calc(100vh-200px)]" >
 	{@render children?.()}
 </main>
 

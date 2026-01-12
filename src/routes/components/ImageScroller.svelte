@@ -224,7 +224,7 @@
 	</div>
 
 	<div class="relative mx-auto">
-		<h2 class="mb-4 text-2xl tracking-tight text-white md:text-4xl lg:text-5xl">
+		<h2 class="mb-8 text-center text-xl tracking-tight text-white md:text-4xl lg:text-5xl">
 			Warm & Community-focused
 		</h2>
 		<div class=" max-h-[500px] max-w-2xl overflow-hidden rounded-xl border-4 border-white">
@@ -247,7 +247,9 @@
 				{/each}
 			</div>
 		</div>
-		<h5>Capturing growth, learning, and success</h5>
+		<h5 class="mt-5 text-center text-xl tracking-tight text-white md:text-4xl lg:text-5xl">
+			Capturing growth, learning, and success
+		</h5>
 	</div>
 </div>
 

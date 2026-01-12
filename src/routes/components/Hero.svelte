@@ -208,6 +208,7 @@
 									in:svelteSlide={{ duration: 800, delay: 100 }}
 									out:fade={{ duration: 300 }}
 									class="mb-6 text-4xl leading-tight font-extrabold md:text-5xl lg:text-6xl xl:text-7xl"
+									style="view-transition-name: title"
 								>
 									{slide.title}
 								</h1>

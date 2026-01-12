@@ -1,5 +1,5 @@
 <section
-	class="horizontal-section cta-section relative min-w-screen flex-shrink-0 overflow-hidden bg-gradient-to-br from-[#04095d] via-[#06097a] to-[#0f2a92] py-24 sm:py-32"
+	class=" w-screen max-w-full overflow-hidden bg-gradient-to-br from-[#04095d] via-[#06097a] to-[#0f2a92] py-24 sm:py-32"
 >
 	<!-- Animated background patterns -->
 	<div class="absolute inset-0">
