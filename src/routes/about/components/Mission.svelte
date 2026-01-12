@@ -3,32 +3,32 @@
 
 	let missionSection;
 
-	onMount(async () => {
-		try {
-			const gsapMod = await import('gsap');
-			const stMod = await import('gsap/ScrollTrigger');
+	// onMount(async () => {
+	// 	try {
+	// 		const gsapMod = await import('gsap');
+	// 		const stMod = await import('gsap/ScrollTrigger');
 
-			const gsap = gsapMod.gsap || gsapMod.default || gsapMod;
-			const ScrollTrigger = stMod.ScrollTrigger || stMod.default;
+	// 		const gsap = gsapMod.gsap || gsapMod.default || gsapMod;
+	// 		const ScrollTrigger = stMod.ScrollTrigger || stMod.default;
 
-			if (gsap && ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+	// 		if (gsap && ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
 
-			gsap.from('.mission-item', {
-				y: 30,
-				autoAlpha: 0,
-				duration: 0.6,
-				stagger: 0.15,
-				ease: 'power2.out',
-				scrollTrigger: {
-					trigger: missionSection,
-					start: 'top 80%',
-					toggleActions: 'play none none reverse'
-				}
-			});
-		} catch (e) {
-			console.error('GSAP failed to load:', e);
-		}
-	});
+	// 		gsap.from('.mission-item', {
+	// 			y: 30,
+	// 			autoAlpha: 0,
+	// 			duration: 0.6,
+	// 			stagger: 0.15,
+	// 			ease: 'power2.out',
+	// 			scrollTrigger: {
+	// 				trigger: missionSection,
+	// 				start: 'top 80%',
+	// 				toggleActions: 'play none none reverse'
+	// 			}
+	// 		});
+	// 	} catch (e) {
+	// 		console.error('GSAP failed to load:', e);
+	// 	}
+	// });
 </script>
 
 <section bind:this={missionSection} class="bg-white py-20 lg:py-28">

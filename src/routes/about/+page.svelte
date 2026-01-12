@@ -17,5 +17,5 @@
 <Mission />
 <Values />
 <WhyChooseUs />
-<Leadership />
 <CTA />
+<Leadership />

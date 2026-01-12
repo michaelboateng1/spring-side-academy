@@ -4,6 +4,8 @@
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 	import schoolImage from '$lib/assets/ss.png';
+	import bgImage from '$lib/assets/images/zhejiang-university-3776783_1280.jpg';
+	import schoolCompoundImage from '$lib/assets/images/zhejiang-university-3776785_1280.jpg';
 
 	// Note: ScrollSmoother and SplitText are Premium GSAP plugins.
 	// If you have them, import and register them here.
@@ -11,8 +13,7 @@
 	let container;
 	let heroSection;
 	let textSection;
-	let revealText =
-		"If ever you are passing my way, don't wait to knock! Tea is at four; but any of you are welcome at any time.";
+	let revealText = `At Spring Side Academy, we believe every child carries the potential to grow, lead, and succeed. Our school is a vibrant learning community where academic excellence meets character development, creativity, and innovation.`;
 
 	// Split text into characters for the animation
 	$: characters = revealText.split('');
@@ -99,13 +100,13 @@
 	});
 </script>
 
-<main class="overflow-x-hidden bg-[#1f1f1f] font-sans text-white" bind:this={container}>
+<article class="overflow-x-hidden bg-[#1f1f1f] font-sans text-white" bind:this={container}>
 	<div class="hero-container relative" bind:this={heroSection}>
 		<section class="relative h-screen w-full overflow-hidden">
 			<div class="hero__content relative h-screen w-full overflow-hidden">
 				<div
-					class="hero__bg h-screen w-full bg-cover bg-center bg-no-repeat transition-all"
-					style="background-image: url('https://assets.codepen.io/204808/hobbiton.jpg'); filter: blur(3px) brightness(1.5);"
+					class="hero__bg h-screen w-full bg-cover bg-center bg-no-repeat blur-sm brightness-150 transition-all"
+					style="background-image: linear-gradient(hsla(0, 0%, 20%, .2), hsla(0, 0%, 20%, .5)), url('{bgImage}');"
 				></div>
 
 				<h1
@@ -129,7 +130,7 @@
 				<img
 					class="hero__cover-img pointer-events-none h-full w-full object-cover"
 					src={schoolImage}
-					alt="Hobbit Hole Door"
+					alt="School logo"
 				/>
 			</div>
 		</section>
@@ -137,11 +138,13 @@
 
 	<section
 		bind:this={textSection}
-		class="flex min-h-screen items-center justify-center bg-black p-8 text-white"
+		class="flex min-h-screen items-center justify-center bg-white p-8 text-white"
 	>
 		<p class="opacity-reveal w-full max-w-4xl text-center text-4xl leading-tight md:text-7xl">
 			{#each characters as char}
-				<span class="char inline-block opacity-20">{char === ' ' ? '\u00A0' : char}</span>
+				<span class="char poppins-medium inline-block text-black opacity-20"
+					>{char === ' ' ? '\u00A0' : char}</span
+				>
 			{/each}
 		</p>
 	</section>
@@ -153,8 +156,8 @@
 	>
 		<img
 			class="hobbiton-img h-screen w-full object-cover"
-			src="https://assets.codepen.io/204808/hobitton.jpg"
-			alt="Hobbiton Landscape"
+			src={schoolCompoundImage}
+			alt="School Compund"
 		/>
 	</section>
-</main>
+</article>
