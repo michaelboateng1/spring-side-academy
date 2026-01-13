@@ -12,11 +12,11 @@
 	import { onMount } from 'svelte';
 
 	import heroImage1 from '$lib/assets/images/heroImage1.jpg';
-	import heroImage2 from '$lib/assets/images/heroImage2.jpg';
+	import heroImage2 from '$lib/assets/images/zhejiang-university-3776783_1280.jpg';
 	import heroImage3 from '$lib/assets/images/heroImage3.jpg';
 	import heroImage4 from '$lib/assets/images/heroImage4.jpg';
-	import heroImage5 from '$lib/assets/images/heroImage5.jpg';
-	import heroImage6 from '$lib/assets/images/heroImage6.jpg';
+	import heroImage5 from '$lib/assets/images/zhejiang-university-3776785_1280.jpg';
+	import heroImage6 from '$lib/assets/images/zhejiang-university-3776783_1280.jpg';
 
 	// Slide data
 	const slides = [
@@ -46,7 +46,7 @@
 			image: heroImage2,
 			cta: 'View Facilities',
 			cta2: 'Virtual Tour',
-			color: 'bg-[#f3ce3f]'
+			color: 'bg-[#888]'
 			// stats: {
 			// 	labs: '12',
 			// 	classrooms: '45',

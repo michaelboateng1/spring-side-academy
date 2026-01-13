@@ -4,19 +4,14 @@
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 	import schoolImage from '$lib/assets/ss.png';
-	import bgImage from '$lib/assets/images/zhejiang-university-3776783_1280.jpg';
+	
 	import schoolCompoundImage from '$lib/assets/images/zhejiang-university-3776785_1280.jpg';
 
-	// Note: ScrollSmoother and SplitText are Premium GSAP plugins.
-	// If you have them, import and register them here.
+	let {heading, subheading, bgImage, height} = $props();
 
 	let container;
 	let heroSection;
-	let textSection;
-	let revealText = `At Spring Side Academy, we believe every child carries the potential to grow, lead, and succeed. Our school is a vibrant learning community where academic excellence meets character development, creativity, and innovation.`;
-
-	// Split text into characters for the animation
-	$: characters = revealText.split('');
+	
 
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
@@ -69,30 +64,6 @@
 				'<'
 			);
 
-		// 2. Text Reveal Timeline
-		const textTl = gsap.timeline({
-			scrollTrigger: {
-				trigger: textSection,
-				pin: true,
-				start: 'center center',
-				end: '+=1500',
-				scrub: 1
-			}
-		});
-
-		textTl
-			.to('.char', {
-				opacity: 1,
-				stagger: 0.1,
-				ease: 'none'
-			})
-			.to({}, { duration: 1 }) // Buffer
-			.to('.opacity-reveal', {
-				opacity: 0,
-				scale: 1.2,
-				duration: 2
-			});
-
 		return () => {
 			// Cleanup triggers on component unmount
 			ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -109,15 +80,14 @@
 					style="background-image: linear-gradient(hsla(0, 0%, 20%, .2), hsla(0, 0%, 20%, .5)), url('{bgImage}');"
 				></div>
 
+				<!-- <p class="bg-gradient-to-r from-[#0f2a92] to-[#04095d] bg-clip-text text-transparent">subheading</p> -->
 				<h1
 					class="hero__title absolute top-1/2 left-1/2 z-[100] m-0 -translate-x-1/2 -translate-y-1/2 scale-40
 					p-0 text-center text-[clamp(3.125rem,17.321vw-1.357rem,12.5rem)] leading-[clamp(4.688rem,21.363vw-0.84rem,16.25rem)] font-bold text-white
 					opacity-0
 					blur-[10px]"
 				>
-					<span class="bg-gradient-to-r from-[#0f2a92] to-[#04095d] bg-clip-text text-transparent"
-						>About</span
-					> Spring Side Academy
+					 {heading}
 				</h1>
 			</div>
 
@@ -136,28 +106,4 @@
 		</section>
 	</div>
 
-	<section
-		bind:this={textSection}
-		class="flex min-h-screen items-center justify-center bg-white p-8 text-white"
-	>
-		<p class="opacity-reveal w-full max-w-4xl text-center text-4xl leading-tight md:text-7xl">
-			{#each characters as char}
-				<span class="char poppins-medium inline-block text-black opacity-20"
-					>{char === ' ' ? '\u00A0' : char}</span
-				>
-			{/each}
-		</p>
-	</section>
-
-	<section
-		class="hobbiton relative w-full overflow-hidden
-		after:pointer-events-none after:absolute after:inset-0 after:bg-[radial-gradient(circle,rgba(0,0,0,0)_40%,rgba(0,0,0,0.7)_90%)]
-		after:content-['']"
-	>
-		<img
-			class="hobbiton-img h-screen w-full object-cover"
-			src={schoolCompoundImage}
-			alt="School Compund"
-		/>
-	</section>
 </article>
