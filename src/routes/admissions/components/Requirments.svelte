@@ -21,7 +21,7 @@
 					building blocks for their future.
 				</p>
 
-				<div
+				<!-- <div
 					class="mt-10 flex items-center gap-4 rounded-2xl bg-white/5 p-4 ring-1 ring-white/10 backdrop-blur-md"
 				>
 					<div
@@ -39,7 +39,7 @@
 					<p class="text-sm text-slate-300">
 						Some quick info for parents ready to admit their children at Spring Side Adademy.
 					</p>
-				</div>
+				</div> -->
 			</div>
 
 			<div class="relative space-y-4">

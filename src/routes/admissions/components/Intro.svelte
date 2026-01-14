@@ -10,7 +10,7 @@
 			></div>
 
 			<div class="flex flex-col gap-8 md:gap-12">
-				<div class="flex items-center gap-3">
+				<!-- <div class="flex items-center gap-3">
 					<span class="relative flex h-3 w-3">
 						<span
 							class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#0f2a92] opacity-75"
@@ -20,7 +20,7 @@
 					<span class="text-xs font-black tracking-[0.2em] text-slate-500 uppercase">
 						Admissions <span class="text-[#0f2a92]">2026</span>
 					</span>
-				</div>
+				</div> -->
 
 				<div class="max-w-4xl">
 					<h2 class="text-5xl font-extrabold tracking-tight text-[#0f2a92] sm:text-7xl">

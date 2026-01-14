@@ -2,10 +2,10 @@
 	import AboutHero from '../about/components/AboutHero.svelte';
 	import Intro from './components/Intro.svelte';
 	import Process from './components/Process.svelte';
-	import Banner from './components/Banner.svelte';
 	import Stats from './components/Stats.svelte';
 	import Requirments from './components/Requirments.svelte';
 	import FeesInfo from './components/FeesInfo.svelte';
+	import CTA from '../components/CTA.svelte';
 
 	import bgImage from '$lib/assets/images/zhejiang-university-3776785_1280.jpg';
 	// import img1 from '$lib/assets/images/studentModel1.jpg';
@@ -56,4 +56,4 @@
 <Requirments />
 <FeesInfo />
 <Stats />
-<Banner />
+<CTA />
