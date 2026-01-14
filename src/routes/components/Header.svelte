@@ -11,8 +11,8 @@
 		{ href: '/', label: 'Home' },
 		{ href: '/about', label: 'About' },
 		{ href: '/admissions', label: 'Admissions' },
-		{ href: '/admissions', label: 'News & Events' },
-		{ href: '/admissions', label: 'Gallery' },
+		{ href: '/news-and-events', label: 'News & Events' },
+		{ href: '/gallery', label: 'Gallery' },
 		{ href: '/contact', label: 'Contact' }
 	];
 

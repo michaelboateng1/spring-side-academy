@@ -3,6 +3,7 @@
 
 	import AboutHero from './components/AboutHero.svelte';
 	import AboutContent from './components/AboutContent.svelte';
+	import AboutContent2 from './components/AboutContent2.svelte';
 	import SchoolCompound from './components/SchoolCompound.svelte';
 	import Mission from './components/Mission.svelte';
 	import Values from './components/Values.svelte';
@@ -12,12 +13,13 @@
 </script>
 
 <AboutHero
-	heading="About Spring Side Academy"
+	heading="About Us"
 	subheading="Excellence. Integrity. Innovation."
 	{bgImage}
 	height="h-[85svh]"
 />
 <AboutContent />
+<AboutContent2 />
 <SchoolCompound />
 <Mission />
 <Values />

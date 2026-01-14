@@ -46,7 +46,7 @@
 </svelte:head>
 
 <AboutHero
-	heading="Spring Side Academy Admissions"
+	heading="Admissions"
 	subheading="Excellence. Integrity. Innovation."
 	{bgImage}
 	height="h-[85svh]"
