@@ -12,7 +12,7 @@
 	<div class="relative mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
 		<div class="mb-16 text-center">
 			<h2 class="mb-6 text-5xl font-black tracking-tight text-slate-900 md:text-6xl">
-				Our <span class="bg-gradient-to-r from-[#0f2a92] to-[#04095d] bg-clip-text text-transparent"
+				Our <span class="bg-linear-to-r from-[#0f2a92] to-[#04095d] bg-clip-text text-transparent"
 					>Programs</span
 				>
 			</h2>
@@ -26,7 +26,7 @@
 			<!-- Elementary Program -->
 			<div class="group relative">
 				<!-- <div
-					class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#0f2a92] to-[#04095d] opacity-25 blur-lg transition duration-500 group-hover:opacity-75"
+					class="absolute -inset-1 rounded-3xl bg-linear-to-r from-[#0f2a92] to-[#04095d] opacity-25 blur-lg transition duration-500 group-hover:opacity-75"
 				></div> -->
 				<div
 					class="relative h-full rounded-3xl bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
@@ -120,7 +120,7 @@
 			<!-- Primary School Program -->
 			<div class="group relative">
 				<!-- <div
-					class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#04095d] to-[#0f2a92] opacity-25 blur-lg transition duration-500 group-hover:opacity-75"
+					class="absolute -inset-1 rounded-3xl bg-linear-to-r from-[#04095d] to-[#0f2a92] opacity-25 blur-lg transition duration-500 group-hover:opacity-75"
 				></div> -->
 				<div
 					class="relative h-full rounded-3xl bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
@@ -214,7 +214,7 @@
 			<!-- JHS Program -->
 			<div class="group relative">
 				<!-- <div
-					class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#0f2a92] via-[#04095d] to-[#0f2a92] opacity-25 blur-lg transition duration-500 group-hover:opacity-75"
+					class="absolute -inset-1 rounded-3xl bg-linear-to-r from-[#0f2a92] via-[#04095d] to-[#0f2a92] opacity-25 blur-lg transition duration-500 group-hover:opacity-75"
 				></div> -->
 				<div
 					class="relative h-full rounded-3xl bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
@@ -313,10 +313,10 @@
 		<!-- Additional Info Banner -->
 		<div class="relative mt-16">
 			<div
-				class="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#0f2a92] to-[#04095d] opacity-20 blur-xl"
+				class="absolute inset-0 rounded-3xl bg-linear-to-r from-[#0f2a92] to-[#04095d] opacity-20 blur-xl"
 			></div>
 			<div
-				class="relative rounded-3xl bg-gradient-to-r from-[#0f2a92] via-[#04095d] to-[#0f2a92] p-8 text-center shadow-2xl md:p-12"
+				class="relative rounded-3xl bg-linear-to-r from-[#0f2a92] via-[#04095d] to-[#0f2a92] p-8 text-center shadow-2xl md:p-12"
 			>
 				<h3 class="mb-4 text-3xl font-black text-white md:text-4xl">
 					Extended Learning Opportunities

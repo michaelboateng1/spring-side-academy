@@ -3,7 +3,7 @@
 </script>
 
 <footer
-	class="relative overflow-hidden bg-gradient-to-br from-[#0f2a92] via-[#0b247f] to-[#0f2a92] text-white"
+	class="relative overflow-hidden bg-linear-to-br from-[#0f2a92] via-[#0b247f] to-[#0f2a92] text-white"
 >
 	<!-- Decorative background -->
 	<div class="absolute inset-0 opacity-10">
