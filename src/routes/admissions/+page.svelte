@@ -53,7 +53,7 @@
 />
 <Intro />
 <Process />
-<Requirments />
 <FeesInfo />
+<Requirments />
 <Stats />
 <CTA />

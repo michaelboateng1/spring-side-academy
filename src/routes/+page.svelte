@@ -10,7 +10,7 @@
 	import DisplayVideo from './components/DisplayVideo.svelte';
 	import ImageScrollSection from './components/ImageScrollSection.svelte';
 	import Testimonials from './components/Testimonials.svelte';
-	import CTA from './components/d.svelte';
+	import CTA from './components/CTA.svelte';
 	import ImageSlides from './components/ImageSlides.svelte';
 	import Programs from './components/Programs.svelte';
 	import ThankYou from './components/ThankYou.svelte';
