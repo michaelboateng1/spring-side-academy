@@ -101,7 +101,7 @@
 	.form-bg {
 		background:
 			linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-			url('../../../lib/assets/images/zhejiang-university-3776785_1280.jpg');
+			url('../../../../lib/assets/images/zhejiang-university-3776785_1280.jpg');
 		background-position: center;
 		background-attachment: fixed;
 	}

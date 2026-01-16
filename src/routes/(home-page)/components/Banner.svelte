@@ -123,7 +123,7 @@
 	section {
 		background:
 			linear-gradient(hsla(0, 0%, 0%, 0.3), hsla(0, 0%, 0%, 0.3)),
-			url('../../lib/assets/images/clouds-5029680_1280.jpg');
+			url('../../../lib/assets/images/clouds-5029680_1280.jpg');
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center;
