@@ -3,8 +3,10 @@
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
+	import image from "$lib/assets/images/heroImage5.jpg";
+
 	let textSection;
-	let revealText = `At Spring Side Academy, we believe every child carries the potential to grow, lead, and succeed. Our school is a vibrant learning community where academic excellence meets character development, creativity, and innovation.`;
+	let revealText = `At Spring Side Academy, we believe every child carries the potential to grow, lead, and succeed. Our school is a vibrant learning community where academic excellence meets character development, creativity, and innovation. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit non aperiam doloribus rerum vel error cupiditate inventore molestias nam corrupti ea debitis deleniti corporis qui eveniet temporibus, nihil repudiandae fugiat laborum ipsum sequi similique quis sint soluta.`;
 
 	// Split text into characters for the animation
 	$: characters = revealText.split('');
@@ -45,13 +47,22 @@
 
 <section
 	bind:this={textSection}
-	class="flex min-h-screen items-center justify-center bg-white p-8 text-white"
+	class="flex min-h-screen items-center gap-10 justify-around bg-white p-8 text-white"
 >
-	<p class="opacity-reveal w-full max-w-4xl text-center text-4xl leading-tight md:text-7xl">
+<div>
+	<h2 class="capitalize mb-6 text-5xl font-black tracking-tight text-[#0f2a92] md:text-6xl text-center">About us</h2>
+	<p class="opacity-reveal w-full max-w-4xl">
 		{#each characters as char}
-			<span class="char poppins-medium inline-block text-black opacity-20"
+			<span class="char text-2xl inline-block text-[#0f2a92] 2xl:text-4xl opacity-20"
 				>{char === ' ' ? '\u00A0' : char}</span
 			>
 		{/each}
 	</p>
+</div>
+
+	<div class="rounded-xl overflow-hidden">
+		<img src={image} class="w-full h-full object-cover" alt="">
+	</div>
 </section>
+
+

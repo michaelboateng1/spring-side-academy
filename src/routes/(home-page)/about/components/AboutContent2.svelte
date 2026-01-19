@@ -3,6 +3,8 @@
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
+	import image from "$lib/assets/images/heroImage8.jpg";
+
 	let textSection;
 	let revealText = `At Spring Side Academy, we believe every child carries the potential to grow, lead, and succeed. Our school is a vibrant learning community where academic excellence meets character development, creativity, and innovation.`;
 
@@ -11,7 +13,6 @@
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
 
-		// This is the "Magic" that fixes the conflict
 		const q = gsap.utils.selector(textSection);
 
 		const textTl = gsap.timeline({
@@ -33,7 +34,7 @@
 				scale: 1,
 				filter: 'blur(0px)',
 				stagger: 0.1,
-				ease: 'power2.out'
+				ease: 'bounce.inOut'
 			})
 			.to(
 				q('.char'),
@@ -46,9 +47,9 @@
 			)
 			.to(q('.opacity-reveal'), {
 				// Scoped selector
-				opacity: 0,
-				scale: 2,
-				filter: 'blur(20px)',
+				// opacity: 0,
+				// scale: -2,
+				// filter: 'blur(20px)',
 				duration: 3,
 				ease: 'power4.in'
 			});
@@ -67,17 +68,26 @@
 		<span class="text-[20vw] leading-none font-black">SPRING SIDE</span>
 	</div>
 
-	<div class="opacity-reveal w-full max-w-6xl text-center">
-		<p class="text-3xl leading-[1.1] font-bold tracking-tighter md:text-7xl">
-			{#each characters as char}
-				<span
-					class="char inline-block translate-y-12 scale-150 opacity-0 blur-md"
-					style="display: {char === ' ' ? 'inline' : 'inline-block'}"
-				>
-					{char === ' ' ? '\u00A0' : char}
-				</span>
-			{/each}
-		</p>
+	<div class="flex items-start justify-around gap-10 p-8">
+		<div class="rounded-xl overflow-hidden">
+			<img src={image} class="w-full h-full object-cover" alt="">
+		</div>
+		<div class="opacity-reveal w-full max-w-6xl text-center">
+
+		<div>
+			<h2 class="capitalize mb-6 text-5xl font-black tracking-tight text-[#0f2a92] md:text-6xl text-center">Our History</h2>
+			<p class="text-3xl 2xl:text-4xl leading-[1.1] font-bold tracking-tighter">
+				{#each characters as char}
+					<span
+						class="char inline-block translate-y-12 scale-150 opacity-0 "
+						style="display: {char === ' ' ? 'inline' : 'inline-block'}"
+					>
+						{char === ' ' ? '\u00A0' : char}
+					</span>
+				{/each}
+			</p>
+		</div>
+	</div>
 	</div>
 
 	<div

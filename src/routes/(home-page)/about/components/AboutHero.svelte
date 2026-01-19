@@ -1,5 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
+	import {ChevronDoubleDownOutline} from 'flowbite-svelte-icons';
+
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
@@ -62,7 +64,13 @@
 					ease: 'power1.inOut'
 				},
 				'<'
-			);
+			).to(
+				".scroll_indicator__color",
+				{
+					color: "white",
+					ease: 'power1.inOut'
+				}
+			)
 
 		return () => {
 			// Cleanup triggers on component unmount
@@ -103,7 +111,21 @@
 					alt="School logo"
 				/>
 			</div>
+
+			<div class="absolute right-8 z-50 bottom-4 hidden animate-bounce md:block">
+				<div class="flex flex-col items-center justify-center text-center scroll_indicator__color text-[#0f2a92] poppins-bold font-bold ">
+					<p class="mb-2 rotate-90 text-xl">Scroll</p>
+					<ChevronDoubleDownOutline class="h-10 w-10 shrink-0" />
+				</div>
+			</div>
 		</section>
 	</div>
 
+	<!-- <div class="absolute right-8 bottom-4 hidden animate-bounce md:block">
+		<div class="flex flex-col items-center justify-center text-center text-black opacity-70">
+			<p class="mb-2 rotate-90 text-sm">Scroll</p>
+			<ChevronDoubleDownOutline class="h-8 w-8 shrink-0" />
+		</div>
+	</div> -->
 </article>
+
