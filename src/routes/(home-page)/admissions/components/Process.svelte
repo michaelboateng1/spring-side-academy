@@ -95,16 +95,16 @@
 	class="process-container relative overflow-hidden bg-linear-to-r from-[#0f2a92] via-[#04095d] to-[#0f2a92] py-32 text-white"
 >
 	<div class="pointer-events-none absolute top-0 left-1/2 -z-10 h-full w-full -translate-x-1/2">
-		<div class="absolute top-0 left-1/4 h-[500px] w-[500px] bg-white opacity-20 blur-[150px]"></div>
+		<div class="absolute top-0 left-1/4 h-125 w-125 bg-white opacity-20 blur-[150px]"></div>
 		<div
-			class="bg-white-500 absolute right-1/4 bottom-0 h-[500px] w-[500px] opacity-10 blur-[150px]"
+			class="bg-white-500 absolute right-1/4 bottom-0 h-125 w-125 opacity-10 blur-[150px]"
 		></div>
 	</div>
 
 	<div class="container mx-auto px-6">
 		<div class="mb-32 text-center">
 			<h2 class="text-6xl font-black tracking-tighter uppercase italic md:text-8xl">
-				<span class="bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent"
+				<span class="text-white"
 					>Admissions Flow</span
 				>
 			</h2>
@@ -112,10 +112,10 @@
 
 		<div class="relative mx-auto max-w-6xl">
 			<div
-				class="absolute top-0 left-1/2 z-0 hidden h-full w-[2px] -translate-x-1/2 bg-white/10 md:block"
+				class="absolute top-0 left-1/2 z-0 hidden h-full w-0.5 -translate-x-1/2 bg-white/10 md:block"
 			>
 				<div
-					class="path-fill absolute top-0 left-0 h-full w-full origin-top bg-gradient-to-b from-blue-400 via-blue-500 to-cyan-600 shadow-[0_0_15px_rgba(96,165,250,0.8)]"
+					class="path-fill absolute top-0 left-0 h-full w-full origin-top bg-linear-to-b from-blue-400 via-blue-500 to-white shadow-[0_0_15px_rgba(96,165,250,0.8)]"
 				></div>
 			</div>
 
@@ -124,7 +124,7 @@
 					<div
 						class="flex w-full md:w-5/12 {i % 2 === 0
 							? 'justify-end'
-							: 'order-last justify-start md:order-none'}"
+							: 'order-last justify-start md:order-0'}"
 					>
 						{#if i % 2 === 0}
 							<div class="card-glass group text-right">
@@ -162,7 +162,7 @@
 <style>
 	.card-glass {
 		position: relative;
-		background: rgba(255, 255, 255, 0.03);
+		background: rgba(255, 255, 255, 0.08);
 		backdrop-filter: blur(12px);
 		padding: 3rem;
 		border-radius: 2.5rem;
@@ -172,7 +172,7 @@
 	}
 
 	.card-glass:hover {
-		border-color: rgba(96, 165, 250, 0.5);
+		border-color: rgba(255, 255, 255, 0.5);
 	}
 
 	.step-id,
@@ -181,7 +181,7 @@
 		font-size: 8rem;
 		font-weight: 900;
 		color: white;
-		opacity: 0.03;
+		opacity: 0.08;
 		top: -2rem;
 		z-index: -1;
 	}

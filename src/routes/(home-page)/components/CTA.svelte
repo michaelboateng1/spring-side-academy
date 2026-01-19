@@ -64,10 +64,7 @@
 				</div> -->
 
 				<h2 class="reveal-text text-5xl font-black tracking-tighter text-[#0f2a92] md:text-8xl">
-					Join our <span
-						class="bg-linear-to-r from-[#0f2a92] to-blue-400 bg-clip-text text-transparent"
-						>vibrant</span
-					> <br />
+					Join our vibrant <br />
 					learning community.
 				</h2>
 

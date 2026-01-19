@@ -26,7 +26,7 @@
 					<h2 class="text-5xl font-extrabold tracking-tight text-[#0f2a92] sm:text-7xl">
 						Join our <br class="hidden md:block" />
 						<span
-							class="relative inline-block bg-gradient-to-r from-[#0f2a92] via-blue-500 to-sky-400 bg-clip-text text-transparent"
+							class="relative inline-block bg-linear-to-b from-[#0f2a92] to-[#04095d] bg-clip-text text-transparent"
 						>
 							vibrant learning
 							<svg
@@ -63,7 +63,7 @@
 							class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-[#0f2a92] px-10 py-5 transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_50px_rgba(15,42,146,0.3)] active:scale-95"
 						>
 							<div
-								class="absolute inset-0 translate-y-full bg-gradient-to-r from-sky-400 to-blue-500 transition-transform duration-300 group-hover:translate-y-0"
+								class="absolute inset-0 translate-y-full bg-linear-to-r from-blue-700 to-[#0f2a92] transition-transform duration-300 group-hover:translate-y-0"
 							></div>
 
 							<span

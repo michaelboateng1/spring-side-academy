@@ -12,7 +12,7 @@
 				<h3 class="text-sm font-black tracking-[0.3em] text-[#0f2a92] uppercase">The Blueprint</h3>
 				<h2 class="mt-4 text-4xl font-bold tracking-tight text-white md:text-6xl">
 					Entry <br />
-					<span class="bg-gradient-to-r from-[#0f2a92] to-blue-400 bg-clip-text text-transparent"
+					<span class="bg-linear-to-r text-[#0f2a92]"
 						>Requirements</span
 					>
 				</h2>
