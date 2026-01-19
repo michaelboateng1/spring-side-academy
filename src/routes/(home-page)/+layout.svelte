@@ -6,6 +6,8 @@
 	import Header from './components/Header.svelte';
 	import Footer from './components/Footer.svelte';
 
+	
+
 	let { children } = $props();
 </script>
 
@@ -17,6 +19,8 @@
 		content="A modern, nurturing K-12 school focused on excellence, creativity, and character."
 	/>
 </svelte:head>
+
+
 
 <Header />
 

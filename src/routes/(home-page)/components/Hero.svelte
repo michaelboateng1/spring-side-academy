@@ -279,7 +279,7 @@
 		{/each}
 
 		<div
-			class="backdrop-blurounded-sm absolute bottom-8 left-1/2 z-50 flex -translate-x-1/2 transform items-center gap-4 rounded-full bg-black/30 px-4 py-2"
+			class="backdrop-blurounded-sm absolute bottom-8 left-1/2 z-40 flex -translate-x-1/2 transform items-center gap-4 rounded-full bg-black/30 px-4 py-2"
 		>
 			<button
 				onclick={prevSlide}

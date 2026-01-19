@@ -15,6 +15,8 @@
 	import Programs from './components/Programs.svelte';
 	import ThankYou from './components/ThankYou.svelte';
 
+	// import Loader from "./components/Loader.svelte";
+
 	gsap.registerPlugin(ScrollTrigger);
 
 	// Brand colors
@@ -155,6 +157,9 @@
 		content="Building confident learners and future leaders through quality education, innovation, and a supportive learning environment."
 	/>
 </svelte:head>
+
+
+<!-- <Loader /> -->
 
 <Hero />
 

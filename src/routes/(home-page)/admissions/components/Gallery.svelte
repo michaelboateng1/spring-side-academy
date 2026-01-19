@@ -29,7 +29,7 @@
             {/each}
         </div>
         {#if lightboxOpen}
-            <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" onclick={(e) => e.target === e.currentTarget && closeLightbox()}>
+            <div class="fixed inset-0 z-40 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" onclick={(e) => e.target === e.currentTarget && closeLightbox()}>
                 <button class="absolute top-4 right-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/30 hover:bg-white/20" onclick={closeLightbox} aria-label="Close">
                     <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
                 </button>
