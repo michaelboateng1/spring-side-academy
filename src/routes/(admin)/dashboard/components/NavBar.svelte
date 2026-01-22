@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Sidebar, SidebarGroup, SidebarItem, SidebarButton, uiHelpers } from "flowbite-svelte";
-  import { ChartOutline, GridSolid, MailBoxSolid, UserSolid } from "flowbite-svelte-icons";
+  import { ChartOutline, GridSolid, UserSolid, ImageOutline, NewspaperOutline } from "flowbite-svelte-icons";
   import { page } from "$app/state";
   let activeUrl = $state(page.url.pathname);
   // import PlusPlaceholder from "$utils/PlusPlaceholder.svelte";
@@ -14,6 +14,14 @@
   });
   let { children } = $props();
 
+  import {supabase} from "$lib/supabaseClient";
+  import {goto} from "$app/navigation";
+
+  const logOut = async () => {
+    console.log("User log out")
+    await supabase.auth.signOut();
+    goto("/dashboard-login")
+  }
 
 </script>
 
@@ -46,10 +54,15 @@
       </SidebarItem>
       <SidebarItem label="News" {spanClass} href="/dashboard/news">
         {#snippet icon()}
-          <MailBoxSolid class="h-5 w-5 lg:h-6 lg:w-6 text-white transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
+          <NewspaperOutline class="h-5 w-5 lg:h-6 lg:w-6 text-white transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
         {/snippet}
       </SidebarItem>
       <SidebarItem label="Gallery" href="/dashboard/gallery">
+        {#snippet icon()}
+          <ImageOutline class="h-5 w-5 lg:h-6 lg:w-6 text-white transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
+        {/snippet}
+      </SidebarItem>
+      <SidebarItem onclick={() => logOut()} class="cursor-pointer" label="Logout">
         {#snippet icon()}
           <UserSolid class="h-5 w-5 lg:h-6 lg:w-6 text-white transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
         {/snippet}
