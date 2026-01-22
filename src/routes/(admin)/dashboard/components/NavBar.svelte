@@ -13,6 +13,8 @@
     activeUrl = page.url.pathname;
   });
   let { children } = $props();
+
+
 </script>
 
 <SidebarButton onclick={demoSidebarUi.toggle} class="mb-2" />
@@ -53,6 +55,7 @@
         {/snippet}
       </SidebarItem>
     </SidebarGroup>
+
   </Sidebar>
   <div class="h-screen overflow-y-auto px-4 md:ml-64">
 

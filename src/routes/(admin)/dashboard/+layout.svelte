@@ -1,8 +1,11 @@
 <script>
 	import { onMount } from 'svelte';
+
 	import '../../../layout.css';
 	import favicon from '$lib/assets/favicon.svg';
+
 	import NavBar from './components/NavBar.svelte';
+
 
 	let { children } = $props();
 </script>
@@ -21,6 +24,7 @@
  </NavBar>
 
 <!-- <Footer /> -->
+
 <style>
 	:global(*, body, h1, h2, h3, h4, h5, h6, p, span, a, div, li, ul, ol, button, input, textarea, select){
     font-family: 'Poppins', sans-serif;

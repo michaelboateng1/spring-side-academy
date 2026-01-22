@@ -38,15 +38,15 @@
 	const eventsArticles = [
 		{
 			date: '12 Oct',
-			category: 'Academic',
+			location: 'Assembly Hall',
 			title: 'Annual Science Fair: Exploring the Future of Green Tech',
 			description:
-				"Students showcased innovative solutions for renewable energy and sustainable living in this year's record-breaking event.",
+				"The Spring Side Lions secured their first regional trophy in a thrilling overtime final.",
 			image: image1
 		},
 		{
 			date: '08 Oct',
-			category: 'Campus Life',
+			location: 'School Main Ground',
 			title: 'Autumn Music Festival Highlights',
 			description:
 				'Our music department delivered a breathtaking performance featuring classical ensembles and modern jazz bands.',
@@ -54,7 +54,7 @@
 		},
 		{
 			date: '05 Oct',
-			category: 'Sports',
+			location: 'Assembly Hall',
 			title: 'Regional Championship: A Historic Victory',
 			description:
 				'The Spring Side Lions secured their first regional trophy in a thrilling overtime final.',

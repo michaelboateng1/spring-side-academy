@@ -119,13 +119,14 @@
 						<span
 							class="mb-3 inline-block text-xs font-bold tracking-widest text-[#0f2a92] uppercase"
 						>
-							{article.category}
+							{article.category || article.location}
 						</span>
 						<h3
 							class="mb-4 text-xl leading-snug font-bold text-slate-900 transition-colors group-hover:text-[#0f2a92]"
 						>
 							{article.title}
 						</h3>
+						
 						<p class="mb-6 line-clamp-3 text-slate-600">
 							{article.description}
 						</p>
@@ -134,7 +135,11 @@
 							<button
 								class="text-sm font-bold text-slate-900 underline decoration-[#0f2a92]/50 decoration-2 underline-offset-4 transition-all hover:decoration-[#0f2a92]"
 							>
+							{#if article.location}
+								View Event
+							{:else}
 								Read More
+							{/if}
 							</button>
 						</div>
 					</div>
