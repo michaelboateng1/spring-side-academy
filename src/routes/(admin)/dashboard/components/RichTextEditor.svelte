@@ -1,6 +1,5 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
-  import Quill from 'quill';
   import 'quill/dist/quill.snow.css';
 
   let { content = $bindable(), placeholder = "Write something..." } = $props();
@@ -8,7 +7,8 @@
   let editorElement;
   let quill;
 
-  onMount(() => {
+  onMount(async () => {
+    const Quill = (await import('quill')).default;
     quill = new Quill(editorElement, {
       modules: {
         toolbar: [
