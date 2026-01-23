@@ -20,7 +20,7 @@
   const logOut = async () => {
     console.log("User log out")
     await supabase.auth.signOut();
-    goto("/dashboard-login")
+    goto("/login-dashboard")
   }
 
 </script>
@@ -35,11 +35,13 @@
     params={{ x: -50, duration: 50 }}
     class="z-50 bg-[#0f2a92] h-full"
     position="absolute"
-    divClass="bg-[#0f2a92] text-white p-0"
-    activeClass="bg-[#0b1f6b] hover:bg-[#132fa3] text-white"
-    nonActiveClass="hover:bg-[#132fa3] text-white"
-    
+    classes={{
+      div: "bg-[#0f2a92] text-white p-0",
+      active: "bg-[#0b1f6b] hover:bg-[#132fa3] text-white",
+      nonactive: "hover:bg-[#132fa3] text-white"
+    }}
   >
+
     <SidebarGroup class="bg-[#0f2a92]">
       <a href="/dashboard">
         <div class=" flex mb-5 poppins-semibold items-center px-2 py-3 justify-around text-[#0f2a92] bg-slate-200">
