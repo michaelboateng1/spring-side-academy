@@ -8,6 +8,7 @@
     <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight poppins-regular">Dashboard User</h1>
   </div>
 
+
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     <Card class="flex flex-col rounded-none justify-between drop-shadow-md transition-shadow border-b-4 border-b-blue-600">
       <div class="flex items-center gap-4">

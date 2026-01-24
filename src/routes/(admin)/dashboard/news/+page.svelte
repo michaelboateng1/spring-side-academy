@@ -5,43 +5,41 @@
   import { PlusOutline, EditOutline, TrashBinOutline, SearchOutline } from "flowbite-svelte-icons";
   import { onMount } from 'svelte';
   
-  import ShowToast from "../components/ShowToast.svelte";
+  import { supabase } from "$lib/supabaseClient";
+  import { insertData, getData, updateData } from "$lib/query";
 
+  import ShowToast from "../components/ShowToast.svelte";
   import RichTextEditor from "../components/RichTextEditor.svelte";
+
+  import DataLoader from "../components/DataLoader.svelte";
+  import ImageLoader from "../components/ImageLoader.svelte";
+  import UploadImage from "../components/UploadImage.svelte";
+
+  let isLoading = $state(false);
 
   let toastRef = $state();
 
-  // Mock data based on the public news page
-  let articles = $state([
-    {
-      id: 1,
-      date: '12 Oct',
-      category: 'Academic',
-      title: 'Annual Science Fair: Exploring the Future of Green Tech',
-      description: "Students showcased innovative solutions for renewable energy and sustainable living in this year's record-breaking event.",
-      image: ""
-    },
-    {
-      id: 2,
-      date: '08 Oct',
-      category: 'Campus Life',
-      title: 'Autumn Music Festival Highlights',
-      description: 'Our music department delivered a breathtaking performance featuring classical ensembles and modern jazz bands.',
-      image: ""
-    }
-  ]);
+  let articles = $state([]);
+
+  onMount(async () => {
+    isLoading = true;
+    const { data, error } = await getData();
+    articles = data;
+    console.log("Articles", articles);
+    isLoading = false;
+  });
 
   let searchTerm = $state("");
   let showModal = $state(false);
   let isEditing = $state(false);
+  let isUploaded = $state(false);
   let currentArticle = $state({
     id: 0,
     date: "",
     category: "Academic",
     title: "",
-    description: "",
-    image: "",
-    thumbnail: null,
+    newsBody: "",
+    thumbnail_url: null,
     previewUrl: null,
   });
 
@@ -59,10 +57,9 @@
       date: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short' }),
       category: "Academic",
       title: "",
-      description: "",
-      thumbnail: null,
+      newsBody: "",
+      thumbnail_url: null,
       previewUrl: null,
-      image: ""
     };
     showModal = true;
   }
@@ -77,35 +74,86 @@
     try {
       if (isEditing) {
         articles = articles.map(a => a.id === currentArticle.id ? currentArticle : a);
-      } else {
-        articles = [...articles, { ...currentArticle, id: Date.now() }];
+        // console.log("Updating post", currentArticle.id);
+        const { data, error } = updateData(currentArticle);
+        // console.log("Update data",data,"Update error", error);
+
+        if (error) {
+          showModal = false;
+          toastRef.add("Failed to update news", "red");
+          return;
+        }
+
+        showModal = false;
+        toastRef.add("Updated successfully", "green");
+        return;
       }
+
+      articles = [...articles, { ...currentArticle, id: Date.now() }];
+      const { data, error } = insertData(currentArticle);
+      // console.log("Insert data",data,"Insert error", error);
+
+      if (error) {
+        showModal = false;
+        toastRef.add("Failed to create news post", "red");
+        return;
+      }
+
+      showModal = false;
+      toastRef.add("News post created successfully", "green");
+
     } catch (error) {
-      toastRef.add("Failed to save news", "red");
+      console.log(error)
+      toastRef.add("Failed to create news post", "red");
     }
-    showModal = false;
-    toastRef.add("News saved successfully", "green");
   }
 
   function deleteArticle(id) {
     try{
       if (confirm("Are you sure you want to delete this article?")) {
         articles = articles.filter(a => a.id !== id);
-        toastRef.add("News deleted successfully", "green");
+        toastRef.add("News post deleted successfully", "green");
       }
     }catch (error) {
-      toastRef.add("Failed to delete news", "red");
+      toastRef.add("Failed to delete news post", "red");
     }
   }
 
-  function handleFileChange(e) {
+  async function handleFileChange(e) {
     const file = e.target.files[0];
     if (file) {
-      currentArticle.thumbnail = file;
-      if (currentArticle.previewUrl) {
-        URL.revokeObjectURL(currentArticle.previewUrl);
+      // currentArticle.thumbnail = file;
+
+      console.log(file);
+      const generateId = currentArticle.title.toLocaleLowerCase().replace(/\s/g, "-");
+      
+      
+      if (currentArticle.thumbnail_url) {
+        const { data, error } = await supabase.storage
+          .from('news_thumbnail')
+          .remove([
+            `thumbnails/${generateId}-${file.name}`
+          ])
+
+          console.log("Deleted previous data",data);
+          console.log("Deleted previous error",error);
+          currentArticle.thumbnail_url = "";
+          currentArticle.previewUrl = "";
       }
-      currentArticle.previewUrl = URL.createObjectURL(file);
+      
+
+      const filePath = `thumbnails/${generateId}-${file.name}`;
+
+      const {data, error} = await supabase.storage.from('news_thumbnail').upload(filePath, file, { upsert: true });
+
+      console.log("Uploaded data",data);
+      console.log("Uploaded error",error);
+      currentArticle.thumbnail_url = `https://ucyfuegykrqstmxnzlid.supabase.co/storage/v1/object/public/news_thumbnail/${data.path}`;
+      currentArticle.previewUrl = `https://ucyfuegykrqstmxnzlid.supabase.co/storage/v1/object/public/news_thumbnail/${data.path}`;
+      isUploaded = true;
+
+      console.log(currentArticle.previewUrl);
+
     }
   }
 
@@ -149,37 +197,49 @@
         <TableHeadCell>Date</TableHeadCell>
         <TableHeadCell>Category</TableHeadCell>
         <TableHeadCell>Title</TableHeadCell>
-        <TableHeadCell>Description</TableHeadCell>
+        <TableHeadCell>News Body</TableHeadCell>
         <TableHeadCell>Thumbnail</TableHeadCell>
         <TableHeadCell>Actions</TableHeadCell>
       </TableHead>
-      <TableBody>
-        {#each filteredArticles as article}
-          <TableBodyRow>
-            <TableBodyCell>{article.date}</TableBodyCell>
-            <TableBodyCell>
-              <span class="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">
-                {article.category}
-              </span>
-            </TableBodyCell>
-            <TableBodyCell class="font-medium text-slate-900">{article.title}</TableBodyCell>
-            <TableBodyCell class="max-w-xs truncate">{article.description.replace(/<[^>]*>/g, '')}</TableBodyCell>
-            <TableBodyCell class="max-w-xs truncate hover:text-blue-600 hover:underline cursor-pointer"><a href={article.previewUrl}>{article.previewUrl}</a></TableBodyCell>
-            <TableBodyCell>
-              <div class="flex items-center gap-2">
-                <button onclick={() => openEditModal(article)} class="text-blue-600 hover:text-blue-800">
-                  <EditOutline class="w-5 h-5" />
-                </button>
-                <Tooltip>Edit Article</Tooltip>
-                <button onclick={() => deleteArticle(article.id)} class="text-red-600 hover:text-red-800">
-                  <TrashBinOutline class="w-5 h-5" />
-                </button>
-                <Tooltip>Delete Article</Tooltip>
-              </div>
-            </TableBodyCell>
-          </TableBodyRow>
-        {/each}
-        {#if filteredArticles.length === 0}
+       <TableBody>
+       {#if isLoading}
+        <TableBodyRow>
+          <TableBodyCell colspan="6">
+            <div class="h-[500px] w-full flex items-center justify-center">
+              <ImageLoader />
+            </div>
+          </TableBodyCell>
+        </TableBodyRow>
+
+        {:else}
+          {#each filteredArticles as article}
+            <TableBodyRow>
+              <TableBodyCell>{article.date_posted}</TableBodyCell>
+              <TableBodyCell>
+                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">
+                  {article.category}
+                </span>
+              </TableBodyCell>
+              <TableBodyCell class="font-medium text-slate-900">{article.title}</TableBodyCell>
+              <TableBodyCell class="max-w-xs truncate">{article.body}</TableBodyCell>
+              <TableBodyCell class="max-w-xs truncate hover:text-blue-600 hover:underline cursor-pointer"><a href={article.thumbnail_url}>{article.thumbnail_url}</a></TableBodyCell>
+              <TableBodyCell>
+                <div class="flex items-center gap-2">
+                  <button onclick={() => openEditModal(article)} class="text-blue-600 hover:text-blue-800">
+                    <EditOutline class="w-5 h-5" />
+                  </button>
+                  <Tooltip>Edit Article</Tooltip>
+                  <button onclick={() => deleteArticle(article.id)} class="text-red-600 hover:text-red-800">
+                    <TrashBinOutline class="w-5 h-5" />
+                  </button>
+                  <Tooltip>Delete Article</Tooltip>
+                </div>
+              </TableBodyCell>
+            </TableBodyRow>
+          {/each}
+        {/if}
+        
+        {#if !isLoading && filteredArticles.length === 0}
           <TableBodyRow>
             <TableBodyCell colspan="5" class="text-center py-8 text-slate-500">
               No news articles found matching your search.
@@ -187,6 +247,7 @@
           </TableBodyRow>
         {/if}
       </TableBody>
+
     </Table>
   </div>
 </div>
@@ -210,7 +271,7 @@
         </div>
         <div class="space-y-2">
           <Label for="date">Date</Label>
-          <Input id="date" class="focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-0" bind:value={currentArticle.date} placeholder="e.g., 12 Oct" />
+          <Input id="date" class="focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-0" bind:value={currentArticle.date_posted} placeholder="e.g., 12 Oct" />
         </div>
       </div>
 
@@ -219,29 +280,40 @@
         <Fileupload  onchange={handleFileChange} id="file-upload" />
         <Helper>PNG, JPG or GIF (MAX. 800x400px).</Helper>
         
-        {#if currentArticle.previewUrl}
+        {#if currentArticle.thumbnail_url}
           <div class="mt-4 relative aspect-video w-full rounded-lg overflow-hidden border border-gray-200">
-            <img src={currentArticle.previewUrl} alt="Preview" class="w-full h-full object-cover" />
+            <img src={currentArticle.thumbnail_url} alt="Preview" class="w-full h-full object-cover" />
             <button 
               type="button"
               onclick={() => {
-                currentArticle.file = null;
-                URL.revokeObjectURL(currentArticle.previewUrl);
-                currentArticle.previewUrl = null;
+                currentArticle.thumbnail_url = null;
               }}
               class="absolute top-2 right-2 p-1.5 bg-red-600 text-white rounded-md hover:bg-red-700 shadow-sm"
             >
               <TrashBinOutline class="w-4 h-4" />
-            </button>{#if event.previewUrl}
-                <img src={event.previewUrl} alt="Thumbnail" class="w-24 h-24 object-cover" />
-              {/if}
+            </button>
+            <!-- {#if currentArticle.thumbnail_url}
+                <img src={currentArticle.thumbnail_url} alt="Thumbnail" class="w-24 h-24 object-cover" />
+              {/if} -->
+          </div>
+
+        {:else if !currentArticle.thumbnail_url && isEditing}
+          <div class="mt-4 relative aspect-video w-full rounded-lg overflow-hidden border border-gray-200 flex items-center justify-center">
+            <ImageLoader />
+          </div>
+          {:else if !isUploaded}
+          <div class="mt-4 relative aspect-video w-full rounded-lg overflow-hidden border border-gray-200 flex items-center justify-center">
+            <UploadImage />
+            <div class="absolute top-0 left-0 w-full h-full z-10 ">
+              <Fileupload class="w-full aspect-video w-full opacity-0 h-full" onchange={handleFileChange} id="file-upload" />
+            </div>
           </div>
         {/if}
       </div>
 
       <div class="space-y-2">
-        <Label for="description">News Body</Label>
-        <RichTextEditor bind:content={currentArticle.description} placeholder="News description..." />
+        <Label for="newsBody">News Body</Label>
+        <RichTextEditor bind:content={currentArticle.body} placeholder="News body..." />
       </div>
 
     </div>
