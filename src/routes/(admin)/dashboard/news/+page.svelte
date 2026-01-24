@@ -6,13 +6,12 @@
   import { onMount } from 'svelte';
   
   import { supabase } from "$lib/supabaseClient";
-  import { insertData, getData, updateData } from "$lib/query";
+  import { insertData, getData, updateData, deleteThumbnail } from "$lib/query";
 
   import ShowToast from "../components/ShowToast.svelte";
   import RichTextEditor from "../components/RichTextEditor.svelte";
 
   import DataLoader from "../components/DataLoader.svelte";
-  import ImageLoader from "../components/ImageLoader.svelte";
   import UploadImage from "../components/UploadImage.svelte";
 
   let isLoading = $state(false);
@@ -129,11 +128,7 @@
       
       
       if (currentArticle.thumbnail_url) {
-        const { data, error } = await supabase.storage
-          .from('news_thumbnail')
-          .remove([
-            `thumbnails/${generateId}-${file.name}`
-          ])
+        const { data, error } = deleteThumbnail(currentArticle.thumbnail_url);
 
           console.log("Deleted previous data",data);
           console.log("Deleted previous error",error);
@@ -206,7 +201,7 @@
         <TableBodyRow>
           <TableBodyCell colspan="6">
             <div class="h-[500px] w-full flex items-center justify-center">
-              <ImageLoader />
+              <DataLoader />
             </div>
           </TableBodyCell>
         </TableBodyRow>
@@ -299,7 +294,7 @@
 
         {:else if !currentArticle.thumbnail_url && isEditing}
           <div class="mt-4 relative aspect-video w-full rounded-lg overflow-hidden border border-gray-200 flex items-center justify-center">
-            <ImageLoader />
+            <DataLoader />
           </div>
           {:else if !isUploaded}
           <div class="mt-4 relative aspect-video w-full rounded-lg overflow-hidden border border-gray-200 flex items-center justify-center">

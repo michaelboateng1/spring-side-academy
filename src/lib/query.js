@@ -68,7 +68,6 @@ export const deleteThumbnail = async (thumbnailUrl) => {
     .remove([filePath])
 
   if (error) {
-    s
     console.error('Thumbnail delete failed:', error)
   }
 }
