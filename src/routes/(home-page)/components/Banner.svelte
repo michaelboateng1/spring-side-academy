@@ -64,7 +64,7 @@
 						</h2>
 					</div>
 					<p
-						class="hero-subtitle mx-auto mt-8 max-w-3xl text-xl leading-relaxed font-light text-slate-300 md:text-2xl"
+						class="hero-subtitle mx-auto mt-8 max-w-3xl text-xl leading-relaxed font-light text-slate-200 md:text-2xl"
 					>
 						{slide.description}
 					</p>
@@ -123,7 +123,7 @@
 	section {
 		background:
 			linear-gradient(hsla(0, 0%, 0%, 0.3), hsla(0, 0%, 0%, 0.3)),
-			url('../../../lib/assets/images/clouds-5029680_1280.jpg');
+			url('../../../lib/assets/images/banner_bg.JPG');
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center;

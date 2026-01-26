@@ -1,5 +1,5 @@
 <script>
-	import introImage from '$lib/assets/images/classroom-2787754_1280.jpg';
+	import introImage from '$lib/assets/images/whoWeAre/who_we_are.JPG';
 </script>
 
 <section class="relative min-h-screen min-w-screen">
@@ -21,7 +21,7 @@
 				similique soluta veritatis?
 			</p>
 		</div>
-		<div class="overflow-hidden rounded-xl">
+		<div class="overflow-hidden w-1/2 h-[400px] rounded-xl">
 			<img src={introImage} class="h-full w-full object-cover" alt="Introductory" />
 		</div>
 	</div>

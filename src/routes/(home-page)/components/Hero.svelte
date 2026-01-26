@@ -10,13 +10,13 @@
 
 	import { fade, slide as svelteSlide, fly as svelteFly } from 'svelte/transition';
 	import { onMount } from 'svelte';
-
-	import heroImage1 from '$lib/assets/images/heroImage1.jpg';
-	import heroImage2 from '$lib/assets/images/zhejiang-university-3776783_1280.jpg';
-	import heroImage3 from '$lib/assets/images/heroImage3.jpg';
-	import heroImage4 from '$lib/assets/images/heroImage4.jpg';
-	import heroImage5 from '$lib/assets/images/zhejiang-university-3776785_1280.jpg';
-	import heroImage6 from '$lib/assets/images/zhejiang-university-3776783_1280.jpg';
+	
+	import studentsNurses from '$lib/assets/images/hero/studentsNurses.jpg';
+	import studentsNurses2 from '$lib/assets/images/hero/studentsNurses2.jpg';
+	import assemblyImage from '$lib/assets/images/hero/assemblyImage.jpg';
+	import assemblyImage2 from '$lib/assets/images/hero/assemblyImage2.jpg';
+	import schoolTeachers from '$lib/assets/images/hero/schoolTeachers.jpg';
+	import studentsSoldiers from '$lib/assets/images/hero/studentsSodiers.jpg';
 
 	// Slide data
 	const slides = [
@@ -26,7 +26,7 @@
 			subtitle: 'Building a Stronger Tomorrow',
 			description:
 				'Our community thrives on collaboration, compassion, and commitment. We foster an environment where everyone contributes to building a better future together.',
-			image: heroImage1, // Assuming this is an imported or predefined image variable
+			image: studentsNurses,
 			cta: 'Join us now',
 			cta2: 'Get Intouch',
 			color: 'bg-[#ffb3c1]'
@@ -43,7 +43,7 @@
 			subtitle: 'State-of-the-Art Facilities',
 			description:
 				'Modern classrooms, science labs, and creative studios designed to inspire curiosity and foster innovation.',
-			image: heroImage2,
+			image: assemblyImage,
 			cta: 'View Facilities',
 			cta2: 'Virtual Tour',
 			color: 'bg-[#888]'
@@ -60,10 +60,10 @@
 			subtitle: 'Beyond Academics',
 			description:
 				'Comprehensive extracurricular programs including arts, sports, music, robotics, and leadership development.',
-			image: heroImage3,
+			image: assemblyImage2,
 			// cta: 'Explore Programs',
 			// cta2: 'Meet Our Coaches',
-			color: 'bg-[#c67569]',
+			color: 'bg-[#98aef1]',
 			stats: [
 				{
 					top: '16',
@@ -88,7 +88,7 @@
 			subtitle: 'Building Character',
 			description:
 				'A nurturing environment that promotes respect, integrity, and social responsibility through community engagement.',
-			image: heroImage4,
+			image: studentsNurses2,
 			cta: 'Our Values',
 			cta2: 'Community Outreach',
 			color: 'bg-[#99d3bb]'
@@ -105,10 +105,10 @@
 			subtitle: 'Since 1985',
 			description:
 				'A premier educational institution dedicated to holistic development and academic excellence for students from preschool to high school.',
-			image: heroImage5,
+			image: schoolTeachers,
 			// cta: 'Schedule a Tour',
 			// cta2: 'Apply Now',
-			color: 'bg-[#4e68bf]',
+			color: 'bg-[#ccc]',
 			stats: [
 				{
 					top: '1,200+',
@@ -127,6 +127,35 @@
 					bottom: 'clubs'
 				}
 			]
+		},
+		{
+			id: 6,
+			title: 'Excellence in Education',
+			subtitle: 'Since 1985',
+			description:
+				'A premier educational institution dedicated to holistic development and academic excellence for students from preschool to high school.',
+			image: studentsSoldiers,
+			// cta: 'Schedule a Tour',
+			// cta2: 'Apply Now',
+			color: 'bg-[#0d698d]',
+			// stats: [
+			// 	{
+			// 		top: '1,200+',
+			// 		bottom: 'students'
+			// 	},
+			// 	{
+			// 		top: '15:1',
+			// 		bottom: 'ratio'
+			// 	},
+			// 	{
+			// 		top: '98%',
+			// 		bottom: 'graduation'
+			// 	},
+			// 	{
+			// 		top: '35+',
+			// 		bottom: 'clubs'
+			// 	}
+			// ]
 		}
 	];
 
@@ -196,18 +225,18 @@
 					<div class="container mx-auto px-4 md:px-8 lg:px-16">
 						<div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-2">
 							<!-- Text Content -->
-							<div transition:fade={{ duration: 800, delay: 200 }} class="text-white">
-								<div
+							<div transition:fade={{ duration: 800, delay: 200 }} class="text-white py-5">
+								<!-- <div
 									class="mb-6 inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 backdrop-blur-sm"
 								>
 									<span class="h-2 w-2 animate-pulse rounded-full bg-[#fff]"></span>
 									<span class="text-sm font-medium">{slide.subtitle}</span>
-								</div>
+								</div> -->
 
 								<h1
 									in:svelteSlide={{ duration: 800, delay: 100 }}
 									out:fade={{ duration: 300 }}
-									class="mb-6 text-4xl leading-tight font-extrabold md:text-5xl lg:text-6xl xl:text-7xl"
+									class="mb-6 text-4xl add-shadow leading-tight font-extrabold md:text-5xl lg:text-6xl xl:text-7xl"
 									style="view-transition-name: title"
 								>
 									{slide.title}
@@ -216,7 +245,7 @@
 								<p
 									in:fade={{ duration: 800, delay: 400 }}
 									out:fade={{ duration: 300 }}
-									class="mb-8 max-w-2xl text-xl text-white/90"
+									class="mb-8 max-w-2xl add-shadow text-xl text-white/90"
 								>
 									A nurturing environment that promotes respect, integrity, and social
 									responsibility through community engagement.
@@ -394,4 +423,7 @@
 <!-- </div> -->
 
 <style>
+	.add-shadow {
+		text-shadow: 2px 2px 4px #333;
+	}
 </style>
