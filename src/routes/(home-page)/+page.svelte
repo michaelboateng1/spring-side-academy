@@ -189,7 +189,7 @@
 </div>
 
 <CTA />
-<Testimonials />
+<!-- <Testimonials />s -->
 <ImageSlides />
 
 <style>

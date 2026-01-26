@@ -199,7 +199,7 @@
 	});
 </script>
 
-<div class="flex items-center justify-evenly">
+<div class="flex flex-col sm:flex-row gap-10 items-center justify-evenly px-5">
 	<div
 		class="customs-height relative mx-auto max-w-2xl overflow-hidden rounded-2xl border-8 border-white"
 	>

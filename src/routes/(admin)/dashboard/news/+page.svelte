@@ -6,7 +6,7 @@
   import { onMount } from 'svelte';
   
   import { supabase } from "$lib/supabaseClient";
-  import { insertData, getData, updateData, deleteThumbnail } from "$lib/query";
+  import { insertData, getData, updateData, deleteThumbnail, deleteData } from "$lib/query";
 
   import ShowToast from "../components/ShowToast.svelte";
   import RichTextEditor from "../components/RichTextEditor.svelte";
@@ -53,10 +53,10 @@
     isEditing = false;
     currentArticle = {
       id: articles.length + 1,
-      date: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short' }),
+      date_posted: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short' }),
       category: "Academic",
       title: "",
-      newsBody: "",
+      body: "",
       thumbnail_url: null,
       previewUrl: null,
     };
@@ -107,13 +107,31 @@
     }
   }
 
-  function deleteArticle(id) {
+  async function deleteArticle(id) {
     try{
       if (confirm("Are you sure you want to delete this article?")) {
+        const articleToDelete = articles.find(a => a.id === id);
+        console.log("Deleting article:", articleToDelete);
+        
+        // Delete thumbnail if exists
+        if (articleToDelete?.thumbnail_url) {
+           console.log("Deleting thumbnail with URL:", articleToDelete.thumbnail_url);
+           await deleteThumbnail(articleToDelete.thumbnail_url);
+        }
+
+        const { error } = await deleteData(id);
+        
+        if (error) {
+           // console.log("Delete error", error);
+           toastRef.add("Failed to delete news post", "red");
+           return;
+        }
+
         articles = articles.filter(a => a.id !== id);
         toastRef.add("News post deleted successfully", "green");
       }
     }catch (error) {
+      console.log(error);
       toastRef.add("Failed to delete news post", "red");
     }
   }
@@ -128,10 +146,9 @@
       
       
       if (currentArticle.thumbnail_url) {
-        const { data, error } = deleteThumbnail(currentArticle.thumbnail_url);
+        const response = await deleteThumbnail(currentArticle.thumbnail_url);
 
-          console.log("Deleted previous data",data);
-          console.log("Deleted previous error",error);
+          console.log("Deleted previous data",response);
           currentArticle.thumbnail_url = "";
           currentArticle.previewUrl = "";
       }

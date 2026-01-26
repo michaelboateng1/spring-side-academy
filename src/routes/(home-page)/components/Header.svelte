@@ -26,7 +26,7 @@
 </script>
 
 <header
-	class="fixed top-0 right-0 left-0 z-40 transition-all duration-300 {scrolled
+	class="fixed w-full max-w-screen top-0 right-0 left-0 z-40 transition-all duration-300 {scrolled
 		? 'bg-white/95 shadow-lg backdrop-blur-xl'
 		: 'bg-white/80 backdrop-blur-md'} border-b {scrolled ? 'border-slate-300' : 'border-slate-200'}"
 >
@@ -50,7 +50,7 @@
 					</div>
 				</div>
 				<span
-					class="bg-gradient-to-r from-[#0f2a92] to-slate-600 bg-clip-text text-2xl font-bold text-transparent uppercase"
+					class="bg-gradient-to-r from-[#0f2a92] hidden sm:block to-slate-600 bg-clip-text text-2xl font-bold text-transparent uppercase"
 					>Sping Side Academy</span
 				>
 			</a>
