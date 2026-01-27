@@ -31,6 +31,17 @@ export const getData = async () => {
     .select()
     .order('created_at', { ascending: false })
 
+
+  return { data, error }
+}
+
+export const getArticleBySlug = async (slug) => {
+  const { data, error } = await supabase
+    .from('news-table')
+    .select()
+    .eq('slug', slug)
+    .single()
+
   return { data, error }
 }
 
