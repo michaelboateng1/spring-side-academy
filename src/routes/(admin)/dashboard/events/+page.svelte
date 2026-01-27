@@ -6,50 +6,67 @@
   import { PlusOutline, EditOutline, TrashBinOutline, SearchOutline, MapPinSolid } from "flowbite-svelte-icons";
 
   import RichTextEditor from "../components/RichTextEditor.svelte";
-
   import ShowToast from "../components/ShowToast.svelte";
+
+  import { onMount } from "svelte";
+  import { goto } from "$app/navigation";
+  import {supabase} from "$lib/supabaseClient"
+  import { getData, insertData, updateData, deleteData, deleteThumbnail } from "$lib/eventsQuery";
 
   let toastRef = $state();
 
-  let events = $state([
-    {
-      id: 1,
-      date: '20 Oct 2026',
-      title: 'Annual Sports Day',
-      location: 'School Main Ground',
-      description: 'A day of athletics and sportsmanship for all students.'
-    },
-    {
-      id: 2,
-      date: '15 Nov 2026',
-      title: 'Science & Art Exhibition',
-      location: 'Assembly Hall',
-      description: 'Showcasing the creative and scientific achievements of our students.'
+  // let events = $state([
+  //   {
+  //     id: 1,
+  //     date: '20 Oct 2026',
+  //     title: 'Annual Sports Day',
+  //     location: 'School Main Ground',
+  //     description: 'A day of athletics and sportsmanship for all students.'
+  //   },
+  //   {
+  //     id: 2,
+  //     date: '15 Nov 2026',
+  //     title: 'Science & Art Exhibition',
+  //     location: 'Assembly Hall',
+  //     description: 'Showcasing the creative and scientific achievements of our students.'
+  //   }
+  // ]);
+
+  let events = $state([]);
+
+  async function getAllEvents() {
+    const { data, error } = await getData();
+    if (data) {
+      events = data;
+      goto("/dashboard/events");
     }
-  ]);
+  }
+
+  onMount(async () => {
+    getAllEvents();
+    console.log("Events Data: ", events);
+  });
 
   let searchTerm = $state("");
   let showModal = $state(false);
   let isEditing = $state(false);
   let currentEvent = $state({
-    id: 0,
     date: "",
     title: "",
     location: "",
     description: "",
-    thumbnail: "",
+    thumbnail_url: "",
     previewUrl: ""
   });
 
   function openAddModal() {
     isEditing = false;
     currentEvent = {
-      id: Date.now(),
       date: "",
       title: "",
       location: "",
       description: "",
-      thumbnail: "",
+      thumbnail_url: "",
       previewUrl: ""
     };
     showModal = true;
@@ -61,12 +78,17 @@
     showModal = true;
   }
 
-  function saveEvent() {
+ async function saveEvent() {
     try{
       if (isEditing) {
-        events = events.map(e => e.id === currentEvent.id ? currentEvent : e);
+        // events = events.map(e => e.id === currentEvent.id ? currentEvent : e);
+        const {data, error} = updateData(currentEvent);
+        events = data;
+        getAllEvents();
       } else {
-        events = [...events, { ...currentEvent }];
+        const {data, error} = await insertData(currentEvent);
+        getAllEvents();
+        // events = [...events, { ...currentEvent }];
       }
     }catch(error){
       toastRef.add("Failed to save event", "red");
@@ -75,10 +97,15 @@
     toastRef.add("Event saved successfully", "green");
   }
 
-  function deleteEvent(id) {
+  async function deleteEvent(event) {
     try {
       if (confirm("Are you sure you want to delete this event?")) {
-        events = events.filter(e => e.id !== id);
+        // events = events.filter(e => e.id !== id);
+        const {data, error} = await deleteThumbnail(event.thumbnail_url);
+        console.log("Deleting thumbnail", data);
+        console.log("Deleting thumbnail error", error);
+        const {data:data2, error:error2} = await deleteData(event.id);
+        getAllEvents();
         toastRef.add("Event deleted successfully", "green");
       }
     } catch (error) {
@@ -86,20 +113,43 @@
     }
   }
 
-  function handleFileChange(e) {
+async function handleFileChange(e) {
     const file = e.target.files[0];
     if (file) {
-      currentEvent.thumbnail = file;
-      if (currentEvent.previewUrl) {
-        URL.revokeObjectURL(currentEvent.previewUrl);
+      // currentEvent.thumbnail = file;
+
+      console.log(file);
+      const generateId = currentEvent?.event_title?.toLocaleLowerCase().replace(/\s/g, "-");
+      console.log("SPECIAL LOG: ", currentEvent);
+      
+      
+    if (currentEvent.thumbnail_url) {
+        const {data, error} = await deleteThumbnail(currentEvent.thumbnail_url);
+
+          console.log("Deleted previous data",data);
+          currentEvent.thumbnail_url = "";
+          currentEvent.previewUrl = "";
       }
-      currentEvent.previewUrl = URL.createObjectURL(file);
+      
+
+      const filePath = `thumbnails/${generateId}-${file.name}`;
+
+      const {data, error} = await supabase.storage.from('events_thumbnail').upload(filePath, file, { upsert: true });
+
+      console.log("Uploaded data",data);
+      console.log("Uploaded error",error);
+      currentEvent.thumbnail_url = `https://ucyfuegykrqstmxnzlid.supabase.co/storage/v1/object/public/events_thumbnail/${data.path}`;
+      currentEvent.previewUrl = `https://ucyfuegykrqstmxnzlid.supabase.co/storage/v1/object/public/events_thumbnail/${data.path}`;
+      // isUploaded = true;
+
+      console.log(currentEvent.previewUrl);
+
     }
   }
 
   const filteredEvents = $derived(
     events.filter(event => 
-      event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      event.event_title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       event.location.toLowerCase().includes(searchTerm.toLowerCase())
     )
   );
@@ -144,8 +194,8 @@
       <TableBody>
         {#each filteredEvents as event}
           <TableBodyRow>
-            <TableBodyCell>{event.date}</TableBodyCell>
-            <TableBodyCell class="font-medium text-slate-900">{event.title}</TableBodyCell>
+            <TableBodyCell>{event.event_date}</TableBodyCell>
+            <TableBodyCell class="font-medium text-slate-900">{event.event_title}</TableBodyCell>
             <TableBodyCell>
               <div class="flex items-center gap-1 text-slate-600">
                 <MapPinSolid class="w-4 h-4" />
@@ -154,7 +204,7 @@
             </TableBodyCell>
             <TableBodyCell class="max-w-xs truncate">{event.description}</TableBodyCell>
             <TableBodyCell class="max-w-xs truncate hover:text-blue-600 hover:underline cursor-pointer">
-              <a href={event.previewUrl} target="_blank">{event.previewUrl}</a>
+              <a href={event.thumbnail_url} target="_blank">{event.thumbnail_url}</a>
               <!-- {#if event.previewUrl}
                 <img src={event.previewUrl} alt="Thumbnail" class="w-24 h-24 object-cover" />
               {/if} -->
@@ -165,7 +215,7 @@
                   <EditOutline class="w-5 h-5" />
                 </button>
                 <Tooltip>Edit Event</Tooltip>
-                <button onclick={() => deleteEvent(event.id)} class="text-red-600 hover:text-red-800">
+                <button onclick={() => deleteEvent(event)} class="text-red-600 hover:text-red-800">
                   <TrashBinOutline class="w-5 h-5" />
                 </button>
                 <Tooltip>Delete Event</Tooltip>
@@ -213,21 +263,21 @@
         <Fileupload  onchange={handleFileChange} id="file-upload" />
         <Helper>PNG, JPG or GIF (MAX. 800x400px).</Helper>
         
-        {#if currentEvent.previewUrl}
+        {#if currentEvent.thumbnail_url}
           <div class="mt-4 relative aspect-video w-full rounded-lg overflow-hidden border border-gray-200">
-            <img src={currentEvent.previewUrl} alt="Preview" class="w-full h-full object-cover" />
+            <img src={currentEvent.thumbnail_url} alt="Preview" class="w-full h-full object-cover" />
             <button 
               type="button"
               onclick={() => {
                 currentEvent.file = null;
-                URL.revokeObjectURL(currentEvent.previewUrl);
-                currentEvent.previewUrl = null;
+                currentEvent.thumbnail_url = null;
               }}
               class="absolute top-2 right-2 p-1.5 bg-red-600 text-white rounded-md hover:bg-red-700 shadow-sm"
             >
               <TrashBinOutline class="w-4 h-4" />
-            </button>{#if event.previewUrl}
-                <img src={event.previewUrl} alt="Thumbnail" class="w-24 h-24 object-cover" />
+            </button>
+              {#if currentEvent && currentEvent.thumbnail_url}
+                <img src={currentEvent.thumbnail_url} alt="Thumbnail" class="w-24 h-24 object-cover" />
               {/if}
           </div>
         {/if}

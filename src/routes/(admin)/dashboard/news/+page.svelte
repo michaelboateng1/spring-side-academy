@@ -6,7 +6,7 @@
   import { onMount } from 'svelte';
   
   import { supabase } from "$lib/supabaseClient";
-  import { insertData, getData, updateData, deleteThumbnail, deleteData } from "$lib/query";
+  import { insertData, getData, updateData, deleteThumbnail, deleteData } from "$lib/newsQuery";
 
   import ShowToast from "../components/ShowToast.svelte";
   import RichTextEditor from "../components/RichTextEditor.svelte";
@@ -72,7 +72,7 @@
   function saveArticle() {
     try {
       if (isEditing) {
-        articles = articles.map(a => a.id === currentArticle.id ? currentArticle : a);
+        // articles = articles.map(a => a.id === currentArticle.id ? currentArticle : a);
         // console.log("Updating post", currentArticle.id);
         const { data, error } = updateData(currentArticle);
         // console.log("Update data",data,"Update error", error);

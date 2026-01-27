@@ -1,4 +1,3 @@
-import { AddColumnAfterOutline } from "flowbite-svelte-icons";
 import { supabase } from "./supabaseClient";
 
 function getPathFromPublicUrl(url) {
