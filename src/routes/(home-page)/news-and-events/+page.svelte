@@ -52,9 +52,9 @@
 
 </script>
 
-{#if loadingEvents || loadingNews}
+<!-- {#if loadingEvents || loadingNews}
 	<Loader />
-{/if}
+{/if} -->
 
 <AboutHero
 	heading="News & Event"
@@ -64,9 +64,9 @@
 />
 
 <Featured />
-{#if !loadingEvents}
+<!-- {#if !loadingEvents} -->
 	<NewsAndEvents articles={eventsData} type={'events'} />
-{/if}
-{#if !loadingNews}
+<!-- {/if} -->
+<!-- {#if !loadingNews} -->
 	<NewsAndEvents articles={newsData} type={'news'} />
-{/if}
+<!-- {/if} -->
