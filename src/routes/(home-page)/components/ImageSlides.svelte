@@ -22,7 +22,7 @@
 		{
 			title: 'Life Style',
 			description:
-				'A glimpse into the vibrant learning experiences, creativity, and teamwork that shape life at Springside Academy.',
+				'A glimpse into the vibrant learning experiences, creativity, and teamwork that shape lifStudents at Spring Side Academy engage in interactive, teacher-guided lessons that encourage critical thinking, collaboration, and confidence. Our classrooms are designed to inspire curiosity while building strong academic foundations for lifelong learning.e at Springside Academy.',
 			link: '/gallery',
 			styles:
 				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/studentModel3.jpg')] bg-center bg-no-repeat bg-cover"
@@ -30,7 +30,7 @@
 		{
 			title: 'Education',
 			description:
-				'A glimpse into the vibrant learning experiences, creativity, and teamwork that shape life at Springside Academy.',
+				'Spring Side Academy is more than a school—it’s a family. Through teamwork, respect, and shared values, we create an environment where every student feels supported, valued, and motivated to succeed.',
 			link: '/gallery',
 			styles:
 				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/studentModel12.jpg')] bg-center bg-no-repeat bg-cover"
@@ -38,7 +38,7 @@
 		{
 			title: 'Entertainment',
 			description:
-				'A glimpse into the vibrant learning experiences, creativity, and teamwork that shape life at Springside Academy.',
+				'At Spring Side Academy, learning is balanced with joy and celebration. Through music, dance, games, cultural displays, and school events, students express creativity, build confidence, and strengthen friendships in a lively and supportive atmosphere.',
 			link: '/gallery',
 			styles:
 				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/studentModel7.jpg')] bg-center bg-no-repeat bg-cover"
@@ -46,16 +46,27 @@
 		{
 			title: 'Robotics',
 			description:
-				'A glimpse into the vibrant learning experiences, creativity, and teamwork that shape life at Springside Academy.',
+				'Through hands-on robotics and technology activities, students at Spring Side Academy explore problem-solving, creativity, and teamwork. These experiences introduce learners to coding, engineering, and critical thinking skills that prepare them for a technology-driven future.',
 			link: '/gallery',
+			styles:
+				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/studentModel8.jpg')] bg-center bg-no-repeat bg-cover"
+		},
+		{
+			title: 'Coding',
+			description:
+				'At Spring Side Academy, students learn the fundamentals of coding through engaging and age-appropriate activities. By exploring logic, creativity, and problem-solving, learners develop digital skills that empower them to confidently navigate and shape the modern world.',
+			link: '/gallery',
+			styles:
+				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/studentModel8.jpg')] bg-center bg-no-repeat bg-cover"
+		},
+		{
+			title: 'Abacus Training',
+			description:
+				'Through abacus training, students strengthen concentration, speed, and accuracy in mathematics. This hands-on approach helps learners build strong number sense, improve mental arithmetic, and develop confidence in problem-solving from an early age.',
 			styles:
 				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/studentModel8.jpg')] bg-center bg-no-repeat bg-cover"
 		}
 	];
-	/*
-inspiration
-https://dribbble.com/shots/4684682-Aquatic-Animals
-*/
 
 	onMount(() => {
 		var swiper = new Swiper('.swiper', {
@@ -186,8 +197,8 @@ https://dribbble.com/shots/4684682-Aquatic-Animals
 		/* font-family: 'Roboto', sans-serif; */
 		font-weight: 900;
 		font-size: clamp(3.4375rem, 3.25rem + 0.75vw, 4rem);
-		background-color: #005baa;
-		background-image: linear-gradient(45deg, #005baa, #000000);
+		background-color: #ffffff;
+		background-image: linear-gradient(45deg, #ffffff, #d3cccc);
 		background-size: 100%;
 		background-repeat: repeat;
 		-webkit-background-clip: text;

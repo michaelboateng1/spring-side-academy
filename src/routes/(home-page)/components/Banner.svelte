@@ -39,8 +39,8 @@
 </script>
 
 <section
-	class=" flex min-h-screen min-w-full items-center
-		overflow-hidden bg-gradient-to-br from-[#04095d] via-[#06097a] to-[#04095d]"
+	class=" flex min-h-screen min-w-full items- mt-30 2xl:mt-0
+		overflow-hidden bg-linear-to-br from-[#04095d] via-[#06097a] to-[#04095d]"
 >
 	<!-- Grid pattern overlay -->
 	<div
@@ -55,7 +55,7 @@
 						? 'translate-y-0 opacity-100'
 						: 'pointer-events-none translate-y-10 opacity-0'}"
 				>
-					<div class="hero-title mb-6">
+					<div class="hero-title mb-6 py-10 px-5">
 						<h2 class="text-5xl font-black tracking-tight md:text-7xl lg:text-8xl">
 							<span class="block bg-gradient-to-r bg-clip-text text-transparent {slide.gradient}">
 								{slide.title}
@@ -64,7 +64,7 @@
 						</h2>
 					</div>
 					<p
-						class="hero-subtitle mx-auto mt-8 max-w-3xl text-xl leading-relaxed font-light text-slate-200 md:text-2xl"
+						class="hero-subtitle mx-auto mt- px-5 max-w-3xl text-xl leading-relaxed font-light text-slate-200 md:text-2xl"
 					>
 						{slide.description}
 					</p>
@@ -85,7 +85,7 @@
 				</a>
 				<a
 					href="/about"
-					class="hero-cta group flex items-center gap-2 rounded-full border-2 border-white/20 bg-white/10 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-white/20"
+					class="hero-cta  hidden  md:flex items-center gap-2 rounded-full border-2 border-white/20 bg-white/10 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-white/20"
 				>
 					Learn more
 					<svg

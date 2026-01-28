@@ -1,26 +1,9 @@
 <section class="relative isolate overflow-hidden bg-white py-24 sm:py-32">
-	<div
-		class="absolute top-0 -left-24 -z-10 h-[500px] w-[500px] rounded-full bg-[#0f2a92] opacity-[0.03] blur-[100px]"
-	></div>
 
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="relative">
-			<div
-				class="absolute top-0 -left-8 hidden h-full w-[2px] bg-gradient-to-b from-[#0f2a92] via-slate-200 to-transparent md:block"
-			></div>
 
 			<div class="flex flex-col gap-8 md:gap-12">
-				<!-- <div class="flex items-center gap-3">
-					<span class="relative flex h-3 w-3">
-						<span
-							class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#0f2a92] opacity-75"
-						></span>
-						<span class="relative inline-flex h-3 w-3 rounded-full bg-[#0f2a92]"></span>
-					</span>
-					<span class="text-xs font-black tracking-[0.2em] text-slate-500 uppercase">
-						Admissions <span class="text-[#0f2a92]">2026</span>
-					</span>
-				</div> -->
 
 				<div class="max-w-4xl">
 					<h2 class="text-5xl font-extrabold tracking-tight text-[#0f2a92] sm:text-7xl">
@@ -90,10 +73,5 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="relative mt-24">
-		<div class="absolute top-0 left-1/2 h-[1px] w-full -translate-x-1/2 bg-slate-200"></div>
-		<div class="absolute top-0 left-1/2 h-[2px] w-24 -translate-x-1/2 bg-[#0f2a92]"></div>
 	</div>
 </section>

@@ -52,8 +52,8 @@
 	height="h-[85svh]"
 />
 <Intro />
-<Process />
-<FeesInfo />
 <Requirments />
 <Stats />
+<FeesInfo />
+<Process />
 <CTA />

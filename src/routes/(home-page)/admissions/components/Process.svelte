@@ -91,7 +91,7 @@
 	});
 </script>
 
-<section
+<section id="process"
 	class="process-container relative overflow-hidden bg-linear-to-r from-[#0f2a92] via-[#04095d] to-[#0f2a92] py-32 text-white"
 >
 	<div class="pointer-events-none absolute top-0 left-1/2 -z-10 h-full w-full -translate-x-1/2">
@@ -160,6 +160,10 @@
 </section>
 
 <style>
+	:global(*, body) {
+		scroll-behavior: smooth;
+	}
+
 	.card-glass {
 		position: relative;
 		background: rgba(255, 255, 255, 0.08);

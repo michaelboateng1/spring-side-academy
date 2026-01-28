@@ -68,7 +68,7 @@
 		<span class="text-[20vw] leading-none font-black">SPRING SIDE</span>
 	</div>
 
-	<div class="flex items-start justify-around gap-10 p-8">
+	<div class="flex flex-col sm:flex-row items-center sm:items-start mb-30 justify-around gap-10 p-8">
 		<div class="rounded-xl overflow-hidden">
 			<img src={image} class="w-full h-full object-cover" alt="">
 		</div>

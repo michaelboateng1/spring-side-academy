@@ -47,10 +47,7 @@
 					class="group relative transform transition-all duration-300 hover:-translate-x-2 hover:-translate-y-0.5"
 				>
 					<div
-						class="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-500 to-[#0f2a92] opacity-20 blur transition duration-1000 group-hover:opacity-60"
-					></div>
-					<div
-						class="relative flex items-start gap-4 rounded-2xl bg-[#0f2a92] p-6 ring-1 ring-white/10"
+						class="relative flex items-start gap-4 rounded-2xl bg-[#0f2a92] shadow-md p-6 ring-1 ring-white/10"
 					>
 						<div
 							class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/5 font-mono text-blue-400 ring-1 ring-blue-400"
@@ -67,10 +64,7 @@
 					class="group relative ml-4 transform transition-all duration-300 hover:translate-x-2 hover:-translate-y-0.5 lg:ml-8"
 				>
 					<div
-						class="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-purple-500 to-indigo-500 opacity-20 blur transition duration-1000 group-hover:opacity-60"
-					></div>
-					<div
-						class="relative flex items-start gap-4 rounded-2xl bg-[#0f172a] p-6 ring-1 ring-white/10"
+						class="relative flex items-start gap-4 shadow-md rounded-2xl bg-[#0f172a] p-6 ring-1 ring-white/10"
 					>
 						<div
 							class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/5 font-mono text-purple-400 ring-1 ring-purple-500/30"
@@ -87,10 +81,7 @@
 					class="group relative transform transition-all duration-300 hover:-translate-x-2 hover:-translate-y-0.5"
 				>
 					<div
-						class="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-[#0f2a92] to-blue-500 opacity-20 blur transition duration-1000 group-hover:opacity-60"
-					></div>
-					<div
-						class="relative flex items-start gap-4 rounded-2xl bg-[#0f2a92] p-6 ring-1 ring-white/10"
+						class="relative flex items-start gap-4 rounded-2xl shadow-md bg-[#0f2a92] p-6 ring-1 ring-white/10"
 					>
 						<div
 							class="blue-500/30 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/5 font-mono text-blue-400 ring-1"
@@ -107,10 +98,7 @@
 					class="group relative ml-4 transform transition-all duration-300 hover:translate-x-2 hover:-translate-y-0.5 lg:ml-8"
 				>
 					<div
-						class="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-blue-500 opacity-20 blur transition duration-1000 group-hover:opacity-60"
-					></div>
-					<div
-						class="relative flex items-start gap-4 rounded-2xl bg-[#0f172a] p-6 ring-1 ring-white/10"
+						class="relative flex items-start shadow-md gap-4 rounded-2xl bg-[#0f172a] p-6 ring-1 ring-white/10"
 					>
 						<div
 							class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/5 font-mono text-emerald-400 ring-1 ring-emerald-500/30"

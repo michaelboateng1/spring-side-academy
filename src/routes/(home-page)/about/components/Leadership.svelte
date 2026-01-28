@@ -106,7 +106,7 @@
 			<div class="shape"></div>
 		</div>
 		<p>Mr. Kwaku Obeng Bonsu</p>
-		<a href="#">Head Master</a>
+		<span>Head Master</span>
 	</div>
 
 	<div>
@@ -114,7 +114,7 @@
 			<div class="shape"></div>
 		</div>
 		<p>Mr. Michael Boateng</p>
-		<a href="#">Assistant Head Master</a>
+		<span>Assistant Head Master</span>
 	</div>
 
 	<div>
@@ -122,7 +122,7 @@
 			<div class="shape"></div>
 		</div>
 		<p>Mr. Michael Boateng</p>
-		<a href="#">Academics Director</a>
+		<span>Academics Director</span>
 	</div>
   </section>
 
@@ -156,15 +156,15 @@ section div {
 }
 
 .head-teacher::before {
-  background: url(https://cdn.pixabay.com/photo/2024/11/08/08/02/ai-generated-9182782_1280.jpg) 50% / cover;
+  background: url("../../../../lib/assets/images/SchoolHeads/shcoolHead.JPG") 50% / cover;
 }
 
 .assistant-head-teacher::before {
-  background: url(https://cdn.pixabay.com/photo/2025/06/03/07/31/ai-generated-9638601_1280.jpg) 50% / cover;
+  background: url("../../../../lib/assets/images/SchoolHeads/assisHead.JPG") 50% / cover;
 }
 
 .academics-director::before {
-  background: url(https://cdn.pixabay.com/photo/2023/12/29/10/39/woman-8475959_1280.jpg) 50% / cover;
+  background: url("../../../../lib/assets/images/SchoolHeads/YEPZ0454.JPG") 50% / cover;
 }
 
 /* Geometric Shape Layer */
@@ -191,11 +191,11 @@ section div {
 }
 
 /* Typography & Spacing */
-a, p {
+span, p {
   padding: 1em;
 }
 
-a {
+span {
   grid-area: 1 / 1;
 }
 

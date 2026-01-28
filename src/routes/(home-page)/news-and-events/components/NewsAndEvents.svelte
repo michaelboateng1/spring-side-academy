@@ -1,11 +1,11 @@
 <script>
-	import { onMount } from 'svelte';
 
 	// import image1 from '$lib/assets/images/StudentsModel2.jpg';
 	// import image2 from '$lib/assets/images/StudentModel4.jpg';
 	// import image3 from '$lib/assets/images/student-7468801_1280.jpg';
 
 	let sectionRef;
+
 	// const articles = [
 	// 	{
 	// 		date: '12 Oct',
@@ -60,8 +60,8 @@
 </script>
 
 <section bind:this={sectionRef} class="bg-white py-24 lg:py-32">
-	<div class="mx-auto max-w-7xl px-6 lg:px-8">
-		<div class="mb-16 flex flex-col items-end justify-between gap-4 md:flex-row">
+	<div class="sm:mx-auto max-w-7xl px-6 lg:px-8">
+		<div class="mb-16 flex flex-col sm:items-end justify-between gap-4 md:flex-row">
 			<div class="max-w-2xl">
 				<span class="mb-2 block text-sm font-semibold tracking-widest text-[#0f2a92] uppercase"
 					>What's Happening</span
@@ -128,7 +128,7 @@
 						</h3>
 						
 						<p class="mb-6 line-clamp-3 text-slate-600">
-							{article.description}
+							{@html article.description.slice(0, 100) + (article.description.length > 100 ? '...' : '')}
 						</p>
 
 						<div class="mt-auto border-t border-slate-200 pt-6">

@@ -18,24 +18,12 @@
 			</defs>
 			<rect width="100%" height="100%" stroke-width="0" fill="url(#grid-pattern)" />
 		</svg>
-		<div
-			class="to-white-100 absolute top-0 left-1/2 -z-10 h-100 w-200 -translate-x-1/2 rounded-full bg-linear-to-br from-blue-100 opacity-40 blur-[100px]"
-		></div>
 	</div>
 
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="grid grid-cols-1 gap-y-16 lg:grid-cols-12 lg:items-center lg:gap-x-16">
 			<div class="lg:col-span-7">
-				<div
-					class="inline-flex items-center space-x-2 rounded-full bg-[#0f2a92]/5 p-1 pr-4 ring-1 ring-[#0f2a92]/10 ring-inset"
-				>
-					<span
-						class="rounded-full bg-[#0f2a92] px-3 py-1 text-[10px] font-bold tracking-widest text-white uppercase"
-						>Status</span
-					>
-					<span class="text-xs font-medium text-[#0f2a92]">Enrollment Open 2026/27</span>
-				</div>
-
+				
 				<h2 class="mt-8 text-5xl font-black tracking-tighter text-slate-900 sm:text-7xl">
 					The <span class="text-[#0f2a92]">Investment.</span>
 				</h2>
@@ -94,14 +82,8 @@
 				<div
 					class="g:-rotate-2 relative transform-gpu transition-all duration-500 hover:rotate-y-6"
 				>
-					<div
-						class="absolute -inset-1 rounded-[2.5rem] bg-linear-to-tr from-[#0f2a92] to-blue-400 opacity-30 blur-2xl transition-opacity group-hover:opacity-50"
-					></div>
 
-					<div class="relative overflow-hidden rounded-4xl bg-slate-900 p-10 text-white shadow-2xl">
-						<div
-							class="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-[#0f2a92] opacity-20 blur-3xl"
-						></div>
+					<div class="relative overflow-hidden rounded-4xl bg-slate-900 p-10 text-white shadow-md">
 
 						<div class="relative">
 							<h4 class="text-2xl font-bold">Have questions?</h4>
@@ -118,9 +100,9 @@
 								<button
 									class="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl bg-white px-6 py-5 text-slate-900 transition-all hover:bg-[#0f2a92] hover:text-white"
 								>
-									<span
+									<a href="/contact"
 										class="font-bold tracking-tighter uppercase transition-transform group-hover:-translate-x-1"
-										>Get the fee schedule</span
+										>Get the fee schedule</a
 									>
 									<svg
 										class="h-5 w-5 transition-transform group-hover:translate-x-1"
@@ -136,10 +118,6 @@
 									>
 								</button>
 							</div>
-
-							<p class="mt-8 text-center text-xs text-slate-500">
-								Response time: Usually within 24 hours
-							</p>
 						</div>
 					</div>
 				</div>

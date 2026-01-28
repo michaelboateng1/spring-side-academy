@@ -26,7 +26,7 @@
 </script>
 
 <header
-	class="fixed w-full max-w-screen top-0 right-0 left-0 z-40 transition-all duration-300 {scrolled
+	class="fixed w-full max-w-screen top-0 right-0 left-0 z-50 transition-all duration-300 {scrolled
 		? 'bg-white/95 shadow-lg backdrop-blur-xl'
 		: 'bg-white/80 backdrop-blur-md'} border-b {scrolled ? 'border-slate-300' : 'border-slate-200'}"
 >

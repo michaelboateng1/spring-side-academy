@@ -322,30 +322,19 @@
 					Extended Learning Opportunities
 				</h3>
 				<p class="mx-auto mb-6 max-w-3xl text-lg text-white/90">
-					Beyond the classroom, we offer after-school programs, summer camps, sports teams, arts
-					programs, and community service initiatives.
+					Beyond the classroom, we collaborate with trusted partners like the <a href="https://thesmartribe.com/" target="_blank">Smart Tribe</a> to deliver enrichment programs in computing and mathematics, skill-building initiatives, educational camps, creative arts, and community-focused projects.
 				</p>
 				<div class="flex flex-wrap justify-center gap-4">
-					<span
-						class="rounded-full border border-white/30 bg-white/20 px-6 py-3 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/30"
-						>Athletics</span
-					>
-					<span
-						class="rounded-full border border-white/30 bg-white/20 px-6 py-3 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/30"
-						>Arts & Music</span
-					>
-					<span
-						class="rounded-full border border-white/30 bg-white/20 px-6 py-3 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/30"
-						>Robotics</span
-					>
-					<span
-						class="rounded-full border border-white/30 bg-white/20 px-6 py-3 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/30"
-						>Debate Club</span
-					>
-					<span
-						class="rounded-full border border-white/30 bg-white/20 px-6 py-3 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/30"
-						>Community Service</span
-					>
+					<a href="https://thesmartribe.com/" class="rounded-full border border-white/30 bg-white/20 px-6 py-3 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/30" target="_blank">Abacus Training</a>
+					
+					<a href="https://thesmartribe.com/" target="_blank" class="rounded-full border border-white/30 bg-white/20 px-6 py-3 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/30">Robotics</a>
+					
+					<a href="https://thesmartribe.com/" target="_blank" class="rounded-full border border-white/30 bg-white/20 px-6 py-3 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/30">Coding</a>
+					
+					<a href="https://thesmartribe.com/" target="_blank" class="rounded-full border border-white/30 bg-white/20 px-6 py-3 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/30">Computer Training</a>
+					
+					<a href="https://thesmartribe.com/" class="rounded-full border border-white/30 bg-white/20 px-6 py-3 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/30" target="_blank">Community Service</a>
+					
 				</div>
 			</div>
 		</div>

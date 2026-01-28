@@ -51,10 +51,10 @@
 						Rigorous curriculum designed to challenge and inspire students at every level with
 						personalized learning paths.
 					</p>
-					<div
+					<a href="/admissions"><div
 						class="mt-6 flex items-center font-semibold text-[#0f2a92] transition-transform duration-300 group-hover:translate-x-2"
 					>
-						Learn more
+					Learn more
 						<svg class="ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path
 								stroke-linecap="round"
@@ -63,7 +63,7 @@
 								d="M13 7l5 5m0 0l-5 5m5-5H6"
 							/>
 						</svg>
-					</div>
+					</div></a>
 				</div>
 			</div>
 			<div class="feature-card group relative">
@@ -95,7 +95,7 @@
 						A supportive environment where every student is known, valued, and encouraged to reach
 						their full potential.
 					</p>
-					<div
+					<a href="/admissions"><div
 						class="mt-6 flex items-center font-semibold text-[#0f2a92] transition-transform duration-300 group-hover:translate-x-2"
 					>
 						Learn more
@@ -107,7 +107,7 @@
 								d="M13 7l5 5m0 0l-5 5m5-5H6"
 							/>
 						</svg>
-					</div>
+					</div></a>
 				</div>
 			</div>
 			<div class="feature-card group relative">
@@ -139,7 +139,7 @@
 						Modern facilities and programs that foster critical thinking, creative expression, and
 						technological literacy.
 					</p>
-					<div
+					<a href="/admissions"><div
 						class="mt-6 flex items-center font-semibold text-[#0f2a92] transition-transform duration-300 group-hover:translate-x-2"
 					>
 						Learn more
@@ -151,7 +151,7 @@
 								d="M13 7l5 5m0 0l-5 5m5-5H6"
 							/>
 						</svg>
-					</div>
+					</div></a>
 				</div>
 			</div>
 		</div>

@@ -96,3 +96,14 @@ export const deleteThumbnail = async (thumbnailUrl) => {
 
     return { error, data }
 }
+
+// Get three post form main page
+export const getThreePosts = async () => {
+  const { data, error } = await supabase
+    .from('events_table')
+    .select()
+    .order('created_at', { ascending: false })
+    .limit(3)
+
+    return { data, error }
+}

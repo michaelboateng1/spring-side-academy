@@ -47,7 +47,7 @@
 
 <section
 	bind:this={textSection}
-	class="flex min-h-screen items-center gap-10 justify-around bg-white p-8 text-white"
+	class="flex flex-col items-center sm:flex-row min-h-screen gap-10 sm:justify-around bg-white p-8 text-white"
 >
 <div>
 	<h2 class="capitalize mb-6 text-5xl font-black tracking-tight text-[#0f2a92] md:text-6xl text-center">About us</h2>

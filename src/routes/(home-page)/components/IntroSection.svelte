@@ -12,16 +12,14 @@
 				physical development, ensuring each student reaches their full potential.
 			</p>
 			<p>
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, maiores! Ducimus fuga
-				consequatur ut autem? Nostrum quia assumenda quas incidunt!
+				Located in the heart of Kumasi, Spring Side Academy is committed to creating a safe, engaging, and supportive learning environment where every child is encouraged to discover their potential and grow into a responsible global citizen.
 			</p>
 
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum alias, quibusdam quod
-				similique soluta veritatis?
+				Spring Side Academy is a community where curiosity is encouraged, values are strengthened, and excellence is a daily pursuit. Through dedicated teaching and a learner-centered approach, we prepare our students not just for exams, but for life beyond the classroom.
 			</p>
 		</div>
-		<div class="overflow-hidden w-1/2 h-[400px] rounded-xl">
+		<div class="overflow-hidden  sm:w-1/2 h-100 rounded-xl">
 			<img src={introImage} class="h-full w-full object-cover" alt="Introductory" />
 		</div>
 	</div>
