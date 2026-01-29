@@ -13,7 +13,7 @@
 	import CTA from './components/CTA.svelte';
 	import ImageSlides from './components/ImageSlides.svelte';
 	import Programs from './components/Programs.svelte';
-	import ThankYou from './components/ThankYou.svelte';
+
 
 	// import Loader from "./components/Loader.svelte";
 
