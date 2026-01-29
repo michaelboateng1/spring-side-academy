@@ -91,60 +91,64 @@
 			</a>
 		</div>
 
-		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-			{#each articles as article}
-				<article
-					class="news-card group relative flex flex-col overflow-hidden rounded-3xl bg-slate-50 transition-all duration-500 hover:bg-white hover:shadow-2xl hover:shadow-slate-200"
-				>
-					<div class="relative h-64 w-full overflow-hidden">
-						<img
-							src={article.image}
-							alt={article.title}
-							class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-						/>
-						<div
-							class="absolute top-4 left-4 flex h-14 w-14 flex-col items-center justify-center rounded-2xl bg-white/90 font-bold shadow-lg backdrop-blur-md"
-						>
-							<span class="text-lg leading-none text-slate-900">{article.date.split(' ')[0]}</span>
-							<span class="text-[10px] tracking-tighter text-[#0f2a92] uppercase"
-								>{article.date.split(' ')[1]}</span
+		{#if articles.length === 0}
+			<p class="text-slate-600 text-center">No {type} available at the moment. Please check back later.</p>
+		{:else}
+			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+				{#each articles as article}
+					<article
+						class="news-card group relative flex flex-col overflow-hidden rounded-3xl bg-slate-50 transition-all duration-500 hover:bg-white hover:shadow-2xl hover:shadow-slate-200"
+					>
+						<div class="relative h-64 w-full overflow-hidden">
+							<img
+								src={article.image}
+								alt={article.title}
+								class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+							/>
+							<div
+								class="absolute top-4 left-4 flex h-14 w-14 flex-col items-center justify-center rounded-2xl bg-white/90 font-bold shadow-lg backdrop-blur-md"
 							>
+								<span class="text-lg leading-none text-slate-900">{article.date.split(' ')[0]}</span>
+								<span class="text-[10px] tracking-tighter text-[#0f2a92] uppercase"
+									>{article.date.split(' ')[1]}</span
+								>
+							</div>
+							<div
+								class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100"
+							></div>
 						</div>
-						<div
-							class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100"
-						></div>
-					</div>
 
-					<div class="flex flex-1 flex-col p-8">
-						<span
-							class="mb-3 inline-block text-xs font-bold tracking-widest text-[#0f2a92] uppercase"
-						>
-							{article.category || article.location}
-						</span>
-						<h3
-							class="mb-4 text-xl leading-snug font-bold text-slate-900 transition-colors group-hover:text-[#0f2a92]"
-						>
-							{article.title}
-						</h3>
-						
-						<p class="mb-6 line-clamp-3 text-slate-600">
-							{@html article.description.slice(0, 100) + (article.description.length > 100 ? '...' : '')}
-						</p>
-
-						<div class="mt-auto border-t border-slate-200 pt-6">
-							<button
-								class="text-sm font-bold text-slate-900 underline decoration-[#0f2a92]/50 decoration-2 underline-offset-4 transition-all hover:decoration-[#0f2a92]"
+						<div class="flex flex-1 flex-col p-8">
+							<span
+								class="mb-3 inline-block text-xs font-bold tracking-widest text-[#0f2a92] uppercase"
 							>
-							{#if article.location}
-								View Event
-							{:else}
-								Read More
-							{/if}
-							</button>
+								{article.category || article.location}
+							</span>
+							<h3
+								class="mb-4 text-xl leading-snug font-bold text-slate-900 transition-colors group-hover:text-[#0f2a92]"
+							>
+								{article.title}
+							</h3>
+							
+							<p class="mb-6 line-clamp-3 text-slate-600">
+								{@html article.description.slice(0, 100) + (article.description.length > 100 ? '...' : '')}
+							</p>
+
+							<div class="mt-auto border-t border-slate-200 pt-6">
+								<button
+									class="text-sm font-bold text-slate-900 underline decoration-[#0f2a92]/50 decoration-2 underline-offset-4 transition-all hover:decoration-[#0f2a92]"
+								>
+								{#if article.location}
+									View Event
+								{:else}
+									Read More
+								{/if}
+								</button>
+							</div>
 						</div>
-					</div>
-				</article>
-			{/each}
-		</div>
+					</article>
+				{/each}
+			</div>
+		{/if}
 	</div>
 </section>

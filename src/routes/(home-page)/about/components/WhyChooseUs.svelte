@@ -1,6 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
 
+	import Image from "$lib/assets/images/aboutUs/WhyChoose Us.jpg"
+
 	let whySection;
 
 	onMount(async () => {
@@ -47,12 +49,9 @@
 			<div class="flex items-center">
 				<div class="relative h-96 w-full overflow-hidden rounded-2xl shadow-xl">
 					<img
-						src="/images/StudentsModel2.jpg"
+						src={Image}
 						alt="Spring Side Academy students"
 						class="h-full w-full object-cover"
-					/>
-					<div
-						class="absolute inset-0 bg-gradient-to-tr from-primary-600/20 via-transparent to-transparent"
 					/>
 				</div>
 			</div>

@@ -7,7 +7,7 @@
 	import FeesInfo from './components/FeesInfo.svelte';
 	import CTA from '../components/CTA.svelte';
 
-	import bgImage from '$lib/assets/images/zhejiang-university-3776785_1280.jpg';
+	import bgImage from '$lib/assets/images/aboutUs/hero/admissionsHero.jpg';
 	// import img1 from '$lib/assets/images/studentModel1.jpg';
 	// import img2 from '$lib/assets/images/StudentsModel2.jpg';
 	// import img3 from '$lib/assets/images/studentModel3.jpg';

@@ -3,7 +3,7 @@
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
-	import image from "$lib/assets/images/heroImage8.jpg";
+	import image from "$lib/assets/images/aboutUs/ourHistory.jpg";
 
 	let textSection;
 	let revealText = `At Spring Side Academy, we believe every child carries the potential to grow, lead, and succeed. Our school is a vibrant learning community where academic excellence meets character development, creativity, and innovation.`;
@@ -69,8 +69,8 @@
 	</div>
 
 	<div class="flex flex-col sm:flex-row items-center sm:items-start mb-30 justify-around gap-10 p-8">
-		<div class="rounded-xl overflow-hidden">
-			<img src={image} class="w-full h-full object-cover" alt="">
+		<div class="rounded-xl overflow-hidden max-w-2xl w-full h-96 sm:h-128 shadow-lg">
+			<img src={image} class="w-full h-full object-cover " alt="">
 		</div>
 		<div class="opacity-reveal w-full max-w-6xl text-center">
 

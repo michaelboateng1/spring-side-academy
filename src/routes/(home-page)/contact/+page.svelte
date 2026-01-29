@@ -1,5 +1,5 @@
 <script>
-	import bgImage from '$lib/assets/images/zhejiang-university-3776783_1280.jpg';
+	import bgImage from '$lib/assets/images/aboutUs/hero/contactHero.jpg';
 
 	import AboutHero from '../about/components/AboutHero.svelte';
 	import ContactInfo from './components/ContactInfo.svelte';

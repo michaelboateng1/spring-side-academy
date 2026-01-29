@@ -105,7 +105,7 @@
 		<div class="back head-teacher" aria-hidden="true">
 			<div class="shape"></div>
 		</div>
-		<p>Mr. Kwaku Obeng Bonsu</p>
+		<p>Mr. Update Latter</p>
 		<span>Head Master</span>
 	</div>
 
@@ -113,7 +113,7 @@
 		<div class="back assistant-head-teacher" aria-hidden="true">
 			<div class="shape"></div>
 		</div>
-		<p>Mr. Michael Boateng</p>
+		<p>Mr. Update Latter</p>
 		<span>Assistant Head Master</span>
 	</div>
 
@@ -121,7 +121,7 @@
 		<div class="back academics-director" aria-hidden="true">
 			<div class="shape"></div>
 		</div>
-		<p>Mr. Michael Boateng</p>
+		<p>Mr. Update Latter</p>
 		<span>Academics Director</span>
 	</div>
   </section>

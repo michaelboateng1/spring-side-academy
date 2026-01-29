@@ -110,7 +110,7 @@
 		<h2>Spring Side Academy Today</h2>
 		<hr />
 		<p>Where strong foundations meet limitless possibilities—shaping tomorrow’s leaders today.</p>
-		<a href="#">About us</a>
+		<a href="/about">About us</a>
 	</div>
 	<div class="swiper">
 		<div class="swiper-wrapper">
@@ -123,7 +123,7 @@
 						class="absolute top-0 left-0 z-10 h-full w-full bg-[linear-gradient(to_top,#0f2027,#203a4377,#2c536400)] bg-cover bg-center bg-no-repeat"
 					></div> -->
 					<div class="z-20">
-						<h2>{slide.title}</h2>
+						<p class="text-3xl! text-white!">{slide.title}</p>
 						<p>
 							{slide.description}
 						</p>
@@ -189,22 +189,6 @@
 		letter-spacing: 1.5px;
 		font-size: 1rem;
 		color: #717171;
-	}
-
-	main > div h2 {
-		text-transform: capitalize;
-		letter-spacing: 0.8px;
-		/* font-family: 'Roboto', sans-serif; */
-		font-weight: 900;
-		font-size: clamp(3.4375rem, 3.25rem + 0.75vw, 4rem);
-		background-color: #ffffff;
-		background-image: linear-gradient(45deg, #ffffff, #d3cccc);
-		background-size: 100%;
-		background-repeat: repeat;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		-moz-background-clip: text;
-		-moz-text-fill-color: transparent;
 	}
 
 	main > div hr {

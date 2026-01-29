@@ -4,7 +4,7 @@
 	import {getThreePosts as getNewsData} from "$lib/newsQuery";
 
 	import AboutHero from '../about/components/AboutHero.svelte';
-	import bgImage from '$lib/assets/images/zhejiang-university-3776783_1280.jpg';
+	import bgImage from '$lib/assets/images/aboutUs/hero/newsAndEventsHero.jpg';
 	import Featured from './components/Featured.svelte';
 	import NewsAndEvents from './components/NewsAndEvents.svelte';
 	import Loader from '../../components/Loader.svelte';

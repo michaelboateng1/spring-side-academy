@@ -1,5 +1,5 @@
 <script>
-	import schoolCompoundImage from '$lib/assets/images/zhejiang-university-3776785_1280.jpg';
+	import schoolCompoundImage from '$lib/assets/images/aboutUs/schoolCompound.jpg';
 </script>
 
 	<section
