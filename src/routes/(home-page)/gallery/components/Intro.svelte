@@ -1,15 +1,15 @@
 <script>
-	import image1 from '$lib/assets/images/classroom-2787754_1280.jpg';
-	import image2 from '$lib/assets/images/heroImage3.jpg';
-	import image3 from '$lib/assets/images/student-7468799_1280.jpg';
+	import image1 from '$lib/assets/images/studentModel11.jpg';
+	import image2 from '$lib/assets/images/studentModel3.jpg';
+	import image3 from '$lib/assets/images/hero/studentsEngineers.jpg';
 	import image4 from '$lib/assets/images/studentModel11.jpg';
 	import image5 from '$lib/assets/images/studentModel6.jpg';
 	import image6 from '$lib/assets/images/studentModel5.jpg';
-	import image7 from '$lib/assets/images/StudentsModel2.jpg';
-	import image8 from '$lib/assets/images/heroImage7.jpg';
-	import image9 from '$lib/assets/images/heroImage8.jpg';
-	import image10 from '$lib/assets/images/heroImage4.jpg';
-	import image11 from '$lib/assets/images/studentModel1.jpg';
+	import image7 from '$lib/assets/images/studentModel6.jpg';
+	import image8 from '$lib/assets/images/hero/098A0393.jpg';
+	import image9 from '$lib/assets/images/studentModel7.jpg';
+	import image10 from '$lib/assets/images/hero/assemblyImage.jpg';
+	import image11 from '$lib/assets/images/hero/098A0357.jpg';
 	// Data array to keep the markup clean
 	const postcards = [
 		{
@@ -83,7 +83,7 @@
 	};
 </script>
 
-<div class="h-screen w-full overflow-hidden bg-[#efecdb]">
+<div class="h-screen w-full overflow-hidden bg-[#efecdb] hidden sm:block">
 	<div class="horizontal-scroll-wrapper scrollbar-hide">
 		{#each postcards as card}
 			<div class="img-wrapper group {depthClasses[card.depth] || depthClasses.normal}">

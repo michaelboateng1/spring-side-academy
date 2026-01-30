@@ -1,5 +1,5 @@
 <script>
-	import introImage from '$lib/assets/images/whoWeAre/who_we_are.JPG';
+	import introImage from '$lib/assets/images/whoWeAre/who_we_are.jfif';
 </script>
 
 <section class="relative min-h-screen min-w-screen">

@@ -10,7 +10,7 @@
 		<div class="section-heading mb-16 text-center">
 			<h2 class="mb-4 text-4xl font-black tracking-tight text-slate-900 md:text-5xl">
 				What Our <span
-					class="bg-gradient-to-r from-[#0f2a92] to-[#04095d] bg-clip-text text-transparent"
+					class="bg-linear-to-r from-[#0f2a92] to-[#04095d] bg-clip-text text-transparent"
 					>Community</span
 				> Says
 			</h2>
@@ -19,7 +19,7 @@
 		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 			<div class="testimonial-card group relative">
 				<div
-					class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#0f2a92] to-[#fff] opacity-25 blur transition duration-500 group-hover:opacity-75"
+					class="absolute -inset-1 rounded-2xl bg-linear-to-r from-[#0f2a92] to-[#fff] opacity-25 blur transition duration-500 group-hover:opacity-75"
 				></div>
 				<div class="relative h-full rounded-2xl bg-white p-8 shadow-xl">
 					<!-- Quote icon -->
@@ -56,7 +56,7 @@
 			</div>
 			<div class="testimonial-card group relative">
 				<div
-					class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#ccc] to-[#0f2a92] opacity-25 blur transition duration-500 group-hover:opacity-75"
+					class="absolute -inset-1 rounded-2xl bg-linear-to-r from-[#ccc] to-[#0f2a92] opacity-25 blur transition duration-500 group-hover:opacity-75"
 				></div>
 				<div class="relative h-full rounded-2xl bg-white p-8 shadow-xl">
 					<div class="absolute top-6 right-6 text-purple-200">
@@ -92,7 +92,7 @@
 			</div>
 			<div class="testimonial-card group relative">
 				<div
-					class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-indigo-400 to-blue-500 opacity-25 blur transition duration-500 group-hover:opacity-75"
+					class="absolute -inset-1 rounded-2xl bg-linear-to-r from-indigo-400 to-blue-500 opacity-25 blur transition duration-500 group-hover:opacity-75"
 				></div>
 				<div class="relative h-full rounded-2xl bg-white p-8 shadow-xl">
 					<div class="absolute top-6 right-6 text-indigo-200">

@@ -7,7 +7,6 @@
 
 	import schoolImage from '$lib/assets/ss.png';
 	
-	import schoolCompoundImage from '$lib/assets/images/zhejiang-university-3776785_1280.jpg';
 
 	let {heading, subheading, bgImage, height} = $props();
 
@@ -88,7 +87,7 @@
 					style="background-image: linear-gradient(hsla(0, 0%, 20%, .2), hsla(0, 0%, 20%, .5)), url('{bgImage}');"
 				></div>
 
-				<!-- <p class="bg-gradient-to-r from-[#0f2a92] to-[#04095d] bg-clip-text text-transparent">subheading</p> -->
+				<!-- <p class="bg-linear-to-r from-[#0f2a92] to-[#04095d] bg-clip-text text-transparent">subheading</p> -->
 				<h1
 					class="hero__title absolute top-1/2 left-1/2 z-100 m-0 -translate-x-1/2 -translate-y-1/2 scale-40
 					p-0 text-center text-[clamp(3.125rem,17.321vw-1.357rem,12.5rem)] leading-[clamp(4.688rem,21.363vw-0.84rem,16.25rem)] font-bold text-white

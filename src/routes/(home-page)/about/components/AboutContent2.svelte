@@ -11,6 +11,11 @@
 	$: characters = revealText.split('');
 
 	onMount(() => {
+		// Disable ScrollTrigger on mobile
+		if (typeof window !== 'undefined' && window.innerWidth < 768) {
+			return;
+		}
+
 		gsap.registerPlugin(ScrollTrigger);
 
 		const q = gsap.utils.selector(textSection);
@@ -79,7 +84,7 @@
 			<p class="text-3xl 2xl:text-4xl leading-[1.1] font-bold tracking-tighter">
 				{#each characters as char}
 					<span
-						class="char inline-block translate-y-12 scale-150 opacity-0 "
+						class="char text-[#0f2a92] md:inline-block md:translate-y-12 md:scale-150 md:opacity-0"
 						style="display: {char === ' ' ? 'inline' : 'inline-block'}"
 					>
 						{char === ' ' ? '\u00A0' : char}

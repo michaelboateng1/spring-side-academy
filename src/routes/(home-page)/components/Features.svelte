@@ -13,7 +13,7 @@
 		<div class="section-heading mb-16 text-center">
 			<h2 class="mb-4 text-4xl font-black tracking-tight text-slate-900 md:text-5xl">
 				Why Choose <span
-					class="bg-gradient-to-r from-[#0f2a92] to-[#04095d] bg-clip-text text-transparent"
+					class="bg-linear-to-r from-[#0f2a92] to-[#04095d] bg-clip-text text-transparent"
 					>Spring Side</span
 				> Academy?
 			</h2>

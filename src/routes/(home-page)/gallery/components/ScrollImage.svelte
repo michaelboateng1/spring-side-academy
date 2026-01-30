@@ -3,12 +3,9 @@
 
 	import image1 from '$lib/assets/images/StudentModel4.jpg';
 	import image2 from '$lib/assets/images/studentModel11.jpg';
-	import image3 from '$lib/assets/images/studentModel9.jpg';
+	import image3 from '$lib/assets/images/studentModel7.jpg';
 	import image4 from '$lib/assets/images/studentModel8.jpg';
 	import image5 from '$lib/assets/images/studentModel5.jpg';
-	import image6 from '$lib/assets/images/heroImage6.jpg';
-	import image7 from '$lib/assets/images/heroImage7.jpg';
-	import image8 from '$lib/assets/images/studentModel10.jpg';
 
 	// Data array to remove repetitive HTML
 	const sections = [
@@ -88,14 +85,6 @@
 			>
 				<h2 class="mb-4 text-2xl font-bold">{section.title}</h2>
 				<p class="mb-6 text-sm leading-relaxed opacity-90">{section.text}</p>
-				<!-- <div>
-					<button
-						on:click={handleLied}
-						class="rounded bg-black/20 px-6 py-2 transition-colors hover:bg-black/40"
-					>
-						Learn more
-					</button>
-				</div> -->
 			</div>
 
 			<div

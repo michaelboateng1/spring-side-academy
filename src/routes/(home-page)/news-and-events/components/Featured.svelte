@@ -75,16 +75,16 @@
 
 <style>
 	.grid-container {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		grid-auto-rows: 200px;
-		gap: 1rem;
-		padding: 2rem;
+		display: none;
 	}
 
 	@media (min-width: 768px) {
 		.grid-container {
+			display: grid;
 			grid-template-columns: repeat(4, 1fr);
+			grid-auto-rows: 200px;
+			gap: 1rem;
+			padding: 2rem;
 			grid-template-areas:
 				'first second second abitrary'
 				'first third fourth fourth'

@@ -7,6 +7,8 @@
 	import { onMount } from 'svelte';
 
 	import studentModelImage1 from '$lib/assets/images/StudentModel4.jpg';
+	import JellyfishImage from '$lib/assets/images/jellyfish.webp';
+	import StarImage from '$lib/assets/images/star.webp';
 
 	const gradient = 'linear-gradient(to_top,#0f2027,#203a4300,#2c536400)';
 
@@ -136,12 +138,12 @@
 		<div class="swiper-pagination"></div>
 	</div>
 	<img
-		src="https://cdn.pixabay.com/photo/2021/11/04/19/39/jellyfish-6769173_960_720.png"
+		src={JellyfishImage}
 		alt=""
 		class="bg"
 	/>
 	<img
-		src="https://cdn.pixabay.com/photo/2015/09/12/23/20/star-937527_1280.jpg"
+		src={StarImage}
 		alt=""
 		class="bg2"
 	/>

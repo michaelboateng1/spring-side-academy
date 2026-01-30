@@ -12,6 +12,11 @@
 	$: characters = revealText.split('');
 
 	onMount(() => {
+		// Disable ScrollTrigger on mobile
+		if (typeof window !== 'undefined' && window.innerWidth < 768) {
+			return;
+		}
+
 		gsap.registerPlugin(ScrollTrigger);
 
 		// Use a selector scoped to THIS component only
@@ -53,7 +58,7 @@
 	<h2 class="capitalize mb-6 text-5xl font-black tracking-tight text-[#0f2a92] md:text-6xl text-center">About us</h2>
 	<p class="opacity-reveal w-full max-w-4xl">
 		{#each characters as char}
-			<span class="char text-2xl inline-block text-[#0f2a92] 2xl:text-4xl opacity-20"
+			<span class="char text-2xl inline-block text-[#0f2a92] 2xl:text-4xl md:opacity-20"
 				>{char === ' ' ? '\u00A0' : char}</span
 			>
 		{/each}

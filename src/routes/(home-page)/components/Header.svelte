@@ -50,7 +50,7 @@
 					</div>
 				</div>
 				<span
-					class="bg-gradient-to-r from-[#0f2a92] hidden sm:block to-slate-600 bg-clip-text text-2xl font-bold text-transparent uppercase"
+					class="bg-linear-to-r from-[#0f2a92] hidden sm:block to-slate-600 bg-clip-text text-2xl font-bold text-transparent uppercase"
 					>Sping Side Academy</span
 				>
 			</a>
@@ -78,7 +78,7 @@
 				>
 					<span class="relative z-10">Apply Now</span>
 					<div
-						class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+						class="absolute inset-0 bg-linear-to-r from-indigo-600 to-purple-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
 					></div>
 				</a>
 			</nav>

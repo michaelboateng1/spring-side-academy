@@ -156,7 +156,7 @@
 		<div class="flex items-center justify-center gap-2">
 			<button
 				disabled={currentPage === 1}
-				on:click={() => goToPage(currentPage - 1)}
+				onclick={() => goToPage(currentPage - 1)}
 				class="rounded-lg border border-slate-300 px-4 py-2 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-30"
 			>
 				<ArrowLeftOutline class="h-6 w-6 shrink-0" />
@@ -165,7 +165,7 @@
 			<div class="flex gap-1">
 				{#each Array(totalPages) as _, i}
 					<button
-						on:click={() => goToPage(i + 1)}
+						onclick={() => goToPage(i + 1)}
 						class="rounded-lg border px-4 py-2 transition-colors"
 						class:bg-[#0f2a92]={currentPage === i + 1}
 						class:text-white={currentPage === i + 1}
@@ -180,7 +180,7 @@
 
 			<button
 				disabled={currentPage === totalPages}
-				on:click={() => goToPage(currentPage + 1)}
+				onclick={() => goToPage(currentPage + 1)}
 				class="rounded-lg border border-slate-300 px-4 py-2 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-30"
 			>
 				<ArrowRightOutline class="h-6 w-6 shrink-0" />

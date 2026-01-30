@@ -9,9 +9,6 @@
 	import NewsAndEvents from './components/NewsAndEvents.svelte';
 	import Loader from '../../components/Loader.svelte';
 
-	import image1 from '$lib/assets/images/StudentsModel2.jpg';
-	import image2 from '$lib/assets/images/StudentModel4.jpg';
-	import image3 from '$lib/assets/images/student-7468801_1280.jpg';
 
 	let eventsData = $state([]);
 	let newsData = $state([]);

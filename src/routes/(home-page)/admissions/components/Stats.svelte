@@ -75,7 +75,7 @@
 			{#each stats as stat}
 				<div class="stat-card group relative transform-gpu">
 					<div
-						class="absolute -inset-1 rounded-[2rem] bg-gradient-to-r from-transparent via-[var(--stat-color)] to-transparent opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-40"
+						class="absolute -inset-1 rounded-[2rem] bg-linear-to-r from-transparent via-[var(--stat-color)] to-transparent opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-40"
 						style="--stat-color: {stat.color}"
 					></div>
 
@@ -83,7 +83,7 @@
 						class="relative flex h-full flex-col items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900/80 p-10 text-center backdrop-blur-2xl"
 					>
 						<div
-							class="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-transparent via-[var(--stat-color)] to-transparent opacity-50"
+							class="absolute top-0 left-0 h-[2px] w-full bg-linear-to-r from-transparent via-[var(--stat-color)] to-transparent opacity-50"
 							style="--stat-color: {stat.color}"
 						></div>
 

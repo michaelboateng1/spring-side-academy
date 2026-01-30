@@ -229,7 +229,7 @@
 								<!-- <div
 									class="mb-6 inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 backdrop-blur-sm"
 								>
-									<span class="h-2 w-2 animate-pulse rounded-full bg-[#fff]"></span>
+									<span class="h-2 w-2 animate-pulse rounded-full bg-white"></span>
 									<span class="text-sm font-medium">{slide.subtitle}</span>
 								</div> -->
 
@@ -324,7 +324,7 @@
 				{#each slides as slide, index (slide.id)}
 					<button
 						onclick={() => goToSlide(index)}
-						class={`h-3 w-3 rounded-full transition-all ${index === activeSlide ? 'w-8 bg-[#fff]' : 'bg-white/50 hover:bg-white'}`}
+						class={`h-3 w-3 rounded-full transition-all ${index === activeSlide ? 'w-8 bg-white' : 'bg-white/50 hover:bg-white'}`}
 						aria-label={`Go to slide ${index + 1}`}
 					></button>
 				{/each}

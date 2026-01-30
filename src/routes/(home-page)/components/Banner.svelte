@@ -57,7 +57,7 @@
 				>
 					<div class="hero-title mb-6 py-10 px-5">
 						<h2 class="text-5xl font-black tracking-tight md:text-7xl lg:text-8xl">
-							<span class="block bg-gradient-to-r bg-clip-text text-transparent {slide.gradient}">
+							<span class="block bg-linear-to-r bg-clip-text text-transparent {slide.gradient}">
 								{slide.title}
 							</span>
 							<span class="mt-2 block text-white">{slide.subtitle}</span>
@@ -76,7 +76,7 @@
 			>
 				<a
 					href="/contact"
-					class="hero-cta group relative overflow-hidden rounded-full bg-[#fff] px-8 py-4 text-lg font-bold text-[#0f2a92] shadow-md transition-all duration-300 hover:scale-102 hover:text-white"
+					class="hero-cta group relative overflow-hidden rounded-full bg-white px-8 py-4 text-lg font-bold text-[#0f2a92] shadow-md transition-all duration-300 hover:scale-102 hover:text-white"
 				>
 					<span class="relative z-10 capitalize">Contact us</span>
 					<div

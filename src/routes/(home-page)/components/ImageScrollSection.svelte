@@ -51,10 +51,10 @@
 					<div class="stat-card group text-center">
 						<div class="relative inline-block">
 							<div
-								class="absolute inset-0 rounded-full bg-gradient-to-r from-[#fe0002] to-[#ff3333] opacity-50 blur-2xl transition-opacity group-hover:opacity-75"
+								class="absolute inset-0 rounded-full bg-linear-to-r from-[#fe0002] to-[#ff3333] opacity-50 blur-2xl transition-opacity group-hover:opacity-75"
 							></div>
 							<div
-								class="stat-number relative bg-gradient-to-r from-[#fe0002] to-[#ff3333] bg-clip-text text-6xl font-black text-transparent md:text-7xl"
+								class="stat-number relative bg-linear-to-r from-[#fe0002] to-[#ff3333] bg-clip-text text-6xl font-black text-transparent md:text-7xl"
 							>
 								500
 							</div>
@@ -65,10 +65,10 @@
 					<div class="stat-card group text-center">
 						<div class="relative inline-block">
 							<div
-								class="absolute inset-0 rounded-full bg-gradient-to-r from-[#04095d] to-[#0a0f8a] opacity-50 blur-2xl transition-opacity group-hover:opacity-75"
+								class="absolute inset-0 rounded-full bg-linear-to-r from-[#04095d] to-[#0a0f8a] opacity-50 blur-2xl transition-opacity group-hover:opacity-75"
 							></div>
 							<div
-								class="stat-number relative bg-gradient-to-r from-white to-slate-200 bg-clip-text text-6xl font-black text-transparent md:text-7xl"
+								class="stat-number relative bg-linear-to-r from-white to-slate-200 bg-clip-text text-6xl font-black text-transparent md:text-7xl"
 							>
 								98
 							</div>
@@ -79,10 +79,10 @@
 					<div class="stat-card group text-center">
 						<div class="relative inline-block">
 							<div
-								class="absolute inset-0 rounded-full bg-gradient-to-r from-[#fe0002] to-[#04095d] opacity-50 blur-2xl transition-opacity group-hover:opacity-75"
+								class="absolute inset-0 rounded-full bg-linear-to-r from-[#fe0002] to-[#04095d] opacity-50 blur-2xl transition-opacity group-hover:opacity-75"
 							></div>
 							<div
-								class="stat-number relative bg-gradient-to-r from-[#fe0002] to-white bg-clip-text text-6xl font-black text-transparent md:text-7xl"
+								class="stat-number relative bg-linear-to-r from-[#fe0002] to-white bg-clip-text text-6xl font-black text-transparent md:text-7xl"
 							>
 								50
 							</div>
@@ -93,10 +93,10 @@
 					<div class="stat-card group text-center">
 						<div class="relative inline-block">
 							<div
-								class="absolute inset-0 rounded-full bg-gradient-to-r from-white to-slate-300 opacity-50 blur-2xl transition-opacity group-hover:opacity-75"
+								class="absolute inset-0 rounded-full bg-linear-to-r from-white to-slate-300 opacity-50 blur-2xl transition-opacity group-hover:opacity-75"
 							></div>
 							<div
-								class="stat-number relative bg-gradient-to-r from-white to-slate-200 bg-clip-text text-6xl font-black text-transparent md:text-7xl"
+								class="stat-number relative bg-linear-to-r from-white to-slate-200 bg-clip-text text-6xl font-black text-transparent md:text-7xl"
 							>
 								15
 							</div>
