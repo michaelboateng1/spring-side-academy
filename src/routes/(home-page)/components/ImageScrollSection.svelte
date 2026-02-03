@@ -7,7 +7,7 @@
 </script>
 
 <section
-	class="horizontal-section stats-section relative min-w-screen flex-shrink-0 overflow-hidden bg-gradient-to-br from-[#0f2a92] via-[#0f2a92] to-[#04095d] py-24 sm:py-32"
+	class="horizontal-section stats-section relative min-w-screen shrink-0 overflow-hidden bg-linear-to-br from-[#0f2a92] via-[#0f2a92] to-[#04095d] py-10"
 >
 	<img
 		src={bookSVG}

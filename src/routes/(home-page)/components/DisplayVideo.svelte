@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import video from '$lib/assets/videos/63328-506377472.mp4';
+	import video from '$lib/assets/videos/abacusVideo.mp4';
 
 	let videoContainer;
 
@@ -22,9 +22,10 @@
 </script>
 
 <section
-	class=" horizontal-section h-screen w-screen max-w-[100%] overflow-hidden bg-gradient-to-br from-[#0f2a92] via-[#0f2a92] to-[#04095d]"
+	class=" horizontal-section relative h-screen w-screen max-w-full overflow-hidden bg-linear-to-br from-[#0f2a92] via-[#0f2a92] to-[#04095d]"
 >
 	<div class="h-full w-full" bind:this={videoContainer}></div>
+	<div class="absolute top-0 left-0 w-full h-full z-10 bg-linear-to-br from-[#2121212d] via-[#33333352] to-[#2121213d]"></div>
 	<!-- <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				<div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
 					<div class="stat-card group text-center">

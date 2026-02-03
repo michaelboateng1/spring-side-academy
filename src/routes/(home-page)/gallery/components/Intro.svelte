@@ -6,7 +6,7 @@
 	import image5 from '$lib/assets/images/studentModel6.jpg';
 	import image6 from '$lib/assets/images/studentModel5.jpg';
 	import image7 from '$lib/assets/images/studentModel6.jpg';
-	import image8 from '$lib/assets/images/hero/098A0393.jpg';
+	import image8 from '$lib/assets/images/hero/HeroImage10.jpeg';
 	import image9 from '$lib/assets/images/studentModel7.jpg';
 	import image10 from '$lib/assets/images/hero/assemblyImage.jpg';
 	import image11 from '$lib/assets/images/hero/098A0357.jpg';

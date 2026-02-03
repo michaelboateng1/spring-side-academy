@@ -5,6 +5,7 @@
 
 	import Hero from './components/Hero.svelte';
 	import IntroSection from './components/IntroSection.svelte';
+	import Extracurricullar from './components/Extracurricullar.svelte';
 	import Banner from './components/Banner.svelte';
 	import Features from './components/Features.svelte';
 	import DisplayVideo from './components/DisplayVideo.svelte';
@@ -164,6 +165,8 @@
 <Hero />
 
 <IntroSection />
+
+<Extracurricullar />
 
 <Banner />
 

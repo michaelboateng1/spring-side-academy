@@ -1,60 +1,175 @@
 <script>
 	import { onMount } from 'svelte';
 
-	import studentModel1 from '$lib/assets/images/studentModel1.jpg';
-	import studentModel2 from '$lib/assets/images/StudentsModel2.jpg';
-	import studentModel3 from '$lib/assets/images/studentModel3.jpg';
-	import studentModel4 from '$lib/assets/images/StudentModel4.jpg';
+	// import studentModel1 from '$lib/assets/images/studentModel1.jpg';
+	// import studentModel2 from '$lib/assets/images/StudentsModel2.jpg';
+	// import studentModel3 from '$lib/assets/images/studentModel3.jpg';
+	// import studentModel4 from '$lib/assets/images/StudentModel4.jpg';
+
+	import scrollImage1 from "$lib/assets/images/ScrollImages/ScrollImage1.jpeg";
+	import scrollImage2 from "$lib/assets/images/ScrollImages/ScrollImage2.jpeg";
+	import scrollImage3 from "$lib/assets/images/ScrollImages/ScrollImage3.jpeg";
+	import scrollImage4 from "$lib/assets/images/ScrollImages/ScrollImage4.jpeg";
+	import scrollImage5 from "$lib/assets/images/ScrollImages/ScrollImage5.jpeg";
+	import scrollImage6 from "$lib/assets/images/ScrollImages/ScrollImage6.jpeg";
+	import scrollImage7 from "$lib/assets/images/ScrollImages/ScrollImage7.jpeg";
+	import scrollImage8 from "$lib/assets/images/ScrollImages/ScrollImage8.jpeg";
+	import scrollImage9 from "$lib/assets/images/ScrollImages/ScrollImage9.jpeg";
+	import scrollImage10 from "$lib/assets/images/ScrollImages/ScrollImage10.jpeg";
+	import scrollImage11 from "$lib/assets/images/ScrollImages/ScrollImage11.jpeg";
+	import scrollImage12 from "$lib/assets/images/ScrollImages/ScrollImage12.jpeg";
+	import scrollImage13 from "$lib/assets/images/ScrollImages/ScrollImage13.jpeg";
+	import scrollImage14 from "$lib/assets/images/ScrollImages/ScrollImage14.jpeg";
+	import scrollImage15 from "$lib/assets/images/ScrollImages/ScrollImage15.jpeg";
+	import scrollImage16 from "$lib/assets/images/ScrollImages/ScrollImage16.jpeg";
+	import scrollImage17 from "$lib/assets/images/ScrollImages/ScrollImage17.jpeg";
+	import scrollImage18 from "$lib/assets/images/ScrollImages/ScrollImage18.jpeg";
+	import scrollImage19 from "$lib/assets/images/ScrollImages/ScrollImage19.jpeg";
+	import scrollImage20 from "$lib/assets/images/ScrollImages/ScrollImage20.jpeg";
+	import scrollImage21 from "$lib/assets/images/ScrollImages/ScrollImage21.jpeg";
+	import scrollImage22 from "$lib/assets/images/ScrollImages/ScrollImage22.jpeg";
+	import scrollImage23 from "$lib/assets/images/ScrollImages/ScrollImage23.jpeg";
 
 	const schoolImages = [
 		{
 			id: 1,
-			url: studentModel1,
+			url: scrollImage1,
 			title: 'Graduation Day',
 			desc: 'Celebrating our graduates'
 		},
 		{
 			id: 2,
-			url: studentModel2,
+			url: scrollImage2,
+			title: 'Science Lab',
+			desc: 'Students conducting experiments'
+		},
+		{
+			id: 3,
+			url: scrollImage3,
+			title: 'Science Lab',
+			desc: 'Students conducting experiments'
+		},
+		{
+			id: 4,
+			url: scrollImage4,
+			title: 'Science Lab',
+			desc: 'Students conducting experiments'
+		},
+		{
+			id: 5,
+			url: scrollImage5,
+			title: 'Science Lab',
+			desc: 'Students conducting experiments'
+		},
+		{
+			id: 6,
+			url: scrollImage6,
+			title: 'Science Lab',
+			desc: 'Students conducting experiments'
+		},
+		{
+			id: 7,
+			url: scrollImage7,
+			title: 'Science Lab',
+			desc: 'Students conducting experiments'
+		},
+		{
+			id: 8,
+			url: scrollImage8,
+			title: 'Science Lab',
+			desc: 'Students conducting experiments'
+		},
+		{
+			id: 9,
+			url: scrollImage9,
+			title: 'Science Lab',
+			desc: 'Students conducting experiments'
+		},
+		{
+			id: 10,
+			url: scrollImage10,
 			title: 'Science Lab',
 			desc: 'Students conducting experiments'
 		}
-		// {
-		// 	id: 5,
-		// 	url: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&q=80',
-		// 	title: 'Sports Day',
-		// 	desc: 'Annual sports competition'
-		// },
-		// {
-		// 	id: 6,
-		// 	url: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80',
-		// 	title: 'Art Exhibition',
-		// 	desc: 'Student artwork showcase'
-		// },
-		// {
-		// 	id: 7,
-		// 	url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80',
-		// 	title: 'Group Project',
-		// 	desc: 'Collaborative learning'
-		// },
-		// {
-		// 	id: 8,
-		// 	url: 'https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?w=800&q=80',
-		// 	title: 'Computer Lab',
-		// 	desc: 'Technology education'
-		// }
+		
 	];
 
 	const schoolImages2 = [
 		{
-			id: 3,
-			url: studentModel3,
+			id: 11,
+			url: scrollImage11,
 			title: 'Library Studies',
 			desc: 'Quiet study time in our library'
 		},
 		{
-			id: 4,
-			url: studentModel4,
+			id: 12,
+			url: scrollImage12,
+			title: 'Classroom Learning',
+			desc: 'Interactive classroom session'
+		},
+		{
+			id: 13,
+			url: scrollImage13,
+			title: 'Classroom Learning',
+			desc: 'Interactive classroom session'
+		},
+		{
+			id: 14,
+			url: scrollImage14,
+			title: 'Classroom Learning',
+			desc: 'Interactive classroom session'
+		},
+		{
+			id: 15,
+			url: scrollImage15,
+			title: 'Classroom Learning',
+			desc: 'Interactive classroom session'
+		},
+		{
+			id: 16,
+			url: scrollImage16,
+			title: 'Classroom Learning',
+			desc: 'Interactive classroom session'
+		},
+		{
+			id: 17,
+			url: scrollImage17,
+			title: 'Classroom Learning',
+			desc: 'Interactive classroom session'
+		},
+		{
+			id: 18,
+			url: scrollImage18,
+			title: 'Classroom Learning',
+			desc: 'Interactive classroom session'
+		},
+		{
+			id: 19,
+			url: scrollImage19,
+			title: 'Classroom Learning',
+			desc: 'Interactive classroom session'
+		},
+		{
+			id: 20,
+			url: scrollImage20,
+			title: 'Classroom Learning',
+			desc: 'Interactive classroom session'
+		},
+		{
+			id: 21,
+			url: scrollImage21,
+			title: 'Classroom Learning',
+			desc: 'Interactive classroom session'
+		},
+		{
+			id: 22,
+			url: scrollImage22,
+			title: 'Classroom Learning',
+			desc: 'Interactive classroom session'
+		},
+		{
+			id: 23,
+			url: scrollImage23,
 			title: 'Classroom Learning',
 			desc: 'Interactive classroom session'
 		}
@@ -216,6 +331,8 @@
 						alt={image.title}
 						title={`${image.title}: ${image.desc}`}
 						loading="lazy"
+						width="400"
+						hegith="300"
 						class="h-full w-full object-cover"
 					/>
 				</div>

@@ -12,11 +12,18 @@
 	import { onMount } from 'svelte';
 	
 	import studentsNurses from '$lib/assets/images/hero/studentsNurses.jpg';
-	import studentsNurses2 from '$lib/assets/images/hero/studentsNurses2.jpg';
-	import assemblyImage from '$lib/assets/images/hero/assemblyImage.jpg';
-	import assemblyImage2 from '$lib/assets/images/hero/assemblyImage2.jpg';
-	import schoolTeachers from '$lib/assets/images/hero/schoolTeachers.jpg';
-	import studentsSoldiers from '$lib/assets/images/hero/studentsSodiers.jpg';
+	// import studentsNurses2 from '$lib/assets/images/hero/studentsNurses2.jpg';
+	// import assemblyImage from '$lib/assets/images/hero/assemblyImage.jpg';
+	// import assemblyImage2 from '$lib/assets/images/hero/assemblyImage2.jpg';
+	// import schoolTeachers from '$lib/assets/images/hero/schoolTeachers.jpg';
+	// import studentsSoldiers from '$lib/assets/images/hero/studentsSodiers.jpg';
+
+	import HeroImage1 from "$lib/assets/images/hero/HeroImage14.jpeg";
+	import HeroImage2 from "$lib/assets/images/hero/HeroImage7.jpeg";
+	import HeroImage3 from "$lib/assets/images/hero/HeroImage6.jpeg";
+	import HeroImage4 from "$lib/assets/images/hero/HeroImageLab.jpeg";
+	import HeroImage5 from "$lib/assets/images/hero/HeroImage13.jpeg";
+	import HeroImage6 from "$lib/assets/images/hero/HeroFirstImage.jpeg";
 
 	// Slide data
 	const slides = [
@@ -26,7 +33,7 @@
 			subtitle: 'Building a Stronger Tomorrow',
 			description:
 				'Our community thrives on collaboration, compassion, and commitment. We foster an environment where everyone contributes to building a better future together.',
-			image: studentsNurses,
+			image: HeroImage1,
 			cta: 'Join us now',
 			cta2: 'Get Intouch',
 			color: 'bg-[#ffb3c1]'
@@ -43,10 +50,10 @@
 			subtitle: 'State-of-the-Art Facilities',
 			description:
 				'Modern classrooms, science labs, and creative studios designed to inspire curiosity and foster innovation.',
-			image: assemblyImage,
+			image: HeroImage2,
 			cta: 'View Facilities',
 			cta2: 'Virtual Tour',
-			color: 'bg-[#888]'
+			color: 'bg-[#98aef1]'
 			// stats: {
 			// 	labs: '12',
 			// 	classrooms: '45',
@@ -60,27 +67,27 @@
 			subtitle: 'Beyond Academics',
 			description:
 				'Comprehensive extracurricular programs including arts, sports, music, robotics, and leadership development.',
-			image: assemblyImage2,
+			image: HeroImage3,
 			// cta: 'Explore Programs',
 			// cta2: 'Meet Our Coaches',
 			color: 'bg-[#98aef1]',
-			stats: [
-				{
-					top: '16',
-					middle: 'Teams',
-					bottom: 'sports'
-				},
-				{
-					top: '12',
-					middle: 'Programs',
-					bottom: 'arts'
-				},
-				{
-					top: '8',
-					middle: 'Ensembles',
-					bottom: 'music'
-				}
-			]
+			// stats: [
+			// 	{
+			// 		top: '16',
+			// 		middle: 'Teams',
+			// 		bottom: 'sports'
+			// 	},
+			// 	{
+			// 		top: '12',
+			// 		middle: 'Programs',
+			// 		bottom: 'arts'
+			// 	},
+			// 	{
+			// 		top: '8',
+			// 		middle: 'Ensembles',
+			// 		bottom: 'music'
+			// 	}
+			// ]
 		},
 		{
 			id: 4,
@@ -88,7 +95,7 @@
 			subtitle: 'Building Character',
 			description:
 				'A nurturing environment that promotes respect, integrity, and social responsibility through community engagement.',
-			image: studentsNurses2,
+			image: studentsNurses,
 			cta: 'Our Values',
 			cta2: 'Community Outreach',
 			color: 'bg-[#99d3bb]'
@@ -105,28 +112,28 @@
 			subtitle: 'Since 1985',
 			description:
 				'A premier educational institution dedicated to holistic development and academic excellence for students from preschool to high school.',
-			image: schoolTeachers,
-			// cta: 'Schedule a Tour',
-			// cta2: 'Apply Now',
+			image: HeroImage5,
+			cta: 'Our Mission',
+			cta2: 'Apply Now',
 			color: 'bg-[#ccc]',
-			stats: [
-				{
-					top: '1,200+',
-					bottom: 'students'
-				},
-				{
-					top: '15:1',
-					bottom: 'ratio'
-				},
-				{
-					top: '98%',
-					bottom: 'graduation'
-				},
-				{
-					top: '35+',
-					bottom: 'clubs'
-				}
-			]
+			// stats: [
+			// 	{
+			// 		top: '1,200+',
+			// 		bottom: 'students'
+			// 	},
+			// 	{
+			// 		top: '15:1',
+			// 		bottom: 'ratio'
+			// 	},
+			// 	{
+			// 		top: '98%',
+			// 		bottom: 'graduation'
+			// 	},
+			// 	{
+			// 		top: '35+',
+			// 		bottom: 'clubs'
+			// 	}
+			// ]
 		},
 		{
 			id: 6,
@@ -134,7 +141,7 @@
 			subtitle: 'Since 1985',
 			description:
 				'A premier educational institution dedicated to holistic development and academic excellence for students from preschool to high school.',
-			image: studentsSoldiers,
+			image: HeroImage4,
 			// cta: 'Schedule a Tour',
 			// cta2: 'Apply Now',
 			color: 'bg-[#0d698d]',
@@ -156,6 +163,23 @@
 			// 		bottom: 'clubs'
 			// 	}
 			// ]
+		},
+		{
+			id: 7,
+			title: 'Join Our Vibrant Community',
+			subtitle: 'Become a Part of Spring Side Academy',
+			description:
+				'Experience a supportive and dynamic environment where students thrive academically, socially, and personally.',
+			image: HeroImage6,
+			cta: 'Join Us Today',
+			cta2: 'Contact Us',
+			color: 'bg-[#8883ab]',
+			//   stats: {
+			//     service: '10K+ Volunteer Hours',   // Increased service hours
+			//     events: '50+ Yearly',               // More events annually
+			//     parents: '90% Active Participation', // Slightly adjusted parent involvement
+			//     alumni: '3,000+'                   // Increased number of alumni
+			//   }
 		}
 	];
 
@@ -258,6 +282,7 @@
 										out:fade={{ duration: 300 }}
 										class="mb-10 flex flex-wrap gap-4"
 									>
+									<a href="/about" class="cursor-pointer">
 										<Button
 											size="md"
 											class="poppins-bold cursor-pointer bg-[#0f2a92] px-8 py-3 text-lg font-semibold text-[#510c04] text-white transition duration-500 hover:scale-105 hover:bg-white hover:text-[#0f2a92]"
@@ -265,14 +290,16 @@
 											<CalendarMonthOutline class="poppins-bold mr-2 h-6 w-6 shrink-0" />
 											{slide.cta}
 										</Button>
-										<Button
+									</a>
+										
+										<a href="/contact" class="cursor-pointer"><Button
 											size="md"
 											color="alternative"
 											class="poppins-bold border-2 border-white bg-transparent px-8 py-3 text-lg font-semibold text-white transition duration-500 hover:bg-white/20 hover:text-[#fff]"
 										>
 											<ArrowRightOutline class="poppins-bold mr-2 h-6 w-6 shrink-0" />
 											{slide.cta2}
-										</Button>
+										</Button></a>
 									</div>
 								{/if}
 

@@ -19,7 +19,7 @@
 				'A glimpse into the vibrant learning experiences, creativity, and teamwork that shape life at Springside Academy.',
 			link: '/gallery',
 			styles:
-				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/studentModel1.jpg')] bg-center bg-no-repeat bg-cover"
+				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/creativity.JPG')] bg-center bg-no-repeat bg-cover"
 		},
 		{
 			title: 'Life Style',
@@ -27,7 +27,7 @@
 				'A glimpse into the vibrant learning experiences, creativity, and teamwork that shape lifStudents at Spring Side Academy engage in interactive, teacher-guided lessons that encourage critical thinking, collaboration, and confidence. Our classrooms are designed to inspire curiosity while building strong academic foundations for lifelong learning.e at Springside Academy.',
 			link: '/gallery',
 			styles:
-				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/studentModel3.jpg')] bg-center bg-no-repeat bg-cover"
+				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/studentModel8.jpg')] bg-center bg-no-repeat bg-cover"
 		},
 		{
 			title: 'Education',
@@ -35,7 +35,7 @@
 				'Spring Side Academy is more than a school—it’s a family. Through teamwork, respect, and shared values, we create an environment where every student feels supported, valued, and motivated to succeed.',
 			link: '/gallery',
 			styles:
-				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/studentModel12.jpg')] bg-center bg-no-repeat bg-cover"
+				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/Education.jpeg')] bg-center bg-no-repeat bg-cover"
 		},
 		{
 			title: 'Entertainment',
@@ -51,7 +51,7 @@
 				'Through hands-on robotics and technology activities, students at Spring Side Academy explore problem-solving, creativity, and teamwork. These experiences introduce learners to coding, engineering, and critical thinking skills that prepare them for a technology-driven future.',
 			link: '/gallery',
 			styles:
-				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/studentModel8.jpg')] bg-center bg-no-repeat bg-cover"
+				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/robotics.webp')] bg-center bg-no-repeat bg-cover"
 		},
 		{
 			title: 'Coding',
@@ -59,14 +59,14 @@
 				'At Spring Side Academy, students learn the fundamentals of coding through engaging and age-appropriate activities. By exploring logic, creativity, and problem-solving, learners develop digital skills that empower them to confidently navigate and shape the modern world.',
 			link: '/gallery',
 			styles:
-				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/studentModel8.jpg')] bg-center bg-no-repeat bg-cover"
+				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/Coding.jpeg')] bg-center bg-no-repeat bg-cover"
 		},
 		{
 			title: 'Abacus Training',
 			description:
 				'Through abacus training, students strengthen concentration, speed, and accuracy in mathematics. This hands-on approach helps learners build strong number sense, improve mental arithmetic, and develop confidence in problem-solving from an early age.',
 			styles:
-				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/studentModel8.jpg')] bg-center bg-no-repeat bg-cover"
+				"bg-[linear-gradient(to_top,#0f2027,#203a4300,#2c536400),url('/images/Abacus.jpeg')] bg-center bg-no-repeat bg-cover"
 		}
 	];
 
@@ -109,7 +109,7 @@
 <main>
 	<div>
 		<span>visit</span>
-		<h2>Spring Side Academy Today</h2>
+		<h2 class="text-6xl text-[#0d258a]">Spring Side Academy Today</h2>
 		<hr />
 		<p>Where strong foundations meet limitless possibilities—shaping tomorrow’s leaders today.</p>
 		<a href="/about">About us</a>
@@ -250,20 +250,9 @@
 		align-items: self-start;
 	}
 
-	.swiper-slide h2 {
-		color: #fff;
-		font-family: 'Roboto', sans-serif;
-		font-weight: 400;
-		font-size: 1.4rem;
-		line-height: 1.4;
-		margin-bottom: 0.625rem;
-		padding: 0 0 0 1.563rem;
-		text-transform: uppercase;
-	}
 
 	.swiper-slide p {
 		color: #dadada;
-		font-family: 'Roboto', sans-serif;
 		font-weight: 300;
 		padding: 0 1.563rem;
 		line-height: 1.6;
@@ -295,40 +284,6 @@
 		opacity: 1 !important;
 	}
 
-	.swiper-slide--one {
-		background:
-			linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-			url('https://images.unsplash.com/photo-1628944682084-831f35256163?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
-				no-repeat 50% 50% / cover;
-	}
-
-	.swiper-slide--two {
-		background:
-			linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-			url('https://images.unsplash.com/photo-1515309025403-4b0184873cef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80')
-				no-repeat 50% 50% / cover;
-	}
-
-	.swiper-slide--three {
-		background:
-			linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-			url('https://images.unsplash.com/photo-1545671913-b89ac1b4ac10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')
-				no-repeat 50% 50% / cover;
-	}
-
-	.swiper-slide--four {
-		background:
-			linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-			url('https://images.unsplash.com/photo-1598977123118-4e30ba3c4f5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')
-				no-repeat 50% 50% / cover;
-	}
-
-	.swiper-slide--five {
-		background:
-			linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-			url('https://images.unsplash.com/photo-1570481662006-a3a1374699e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80')
-				no-repeat 50% 50% / cover;
-	}
 
 	:global(.swiper-3d .swiper-slide-shadow-left, .swiper-3d .swiper-slide-shadow-right) {
 		background-image: none !important;
