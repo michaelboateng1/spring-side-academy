@@ -7,34 +7,7 @@
 	import FeesInfo from './components/FeesInfo.svelte';
 	import CTA from '../components/CTA.svelte';
 
-	import bgImage from '$lib/assets/images/aboutUs/hero/admissionsHero.jpg';
-	// import img1 from '$lib/assets/images/studentModel1.jpg';
-	// import img2 from '$lib/assets/images/StudentsModel2.jpg';
-	// import img3 from '$lib/assets/images/studentModel3.jpg';
-	// import img4 from '$lib/assets/images/StudentModel4.jpg';
-	// import img5 from '$lib/assets/images/studentModel5.jpg';
-	// import img6 from '$lib/assets/images/studentModel6.jpg';
-	// import img7 from '$lib/assets/images/studentModel7.jpg';
-	// import img8 from '$lib/assets/images/studentModel8.jpg';
-	// import img9 from '$lib/assets/images/studentModel9.jpg';
-	// import img10 from '$lib/assets/images/studentModel10.jpg';
-	// import classrm from '$lib/assets/images/classroom-2787754_1280.jpg';
-	// const gallery = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, classrm];
-	// let lightboxOpen = $state(false);
-	// let activeIndex = $state(0);
-	// const openLightbox = (i) => {
-	// 	activeIndex = i;
-	// 	lightboxOpen = true;
-	// };
-	// const closeLightbox = () => {
-	// 	lightboxOpen = false;
-	// };
-	// const nextImage = () => {
-	// 	activeIndex = (activeIndex + 1) % gallery.length;
-	// };
-	// const prevImage = () => {
-	// 	activeIndex = (activeIndex - 1 + gallery.length) % gallery.length;
-	// };
+	import bgImage from '$lib/assets/images/aboutUs/hero/about_bg.jpeg';
 </script>
 
 <svelte:head>
