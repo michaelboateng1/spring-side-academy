@@ -1,6 +1,46 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import { Card, Button } from "flowbite-svelte";
   import { ChartPieOutline, GridSolid, MailBoxSolid, UserSolid, ArrowRightOutline } from "flowbite-svelte-icons";
+  import { supabase } from '$lib/supabaseClient';
+  import { getStat } from '$lib/galleryQuery';
+
+  let newsCount: number | null = null;
+  let eventsCount: number | null = null;
+  let galleryCount: number | null = null;
+
+  async function fetchCounts() {
+    try {
+      const { count: nCount } = await supabase
+        .from('news-table')
+        .select('*', { count: 'exact', head: true });
+
+      newsCount = nCount ?? 0;
+
+      const { count: eCount } = await supabase
+        .from('events_table')
+        .select('*', { count: 'exact', head: true });
+
+      eventsCount = eCount ?? 0;
+
+      const { count: gCount, error } = await getStat();
+      if (error) {
+        console.error('Failed to fetch gallery count:', error);
+        galleryCount = 0;
+      } else {
+        galleryCount = gCount ?? 0;
+      }
+    } catch (err) {
+      console.error('Failed to load dashboard counts', err);
+      newsCount = newsCount ?? 0;
+      eventsCount = eventsCount ?? 0;
+      galleryCount = galleryCount ?? 0;
+    }
+  }
+
+  onMount(() => {
+    fetchCounts();
+  });
 </script>
 
 <div class="p-6  h-full space-y-8">
@@ -18,7 +58,7 @@
         <p class="text-sm font-medium text-slate-500 uppercase tracking-wider">News Articles</p>
       </div>
       <div class="flex justify-center items-center w-full h-full">
-        <h3 class="text-4xl lg:text-6xl font-bold text-slate-900">24</h3>
+        <h3 class="text-4xl lg:text-6xl font-bold text-slate-900">{newsCount ?? '—'}</h3>
       </div>
       <div class="mt-6 pt-6">
         <Button size="sm" color="alternative" href="/dashboard/news" class="w-full rounded-none hover:text-blue-600 flex justify-between items-center group">
@@ -35,7 +75,7 @@
         <p class="text-sm font-medium text-slate-500 uppercase tracking-wider">Upcoming Events</p>
       </div>
       <div class="flex justify-center items-center w-full h-full">
-        <h3 class="text-4xl lg:text-6xl font-bold text-slate-900">8</h3>
+        <h3 class="text-4xl lg:text-6xl font-bold text-slate-900">{eventsCount ?? '—'}</h3>
       </div>
       <div class="mt-6 pt-6">
         <Button size="sm" color="alternative" href="/dashboard/events" class="w-full rounded-none hover:text-green-600 flex justify-between items-center group">
@@ -52,7 +92,7 @@
         <p class="text-sm font-medium text-slate-500 uppercase tracking-wider">Gallery Posts</p>
       </div>
       <div class="flex justify-center items-center w-full h-full">
-        <h3 class="text-4xl lg:text-6xl font-bold text-slate-900">156</h3>
+        <h3 class="text-4xl lg:text-6xl font-bold text-slate-900">{galleryCount ?? '—'}</h3>
       </div>
       <div class="mt-6 pt-6">
         <Button size="sm" color="alternative" href="/dashboard/gallery" class="w-full rounded-none hover:text-slate-600 flex justify-between items-center group">

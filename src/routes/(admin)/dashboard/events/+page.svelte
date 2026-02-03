@@ -8,29 +8,19 @@
   import RichTextEditor from "../components/RichTextEditor.svelte";
   import ShowToast from "../components/ShowToast.svelte";
 
+  import DataLoader from "../components/DataLoader.svelte";
+  import UploadImage from "../components/UploadImage.svelte";
+
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
   import {supabase} from "$lib/supabaseClient"
   import { getData, insertData, updateData, deleteData, deleteThumbnail } from "$lib/eventsQuery";
 
+
+  let isLoading = $state(true);
+
   let toastRef = $state();
 
-  // let events = $state([
-  //   {
-  //     id: 1,
-  //     date: '20 Oct 2026',
-  //     title: 'Annual Sports Day',
-  //     location: 'School Main Ground',
-  //     description: 'A day of athletics and sportsmanship for all students.'
-  //   },
-  //   {
-  //     id: 2,
-  //     date: '15 Nov 2026',
-  //     title: 'Science & Art Exhibition',
-  //     location: 'Assembly Hall',
-  //     description: 'Showcasing the creative and scientific achievements of our students.'
-  //   }
-  // ]);
 
   let events = $state([]);
 
@@ -38,6 +28,7 @@
     const { data, error } = await getData();
     if (data) {
       events = data;
+      isLoading = false;
       goto("/dashboard/events");
     }
   }
@@ -50,6 +41,7 @@
   let searchTerm = $state("");
   let showModal = $state(false);
   let isEditing = $state(false);
+  let isUploaded = $state(false);
   let currentEvent = $state({
     date: "",
     title: "",
@@ -140,7 +132,7 @@ async function handleFileChange(e) {
       console.log("Uploaded error",error);
       currentEvent.thumbnail_url = `https://ucyfuegykrqstmxnzlid.supabase.co/storage/v1/object/public/events_thumbnail/${data.path}`;
       currentEvent.previewUrl = `https://ucyfuegykrqstmxnzlid.supabase.co/storage/v1/object/public/events_thumbnail/${data.path}`;
-      // isUploaded = true;
+      isUploaded = true;
 
       console.log(currentEvent.previewUrl);
 
@@ -192,8 +184,18 @@ async function handleFileChange(e) {
         <TableHeadCell>Actions</TableHeadCell>
       </TableHead>
       <TableBody>
-        {#each filteredEvents as event}
-          <TableBodyRow>
+        {#if isLoading}
+        <TableBodyRow>
+          <TableBodyCell colspan="6">
+            <div class="h-[500px] w-full flex items-center justify-center">
+              <DataLoader />
+            </div>
+          </TableBodyCell>
+        </TableBodyRow>
+
+        {:else}
+          {#each filteredEvents as event}
+            <TableBodyRow>
             <TableBodyCell>{event.event_date}</TableBodyCell>
             <TableBodyCell class="font-medium text-slate-900">{event.event_title}</TableBodyCell>
             <TableBodyCell>
@@ -205,9 +207,6 @@ async function handleFileChange(e) {
             <TableBodyCell class="max-w-xs truncate">{event.description}</TableBodyCell>
             <TableBodyCell class="max-w-xs truncate hover:text-blue-600 hover:underline cursor-pointer">
               <a href={event.thumbnail_url} target="_blank">{event.thumbnail_url}</a>
-              <!-- {#if event.previewUrl}
-                <img src={event.previewUrl} alt="Thumbnail" class="w-24 h-24 object-cover" />
-              {/if} -->
             </TableBodyCell>
             <TableBodyCell>
               <div class="flex items-center gap-2">
@@ -221,9 +220,11 @@ async function handleFileChange(e) {
                 <Tooltip>Delete Event</Tooltip>
               </div>
             </TableBodyCell>
-          </TableBodyRow>
-        {/each}
-        {#if filteredEvents.length === 0}
+            </TableBodyRow>
+          {/each}
+        {/if}
+        
+        {#if !isLoading && filteredEvents.length === 0}
           <TableBodyRow>
             <TableBodyCell colspan="5" class="text-center py-8 text-slate-500">
               No events found matching your search.
@@ -263,7 +264,7 @@ async function handleFileChange(e) {
         <Fileupload  onchange={handleFileChange} id="file-upload" />
         <Helper>PNG, JPG or GIF (MAX. 800x400px).</Helper>
         
-        {#if currentEvent.thumbnail_url}
+        <!-- {#if currentEvent.thumbnail_url}
           <div class="mt-4 relative aspect-video w-full rounded-lg overflow-hidden border border-gray-200">
             <img src={currentEvent.thumbnail_url} alt="Preview" class="w-full h-full object-cover" />
             <button 
@@ -279,6 +280,37 @@ async function handleFileChange(e) {
               {#if currentEvent && currentEvent.thumbnail_url}
                 <img src={currentEvent.thumbnail_url} alt="Thumbnail" class="w-24 h-24 object-cover" />
               {/if}
+          </div>
+        {/if} -->
+
+        {#if currentEvent.thumbnail_url}
+          <div class="mt-4 relative aspect-video w-full rounded-lg overflow-hidden border border-gray-200">
+            <img src={currentEvent.thumbnail_url} alt="Preview" class="w-full h-full object-cover" />
+            <button 
+              type="button"
+              onclick={() => {
+                currentEvent.file = null;
+                currentEvent.thumbnail_url = null;
+              }}
+              class="absolute top-2 right-2 p-1.5 bg-red-600 text-white rounded-md hover:bg-red-700 shadow-sm"
+            >
+              <TrashBinOutline class="w-4 h-4" />
+            </button>
+            <!-- {#if currentArticle.thumbnail_url}
+                <img src={currentArticle.thumbnail_url} alt="Thumbnail" class="w-24 h-24 object-cover" />
+              {/if} -->
+          </div>
+
+        {:else if !currentEvent.thumbnail_url && isEditing}
+          <div class="mt-4 relative aspect-video w-full rounded-lg overflow-hidden border border-gray-200 flex items-center justify-center">
+            <DataLoader />
+          </div>
+          {:else if !isUploaded}
+          <div class="mt-4 relative aspect-video w-full rounded-lg overflow-hidden border border-gray-200 flex items-center justify-center">
+            <UploadImage />
+            <div class="absolute top-0 left-0 w-full h-full z-10 ">
+              <Fileupload class="w-full aspect-video w-full opacity-0 h-full" onchange={handleFileChange} id="file-upload" />
+            </div>
           </div>
         {/if}
       </div>

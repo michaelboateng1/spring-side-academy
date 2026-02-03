@@ -6,7 +6,7 @@
 	import image from "$lib/assets/images/aboutUs/aboutUs.jpg";
 
 	let textSection;
-	let revealText = `At Spring Side Academy, we believe every child carries the potential to grow, lead, and succeed. Our school is a vibrant learning community where academic excellence meets character development, creativity, and innovation. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit non aperiam doloribus rerum vel error cupiditate inventore molestias nam corrupti ea debitis deleniti corporis qui eveniet temporibus, nihil repudiandae fugiat laborum ipsum sequi similique quis sint soluta.`;
+	let revealText = `At Spring Side Academy, we believe every child carries the potential to grow, lead, and succeed. Our school is a vibrant learning community where academic excellence meets character development, creativity, and innovation. Join us at Spring Side Academy, where we cultivate the leaders of tomorrow in a supportive and inspiring setting. Together, we are shaping a brighter future, one student at a time.`;
 
 	// Split text into characters for the animation
 	$: characters = revealText.split('');

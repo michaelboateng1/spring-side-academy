@@ -1,23 +1,19 @@
 <script>
+  import { onMount } from 'svelte';
   import { 
     Button, Modal, Label, Input, Tooltip, Fileupload, Helper
   } from "flowbite-svelte";
   import { PlusOutline, TrashBinOutline, SearchOutline, ImageOutline, EditOutline } from "flowbite-svelte-icons";
 
   import ShowToast from "../components/ShowToast.svelte";
-
   import BrokenImage from "$lib/assets/schooLogo.png";
-
   import RichTextEditor from "../components/RichTextEditor.svelte";
+  import { supabase } from '$lib/supabaseClient';
+  import { insertData, getData, updateData, deleteData, deleteThumbnail } from '$lib/galleryQuery';
 
   let toastRef = $state();
-
-  let galleryItems = $state([
-    { id: 1, title: "Students in Science Lab", url: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=400&h=300&fit=crop", category: "Academic" },
-    { id: 2, title: "Annual Sports Meet", url: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=400&h=300&fit=crop", category: "Sports", description: "something" },
-    { id: 3, title: "School Choir Performance", url: "https://images.unsplash.com/photo-1514320296828-2e21f2427a1f?q=80&w=400&h=300&fit=crop", category: "Campus Life" },
-    { id: 4, title: "Art Competition", url: "https://images.unsplash.com/photo-1460661419201-fd4ce18686e6?q=80&w=400&h=300&fit=crop", category: "Art", description: "something" },
-  ]);
+  let galleryItems = $state([]);
+  let isLoading = $state(false);
 
   let fileuploadprops = {
     id: "user_avatar",
@@ -50,6 +46,47 @@
     previewUrl: null
   });
 
+  async function loadGalleryItems() {
+    isLoading = true;
+    try {
+      const { data, error } = await getData();
+      if (error) {
+        console.error('Failed to load gallery:', error);
+        toastRef?.add("Failed to load gallery items", "red");
+      } else {
+        galleryItems = data?.map(item => ({
+          id: item.id,
+          title: item.title,
+          description: item.description,
+          url: item.image_url,
+          category: item.category || "General"
+        })) || [];
+      }
+    } catch (err) {
+      console.error('Error loading gallery:', err);
+      toastRef?.add("Error loading gallery items", "red");
+    } finally {
+      isLoading = false;
+    }
+  }
+
+  async function uploadImageToStorage(file) {
+    const fileExt = file.name.split('.').pop();
+    const fileName = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${fileExt}`;
+    const filePath = `gallery/${fileName}`;
+
+    const { error } = await supabase.storage
+      .from('gallery')
+      .upload(filePath, file, { upsert: true });
+
+    if (error) {
+      throw error;
+    }
+
+    const { data } = supabase.storage.from('gallery').getPublicUrl(filePath);
+    return data?.publicUrl;
+  }
+
   function handleFileChange(e) {
     const file = e.target.files[0];
     if (file) {
@@ -72,31 +109,62 @@
     }
   }
 
-  function deleteItem(id) {
-    try{
+  async function deleteItem(id, imageUrl) {
+    try {
       if (confirm("Are you sure you want to delete this image?")) {
-        galleryItems = galleryItems.filter(item => item.id !== id);
-        toastRef?.add("Image deleted successfully", "red");
+        const { error } = await deleteData(id);
+        if (error) {
+          toastRef?.add("Image delete failed", "red");
+        } else {
+          galleryItems = galleryItems.filter(item => item.id !== id);
+          if (imageUrl && imageUrl.includes('storage.googleapis.com') || imageUrl.includes('supabase')) {
+            await deleteThumbnail(imageUrl);
+          }
+          toastRef?.add("Image deleted successfully", "red");
+        }
       }
-    }catch(err){
+    } catch (err) {
+      console.error('Delete error:', err);
       toastRef?.add("Image delete failed", "red");
     }
   }
 
-  function handleUpload() {
-    try{
-      galleryItems = [...galleryItems, {
-        id: Date.now(),
-        title: newItem.title || "Untitled Image",
-        url: newItem.previewUrl || BrokenImage,
-        category: newItem.category,
-        description: newItem.description
-      }];
-      showUploadModal = false;
-      newItem = { title: "", category: "General", description: "", file: null, previewUrl: null };
+  async function handleUpload() {
+    if (!newItem.title) {
+      toastRef?.add("Please enter a title", "red");
+      return;
+    }
 
-      toastRef?.add("Image uploaded successfully", "green");
-    }catch(err){
+    try {
+      let imageUrl = newItem.previewUrl;
+      
+      if (newItem.file) {
+        imageUrl = await uploadImageToStorage(newItem.file);
+      }
+
+      const { data, error } = await insertData({
+        title: newItem.title,
+        category: newItem.category,
+        description: newItem.description,
+        image: imageUrl
+      });
+
+      if (error) {
+        toastRef?.add("Failed to upload image", "red");
+      } else {
+        galleryItems = [...galleryItems, {
+          id: data.id,
+          title: data.title,
+          description: data.description,
+          url: data.image_url,
+          category: data.category
+        }];
+        showUploadModal = false;
+        newItem = { title: "", category: "General", description: "", file: null, previewUrl: null };
+        toastRef?.add("Image uploaded successfully", "green");
+      }
+    } catch (err) {
+      console.error('Upload error:', err);
       toastRef?.add("Image upload failed", "red");
     }
   }
@@ -110,22 +178,41 @@
     showEditModal = true;
   }
 
-  function handleUpdate() {
-    try{
+  async function handleUpdate() {
+    try {
+      let imageUrl = editingItem.previewUrl;
+
+      if (editingItem.file) {
+        imageUrl = await uploadImageToStorage(editingItem.file);
+      }
+
+      const { data, error } = await updateData({
+        id: editingItem.id,
+        title: editingItem.title,
+        category: editingItem.category,
+        description: editingItem.description,
+        image: imageUrl
+      });
+
+      if (error) {
+        toastRef?.add("Image update failed", "red");
+      } else {
         galleryItems = galleryItems.map(item => 
-        item.id === editingItem.id 
-          ? { 
-              ...item, 
-              title: editingItem.title, 
-              category: editingItem.category, 
-              description: editingItem.description,
-              url: editingItem.previewUrl 
-            } 
-          : item
-      );
-      showEditModal = false;
-      toastRef?.add("Image updated successfully", "blue");
-    }catch(err){
+          item.id === editingItem.id 
+            ? { 
+                ...item, 
+                title: editingItem.title, 
+                category: editingItem.category, 
+                description: editingItem.description,
+                url: imageUrl
+              } 
+            : item
+        );
+        showEditModal = false;
+        toastRef?.add("Image updated successfully", "blue");
+      }
+    } catch (err) {
+      console.error('Update error:', err);
       toastRef?.add("Image update failed", "red");
     }
   }
@@ -136,6 +223,10 @@
       item.category.toLowerCase().includes(searchTerm.toLowerCase())
     )
   );
+
+  onMount(() => {
+    loadGalleryItems();
+  });
 </script>
 
 <ShowToast bind:this={toastRef} />
@@ -186,7 +277,7 @@
           <Tooltip>Edit Image</Tooltip>
           
           <button 
-            onclick={() => deleteItem(item.id)}
+            onclick={() => deleteItem(item.id, item.url)}
             class="p-2 bg-red-600 text-white rounded-lg hover:bg-red-700 shadow-lg"
           >
             <TrashBinOutline class="w-4 h-4" />

@@ -1,20 +1,18 @@
 import { supabase } from "./supabaseClient";
 
 function getPathFromPublicUrl(url) {
-    const marker = '/storage/v1/object/public/events_thumbnail/'
+    const marker = '/storage/v1/object/public/gallery/'
     const path = url.split(marker)[1]
     return path ? decodeURIComponent(path) : null
 }
 
 export const insertData = async (currentEvent) => {
     const { data, error } = await supabase
-        .from('events_table')
+        .from('gallery_table')
         .insert([{
-            event_date: currentEvent.date,
-            event_title: currentEvent.title,
-            location: currentEvent.location,
+            title: currentEvent.title,
             description: currentEvent.description,
-            thumbnail_url: currentEvent.thumbnail_url,
+            image_url: currentEvent.image,
             slug: currentEvent.title
                 .toLowerCase()
                 .replace(/\s+/g, '-'),
@@ -27,7 +25,7 @@ export const insertData = async (currentEvent) => {
 
 export const getData = async () => {
     const { data, error } = await supabase
-        .from('events_table')
+        .from('gallery_table')
         .select()
         .order('created_at', { ascending: false })
 
@@ -36,7 +34,7 @@ export const getData = async () => {
 
 export const getEventBySlug = async (slug) => {
     const { data, error } = await supabase
-        .from('events_table')
+        .from('gallery_table')
         .select()
         .eq('slug', slug)
         .single()
@@ -47,13 +45,11 @@ export const getEventBySlug = async (slug) => {
 
 export const updateData = async (currentEvent) => {
     const { data, error } = await supabase
-        .from('events_table')
+        .from('gallery_table')
         .update({
-            event_date: currentEvent.date,
-            event_title: currentEvent.title,
-            location: currentEvent.location,
+            title: currentEvent.title,
             description: currentEvent.description,
-            thumbnail_url: currentEvent.thumbnail_url,
+            image_url: currentEvent.image,
             slug: currentEvent.title
                 .toLowerCase()
                 .replace(/\s+/g, '-'),
@@ -67,7 +63,7 @@ export const updateData = async (currentEvent) => {
 
 export const deleteData = async (id) => {
     const { data, error } = await supabase
-        .from('events_table')
+        .from('gallery_table')
         .delete()
         .eq('id', id)
 
@@ -87,7 +83,7 @@ export const deleteThumbnail = async (thumbnailUrl) => {
     }
 
     const { error, data } = await supabase.storage
-        .from('events_thumbnail')
+        .from('gallery')
         .remove([filePath])
 
     if (error) {
@@ -97,19 +93,10 @@ export const deleteThumbnail = async (thumbnailUrl) => {
     return { error, data }
 }
 
-// Get three post form main page
-export const getThreePosts = async () => {
-  const { data, error } = await supabase
-    .from('events_table')
-    .select()
-    .order('created_at', { ascending: false })
-    .limit(3)
-
-    return { data, error }
-}
-
 export const getStat = async () => {
-  const { data, error } = await supabase
+  const { count, error } = await supabase
   .from('gallery_table')
-  .select('count()')
+  .select('*', { count: 'exact', head: true })
+
+  return { count, error }
 }

@@ -1,3 +1,4 @@
+import { count } from "node:console";
 import { supabase } from "./supabaseClient";
 
 function getPathFromPublicUrl(url) {
@@ -114,4 +115,10 @@ export const getThreePosts = async () => {
     .limit(3)
 
     return { data, error }
+}
+
+export const getStat = async () => {
+  const { data, error } = await supabase
+  .from('news_table')
+  .select('count()')
 }
