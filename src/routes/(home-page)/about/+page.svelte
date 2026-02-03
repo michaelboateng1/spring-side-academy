@@ -1,5 +1,5 @@
 <script>
-	import bgImage from '$lib/assets/images/aboutUs/hero/aboutHero.jpg';
+	import bgImage from '$lib/assets/images/aboutUs/hero/aboutBg.jpeg';
 
 	import AboutHero from './components/AboutHero.svelte';
 	import AboutContent from './components/AboutContent.svelte';

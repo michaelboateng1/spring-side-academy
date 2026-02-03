@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 
-	import Image from "$lib/assets/images/aboutUs/WhyChoose Us.jpg"
+	import Image from "$lib/assets/images/aboutUs/whyChooseUsImage.jpeg"
 
 	let whySection;
 
