@@ -1,5 +1,54 @@
 <script>
+	import { gsap } from 'gsap';
 	import schoolLogo from '$lib/assets/images/schoolLogo.jpg';
+
+	let successMessage;
+	let formStatus = $state("idle");
+
+	const hundleSubmit = async (e) => {
+		e.preventDefault();
+
+		formStatus = "pending";
+		const formData = new FormData(e.target);
+    	formData.append("access_key", "fdbebf65-58c0-43bf-87f6-80cfc25a5be0");
+
+		const response = await fetch("https://api.web3forms.com/submit", {
+			method: "POST",
+			body: formData
+		});
+		
+		const data = await response.json();
+
+		if (data.success) {
+			formStatus = "success";
+			
+			// Success animation
+			const successTl = gsap.timeline();
+			successTl.fromTo(
+				successMessage,
+				{ opacity: 0, scale: 0.8, y: -10 },
+				{ opacity: 1, scale: 1, y: 0, duration: 0.4, ease: 'back.out' }
+			);
+
+			// Auto-hide success message after 3 seconds
+			setTimeout(() => {
+				gsap.to(successMessage, {
+					opacity: 0,
+					scale: 0.8,
+					y: -10,
+					duration: 0.3,
+					ease: 'power2.in',
+					onComplete: () => {
+						formStatus = "idle";
+					}
+				});
+			}, 3000);
+
+			e.target.reset();
+		} else {
+		 formStatus = "failed"
+		}
+	};
 </script>
 
 <footer
@@ -159,7 +208,7 @@
 								d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
 							/>
 						</svg>
-						<span>info@springSide.edu</span>
+						<span>springsideacademygh@gmail.com</span>
 					</li>
 					<li class="flex items-start gap-2">
 						<svg
@@ -175,7 +224,7 @@
 								d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
 							/>
 						</svg>
-						<span>+233 000 000 000</span>
+						<span>+233 204 864 000</span>
 					</li>
 					<li class="flex items-start gap-2">
 						<svg
@@ -204,14 +253,26 @@
 			<div>
 				<h3 class="mb-4 text-sm font-bold tracking-wider text-white uppercase">Newsletter</h3>
 				<p class="mb-4 text-sm text-[#cccccc]">Stay updated with our latest news and events.</p>
-				<form class="flex flex-col gap-3">
+				<form onsubmit={e => hundleSubmit(e)} class="relative flex flex-col gap-3">
+					{#if formStatus === "success"}
+						<div bind:this={successMessage} class="absolute inset-0 flex items-center justify-center rounded-lg bg-sky-600/95 backdrop-blur-sm">
+							<div class="flex flex-col items-center justify-center space-y-2 text-center">
+								<svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								<p class="text-sm font-semibold text-white">Subscribed!</p>
+								<p class="text-xs text-sky-100">Thank you for joining us</p>
+							</div>
+						</div>
+					{/if}
 					<input
 						type="email"
+						name="newsletter-email"
 						placeholder="Your email"
 						class="w-full rounded-lg border border-white/20 bg-white/10 px-4 py-2.5 text-white transition-all placeholder:text-[#cccccc] focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 focus:outline-none"
 					/>
 					<button
-						type="button"
+						type="submit"
 						class="rounded-lg bg-linear-to-r from-sky-600 to-[#2b52ec] px-4 py-2.5 text-sm font-semibold text-white transition-all hover:scale-105 hover:from-sky-500 hover:to-blue-600"
 						>Subscribe</button
 					>
