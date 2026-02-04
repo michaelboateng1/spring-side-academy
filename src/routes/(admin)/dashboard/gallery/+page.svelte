@@ -9,7 +9,7 @@
   import BrokenImage from "$lib/assets/schooLogo.png";
   import RichTextEditor from "../components/RichTextEditor.svelte";
   import { supabase } from '$lib/supabaseClient';
-  import { insertData, getData, updateData, deleteData, deleteThumbnail } from '$lib/galleryQuery';
+  import { insertData, getData, updateData, deleteData, deleteImage } from '$lib/galleryQuery';
 
   let toastRef = $state();
   let galleryItems = $state([]);
@@ -33,7 +33,7 @@
     title: "",
     category: "General",
     description: "",
-    file: null,
+    image_url: null,
     previewUrl: null
   });
 
@@ -42,7 +42,7 @@
     title: "",
     category: "",
     description: "",
-    file: null,
+    image_url: null,
     previewUrl: null
   });
 
@@ -58,7 +58,7 @@
           id: item.id,
           title: item.title,
           description: item.description,
-          url: item.image_url,
+          image_url: item.image_url,
           category: item.category || "General"
         })) || [];
       }
@@ -70,42 +70,143 @@
     }
   }
 
-  async function uploadImageToStorage(file) {
-    const fileExt = file.name.split('.').pop();
-    const fileName = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${fileExt}`;
-    const filePath = `gallery/${fileName}`;
+  // async function uploadImageToStorage(file) {
+  //   const fileExt = file.name.split('.').pop();
+  //   const fileName = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${fileExt}`;
+  //   const filePath = `gallery/${fileName}`;
 
-    const { error } = await supabase.storage
-      .from('gallery')
-      .upload(filePath, file, { upsert: true });
+  //   const { error } = await supabase.storage
+  //     .from('gallery')
+  //     .upload(filePath, file, { upsert: true });
 
-    if (error) {
-      throw error;
-    }
+  //   if (error) {
+  //     throw error;
+  //   }
 
-    const { data } = supabase.storage.from('gallery').getPublicUrl(filePath);
-    return data?.publicUrl;
-  }
+  //   const { data } = supabase.storage.from('gallery').getPublicUrl(filePath);
+  //   return data?.publicUrl;
+  // }
 
-  function handleFileChange(e) {
+  // function handleFileChange(e) {
+  //   const file = e.target.files[0];
+  //   if (file) {
+  //     newItem.file = file;
+  //     if (newItem.previewUrl) {
+  //       URL.revokeObjectURL(newItem.previewUrl);
+  //     }
+  //     newItem.previewUrl = URL.createObjectURL(file);
+  //   }
+  // }
+
+  async function handleFileChange(e) {
     const file = e.target.files[0];
     if (file) {
-      newItem.file = file;
-      if (newItem.previewUrl) {
-        URL.revokeObjectURL(newItem.previewUrl);
+      // Validate file type
+      const validTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+      if (!validTypes.includes(file.type)) {
+        toastRef?.add("Invalid file type. Please upload JPG, PNG, GIF, or WebP", "red");
+        return;
       }
-      newItem.previewUrl = URL.createObjectURL(file);
+
+      // Validate file size (5MB limit)
+      if (file.size > 5 * 1024 * 1024) {
+        toastRef?.add("File size exceeds 5MB limit. Please compress your image.", "red");
+        return;
+      }
+
+      if (newItem.image_url) {
+        const response = await deleteImage(newItem.image_url);
+        console.log("Deleted previous data", response);
+        newItem.image_url = "";
+        newItem.previewUrl = "";
+      }
+
+      const filePath = `${Date.now()}_${file.name}`;
+
+      try {
+        const { data, error } = await supabase.storage.from('gallery').upload(filePath, file, { upsert: true });
+
+        if (error) {
+          console.error("Upload error:", error);
+          toastRef?.add(`Upload failed: ${error.message}`, "red");
+          return;
+        }
+
+        if (data) {
+          newItem.image_url = `https://ucyfuegykrqstmxnzlid.supabase.co/storage/v1/object/public/gallery/${data.path}`;
+          newItem.previewUrl = `https://ucyfuegykrqstmxnzlid.supabase.co/storage/v1/object/public/gallery/${data.path}`;
+          toastRef?.add("Image loaded successfully", "green");
+          console.log("Upload successful:", newItem.previewUrl);
+        }
+      } catch (err) {
+        console.error("Upload exception:", err);
+        toastRef?.add(`Upload error: ${err.message}`, "red");
+      }
     }
   }
 
-  function handleEditFileChange(e) {
+  // function handleEditFileChange(e) {
+  //   const file = e.target.files[0];
+  //   if (file) {
+  //     editingItem.file = file;
+  //     if (editingItem.previewUrl && editingItem.previewUrl.startsWith('blob:')) {
+  //       URL.revokeObjectURL(editingItem.previewUrl);
+  //     }
+  //     editingItem.previewUrl = URL.createObjectURL(file);
+  //   }
+  // }
+
+  async function handleEditFileChange(e) {
     const file = e.target.files[0];
     if (file) {
-      editingItem.file = file;
-      if (editingItem.previewUrl && editingItem.previewUrl.startsWith('blob:')) {
-        URL.revokeObjectURL(editingItem.previewUrl);
+      // Validate file type
+      const validTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+      if (!validTypes.includes(file.type)) {
+        toastRef?.add("Invalid file type. Please upload JPG, PNG, GIF, or WebP", "red");
+        return;
       }
-      editingItem.previewUrl = URL.createObjectURL(file);
+
+      // Validate file size (5MB limit)
+      if (file.size > 5 * 1024 * 1024) {
+        toastRef?.add("File size exceeds 5MB limit. Please compress your image.", "red");
+        return;
+      }
+
+      // Delete previous stored image (if any) before uploading replacement
+      if (editingItem.image_url) {
+        try {
+          const delRes = await deleteImage(editingItem.image_url);
+          console.log("Deleted previous image from storage:", delRes);
+        } catch (err) {
+          console.error('Failed to delete previous image before upload:', err);
+        }
+        // clear previous urls while uploading
+        editingItem.image_url = null;
+        editingItem.previewUrl = null;
+      }
+
+      const filePath = `${Date.now()}_${file.name}`;
+
+      try {
+        const { data, error } = await supabase.storage.from('gallery').upload(filePath, file, { upsert: true });
+
+        if (error) {
+          console.error("Upload error:", error);
+          toastRef?.add(`Upload failed: ${error.message}`, "red");
+          return;
+        }
+
+        if (data) {
+          const newImageUrl = `https://ucyfuegykrqstmxnzlid.supabase.co/storage/v1/object/public/gallery/${data.path}`;
+          editingItem.image_url = newImageUrl;
+          editingItem.previewUrl = newImageUrl;
+          toastRef?.add("Image updated successfully", "green");
+          console.log("Upload successful:", newImageUrl);
+        }
+      } catch (err) {
+        console.error("Upload exception:", err);
+        toastRef?.add(`Upload error: ${err.message}`, "red");
+      }
     }
   }
 
@@ -115,13 +216,21 @@
         const { error } = await deleteData(id);
         if (error) {
           toastRef?.add("Image delete failed", "red");
-        } else {
-          galleryItems = galleryItems.filter(item => item.id !== id);
-          if (imageUrl && imageUrl.includes('storage.googleapis.com') || imageUrl.includes('supabase')) {
-            await deleteThumbnail(imageUrl);
-          }
-          toastRef?.add("Image deleted successfully", "red");
+          return;
         }
+
+        // Then delete from storage
+        if (imageUrl) {
+          const storageError = await deleteImage(imageUrl);
+          if (storageError?.error) {
+            console.error('Failed to delete image from storage:', storageError.error);
+            // Don't show error to user since DB deletion succeeded
+          }
+        }
+
+        // Remove from gallery items
+        galleryItems = galleryItems.filter(item => item.id !== id);
+        toastRef?.add("Image deleted successfully", "green");
       }
     } catch (err) {
       console.error('Delete error:', err);
@@ -135,18 +244,17 @@
       return;
     }
 
-    try {
-      let imageUrl = newItem.previewUrl;
-      
-      if (newItem.file) {
-        imageUrl = await uploadImageToStorage(newItem.file);
-      }
+    if (!newItem.image_url) {
+      toastRef?.add("Please select an image", "red");
+      return;
+    }
 
+    try {
       const { data, error } = await insertData({
         title: newItem.title,
         category: newItem.category,
         description: newItem.description,
-        image: imageUrl
+        image: newItem.image_url
       });
 
       if (error) {
@@ -156,11 +264,11 @@
           id: data.id,
           title: data.title,
           description: data.description,
-          url: data.image_url,
+          image_url: data.image_url,
           category: data.category
         }];
         showUploadModal = false;
-        newItem = { title: "", category: "General", description: "", file: null, previewUrl: null };
+        newItem = { title: "", category: "General", description: "", image_url: null, previewUrl: null };
         toastRef?.add("Image uploaded successfully", "green");
       }
     } catch (err) {
@@ -172,30 +280,30 @@
   function editItem(item) {
     editingItem = { 
       ...item, 
-      previewUrl: item.url,
-      file: null 
+      previewUrl: item.image_url,
+      image_url: item.image_url
     };
     showEditModal = true;
   }
 
   async function handleUpdate() {
+    if (!editingItem.title) {
+      toastRef?.add("Please enter a title", "red");
+      return;
+    }
+
     try {
-      let imageUrl = editingItem.previewUrl;
-
-      if (editingItem.file) {
-        imageUrl = await uploadImageToStorage(editingItem.file);
-      }
-
       const { data, error } = await updateData({
         id: editingItem.id,
         title: editingItem.title,
         category: editingItem.category,
         description: editingItem.description,
-        image: imageUrl
+        image_url: editingItem.image_url
       });
 
       if (error) {
         toastRef?.add("Image update failed", "red");
+        console.error('Update error:', error);
       } else {
         galleryItems = galleryItems.map(item => 
           item.id === editingItem.id 
@@ -204,12 +312,12 @@
                 title: editingItem.title, 
                 category: editingItem.category, 
                 description: editingItem.description,
-                url: imageUrl
+                image_url: editingItem.image_url
               } 
             : item
         );
         showEditModal = false;
-        toastRef?.add("Image updated successfully", "blue");
+        toastRef?.add("Image updated successfully", "green");
       }
     } catch (err) {
       console.error('Update error:', err);
@@ -259,7 +367,7 @@
     {#each filteredItems as item}
       <div class="group relative bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 transition-all hover:shadow-md">
         <div class="aspect-video w-full overflow-hidden bg-gray-100">
-          <img src={item.url} alt={item.title} class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+          <img src={item.image_url} alt={item.title} class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
         </div>
         
         <div class="p-4">
@@ -267,9 +375,9 @@
           <h3 class="text-sm font-semibold text-slate-900 truncate">{item.title}</h3>
         </div>
 
-        <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-2">
+        <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-2 pointer-events-none group-hover:pointer-events-auto">
           <button 
-            onclick={() => editItem(item)}
+            onclick={() => {editItem(item)}}
             class="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow-lg"
           >
             <EditOutline class="w-4 h-4" />
@@ -277,7 +385,7 @@
           <Tooltip>Edit Image</Tooltip>
           
           <button 
-            onclick={() => deleteItem(item.id, item.url)}
+            onclick={() => deleteItem(item.id, item.image_url)}
             class="p-2 bg-red-600 text-white rounded-lg hover:bg-red-700 shadow-lg"
           >
             <TrashBinOutline class="w-4 h-4" />

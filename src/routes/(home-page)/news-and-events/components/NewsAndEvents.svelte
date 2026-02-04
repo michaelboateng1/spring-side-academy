@@ -113,9 +113,9 @@
 									>{article.date.split(' ')[1]}</span
 								>
 							</div>
-							<div
+							<!-- <div
 								class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100"
-							></div>
+							></div> -->
 						</div>
 
 						<div class="flex flex-1 flex-col p-8">

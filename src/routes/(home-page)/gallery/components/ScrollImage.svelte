@@ -1,39 +1,9 @@
 <script>
 	import { onMount } from 'svelte';
+	import { getData } from '$lib/galleryQuery';
 
-	import image1 from '$lib/assets/images/StudentModel4.jpg';
-	import image2 from '$lib/assets/images/studentModel11.jpg';
-	import image3 from '$lib/assets/images/studentModel7.jpg';
-	import image4 from '$lib/assets/images/studentModel8.jpg';
-	import image5 from '$lib/assets/images/studentModel5.jpg';
-
-	// Data array to remove repetitive HTML
-	const sections = [
-		{
-			title: 'Learning in Action',
-			text: 'Students actively engaged in collaborative lessons that spark curiosity, creativity, and confidence.',
-			img: image1,
-			reverse: false
-		},
-		{
-			title: 'Building Bright Futures',
-			text: 'Every classroom moment at Spring Side Academy is designed to inspire growth, leadership, and excellence.',
-			img: image2,
-			reverse: true
-		},
-		{
-			title: 'Moments That Matter.',
-			text: 'From academics to extracurricular activities, our students create memories that shape their future.',
-			img: image3,
-			reverse: false
-		},
-		{
-			title: 'A Community of Learners',
-			text: 'Spring Side Academy fosters teamwork, respect, and a strong sense of belonging among students.',
-			img: image4,
-			reverse: true
-		}
-	];
+	let sections = $state([]);
+	let isLoading = $state(true);
 
 	// Svelte Action for Intersection Observer
 	function scrollAnimate(node) {
@@ -53,7 +23,30 @@
 		return { destroy: () => observer.disconnect() };
 	}
 
-	// const handleLied = () => alert('I lied');
+	onMount(async () => {
+		try {
+			const { data, error } = await getData();
+			if (error) {
+				console.error('Failed to load gallery:', error);
+				isLoading = false;
+				return;
+			}
+
+			if (data && data.length > 0) {
+				// Map gallery items to sections format
+				sections = data.map((item, index) => ({
+					title: item.title,
+					text: item.description,
+					img: item.image_url,
+					reverse: index % 2 === 1
+				}));
+			}
+		} catch (err) {
+			console.error('Error loading gallery:', err);
+		} finally {
+			isLoading = false;
+		}
+	});
 </script>
 
 <!-- <header
@@ -67,42 +60,59 @@
 </header> -->
 
 <main class="overflow-x-hidden">
-	{#each sections as section, i}
-		<section
-			id="section-{i}"
-			use:scrollAnimate
-			class="group relative flex min-h-[300px] w-full flex-col md:h-[40vw] md:flex-row lg:h-[33vw]"
-		>
-			<div class="z-20 w-full bg-slate-500 md:absolute md:left-1/3 md:h-full md:w-1/3">
-				<img src={section.img} alt="Main" class="h-full w-full object-cover" />
+	{#if isLoading}
+		<div class="flex h-screen items-center justify-center bg-gray-100">
+			<div class="text-center">
+				<div class="mb-4 inline-block h-12 w-12 animate-spin rounded-full border-4 border-gray-300 border-t-[#0f2a92]"></div>
+				<p class="text-gray-600">Loading gallery...</p>
 			</div>
-
-			<div
-				class="bg-tomato z-10 flex w-full flex-col justify-center p-8 text-center text-white transition-all duration-500 ease-in-out md:absolute md:h-full md:w-1/3
-                {section.reverse
-					? 'md:left-1/3 group-[.is-active]:md:left-2/3'
-					: 'md:left-1/3 group-[.is-active]:md:left-0'}"
+		</div>
+	{:else if sections.length === 0}
+		<div class="flex h-screen items-center justify-center bg-gray-100">
+			<div class="text-center">
+				<p class="text-gray-600">No gallery items available</p>
+			</div>
+		</div>
+	{:else}
+		{#each sections as section, i}
+			<section
+				id="section-{i}"
+				use:scrollAnimate
+				class="group relative flex min-h-[300px] w-full flex-col md:h-[40vw] md:flex-row lg:h-[33vw]"
 			>
-				<h2 class="mb-4 text-2xl font-bold">{section.title}</h2>
-				<p class="mb-6 text-sm leading-relaxed opacity-90">{section.text}</p>
-			</div>
+				<div class="z-20 w-full bg-slate-500 md:absolute md:left-1/3 md:h-full md:w-1/3">
+					<img src={section.img} alt={section.title} class="h-full w-full object-cover" width="400" height="300" />
+				</div>
 
-			<div
-				class="hidden overflow-hidden bg-white transition-all duration-500 ease-in-out md:absolute md:grid md:h-full md:w-1/3 md:grid-cols-2
-                {section.reverse
-					? 'md:left-1/3 group-[.is-active]:md:left-0'
-					: 'md:left-1/3 group-[.is-active]:md:left-2/3'}"
-			>
-				{#each Array(4) as _}
-					<img
-						src={section.img}
-						alt="Tile"
-						class="h-full w-full object-cover grayscale transition-all duration-300 hover:grayscale-0"
-					/>
-				{/each}
-			</div>
-		</section>
-	{/each}
+				<div
+					class="bg-tomato z-10 flex w-full flex-col justify-center p-8 text-center text-white transition-all duration-500 ease-in-out md:absolute md:h-full md:w-1/3
+                    {section.reverse
+						? 'md:left-1/3 group-[.is-active]:md:left-2/3'
+						: 'md:left-1/3 group-[.is-active]:md:left-0'}"
+				>
+					<h2 class="mb-4 text-2xl font-bold">{section.title}</h2>
+					<p class="mb-6 text-sm leading-relaxed opacity-90">{@html section.text}</p>
+				</div>
+
+				<div
+					class="hidden overflow-hidden bg-white transition-all duration-500 ease-in-out md:absolute md:grid md:h-full md:w-1/3 md:grid-cols-2
+                    {section.reverse
+						? 'md:left-1/3 group-[.is-active]:md:left-0'
+						: 'md:left-1/3 group-[.is-active]:md:left-2/3'}"
+				>
+					{#each Array(4) as _}
+						<img
+							src={section.img}
+							alt={section.title}
+							class="h-full w-full object-cover grayscale transition-all duration-300 hover:grayscale-0"
+							width="200"
+							height="200"
+						/>
+					{/each}
+				</div>
+			</section>
+		{/each}
+	{/if}
 </main>
 
 <!-- <footer

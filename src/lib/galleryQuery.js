@@ -6,16 +6,14 @@ function getPathFromPublicUrl(url) {
     return path ? decodeURIComponent(path) : null
 }
 
-export const insertData = async (currentEvent) => {
+export const insertData = async (image) => {
     const { data, error } = await supabase
         .from('gallery_table')
         .insert([{
-            title: currentEvent.title,
-            description: currentEvent.description,
-            image_url: currentEvent.image,
-            slug: currentEvent.title
-                .toLowerCase()
-                .replace(/\s+/g, '-'),
+            title: image.title,
+            description: image.description,
+            image_url: image.image,
+            category: image.category,
         }])
         .select()
         .single()
@@ -32,29 +30,27 @@ export const getData = async () => {
     return { data, error }
 }
 
-export const getEventBySlug = async (slug) => {
-    const { data, error } = await supabase
-        .from('gallery_table')
-        .select()
-        .eq('slug', slug)
-        .single()
+// export const getEvenBySlug = async (slug) => {
+//     const { data, error } = await supabase
+//         .from('gallery_table')
+//         .select()
+//         .eq('slug', slug)
+//         .single()
 
-    return { data, error }
-}
+//     return { data, error }
+// }
 
 
-export const updateData = async (currentEvent) => {
+export const updateData = async (image) => {
     const { data, error } = await supabase
         .from('gallery_table')
         .update({
-            title: currentEvent.title,
-            description: currentEvent.description,
-            image_url: currentEvent.image,
-            slug: currentEvent.title
-                .toLowerCase()
-                .replace(/\s+/g, '-'),
+            title: image.title,
+            description: image.description,
+            image_url: image.image_url,
+            category: image.category,
         })
-        .eq('id', currentEvent.id)
+        .eq('id', image.id)
         .select()
         .single()
 
@@ -70,27 +66,34 @@ export const deleteData = async (id) => {
     return { data, error }
 }
 
-export const deleteThumbnail = async (thumbnailUrl) => {
-    console.log("Attempting to delete thumbnail:", thumbnailUrl)
-    if (!thumbnailUrl) return
+export const deleteImage = async (imageUrl) => {
+    console.log("Attempting to delete image:", imageUrl)
+    if (!imageUrl) return { error: 'No URL provided' }
 
-    const filePath = getPathFromPublicUrl(thumbnailUrl)
+    const filePath = getPathFromPublicUrl(imageUrl)
     console.log("Extracted file path:", filePath)
 
     if (!filePath) {
-        console.error('Could not extract file path from URL:', thumbnailUrl)
+        console.error('Could not extract file path from URL:', imageUrl)
         return { error: 'Invalid URL' }
     }
 
-    const { error, data } = await supabase.storage
-        .from('gallery')
-        .remove([filePath])
+    try {
+        const { error, data } = await supabase.storage
+            .from('gallery')
+            .remove([filePath])
 
-    if (error) {
-        console.error('Thumbnail delete failed:', error)
+        if (error) {
+            console.error('Image delete failed:', error)
+            return { error }
+        }
+
+        console.log('Image deleted successfully:', filePath)
+        return { data, error: null }
+    } catch (err) {
+        console.error('Delete exception:', err)
+        return { error: err }
     }
-
-    return { error, data }
 }
 
 export const getStat = async () => {
