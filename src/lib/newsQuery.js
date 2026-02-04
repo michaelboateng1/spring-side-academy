@@ -1,4 +1,3 @@
-import { count } from "node:console";
 import { supabase } from "./supabaseClient";
 
 function getPathFromPublicUrl(url) {

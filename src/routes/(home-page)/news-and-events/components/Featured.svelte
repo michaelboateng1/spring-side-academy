@@ -10,7 +10,7 @@
 <article class="grid-container container mx-auto">
 	<section class="first-grid group cursor-pointer overflow-hidden rounded-xl">
 		<figure class="relative h-full w-full">
-			<img src={image1} class="h-full w-full object-cover" alt="Some News" />
+			<img loading="lazy" src={image1} class="h-full w-full object-cover" alt="Some News" width="400" height="200" />
 			<figcaption
 			class="absolute top-0 left-0 flex h-full w-full translate-y-120 transform flex-col justify-end bg-black/40 p-5 text-white backdrop-blur-md transition-transform duration-300 ease-in group-hover:translate-y-0"
 			>
@@ -26,13 +26,13 @@
 				<p>Encouraging early career exploration as students dressed to represent professions that shape our world.</p>
 			</div>
 			<figure class="relative h-full w-full">
-				<img src={image2} class="h-full w-full object-cover" alt="Some News" />
+				<img loading="lazy" src={image2} class="h-full w-full object-cover" alt="Some News" width="400" height="200" />
 			</figure>
 		</div>
 	</section>
 	<section class="abitrary-grid group cursor-pointer overflow-hidden rounded-xl">
 		<figure class="relative h-full w-full">
-			<img src={image5} class="h-full w-full object-cover" alt="Some News" />
+			<img loading="lazy" src={image5} class="h-full w-full object-cover" alt="Some News" width="400" height="200" />
 			<figcaption
 				class="linear absolute top-0 left-0 flex h-full w-full translate-y-120 transform flex-col items-center justify-center bg-black/40 p-5 text-center text-white backdrop-blur-md transition-transform duration-300 group-hover:translate-y-0"
 			>  <h2 class="text-2xl mb-2">Career Awareness Day</h2>
@@ -42,7 +42,7 @@
 	</section>
 	<section class="third-grid group cursor-pointer overflow-hidden rounded-xl">
 		<figure class="relative h-full w-full">
-			<img src={image4} class="h-full w-full object-cover" alt="Some News" />
+			<img loading="lazy" src={image4} class="h-full w-full object-cover" alt="Some News" width="400" height="200" />
 			<figcaption
 				class="linear absolute top-0 left-0 flex h-full w-full translate-y-120 transform flex-col justify-end bg-black/40 p-5 text-white backdrop-blur-md transition-transform duration-300 group-hover:translate-y-0"
 			>  <h2 class="text-2xl mb-2">Creative Arts Exhibition</h2>
@@ -52,7 +52,7 @@
 	</section>
 	<section class="fourth-grid group cursor-pointer overflow-hidden rounded-xl">
 		<figure class="relative h-full w-full">
-			<img src={image3} class="h-full w-full object-cover" alt="Some News" />
+			<img loading="lazy" src={image3} class="h-full w-full object-cover" alt="Some News" width="400" height="200" />
 			<figcaption
 				class="linear absolute top-0 left-0 flex h-full w-full translate-y-120 transform flex-col justify-end bg-black/40 p-5 text-white backdrop-blur-md transition-transform duration-300 group-hover:translate-y-0"
 			> <h2 class="text-2xl mb-2">Academic Excellence</h2>
@@ -67,7 +67,7 @@
 				<p>Building speed, accuracy, and confidence through fun and competitive mental math.</p>
 			</div>
 			<figure class="relative h-full w-full">
-				<img src={image6} class="h-full w-full object-cover" alt="Some News" />
+				<img loading="lazy" src={image6} class="h-full w-full object-cover" alt="Some News" width="400" height="200" />
 			</figure>
 		</div>
 	</section>

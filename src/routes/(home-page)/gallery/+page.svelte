@@ -3,7 +3,7 @@
 	import Intro from './components/Intro.svelte';
 	import ScrollImage from './components/ScrollImage.svelte';
 
-	import bgImage from '$lib/assets/images/aboutUs/hero/galleryHero.jpg';
+	import bgImage from '$lib/assets/images/aboutUs/hero/aboutBg.jpeg';
 </script>
 
 <AboutHero

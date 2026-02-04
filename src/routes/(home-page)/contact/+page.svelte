@@ -1,5 +1,5 @@
 <script>
-	import bgImage from '$lib/assets/images/aboutUs/hero/contactHero.jpg';
+	import bgImage from '$lib/assets/images/aboutUs/hero/about-bg.jpeg';
 
 	import AboutHero from '../about/components/AboutHero.svelte';
 	import ContactInfo from './components/ContactInfo.svelte';
