@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import '../../layout.css';
-	import favicon from '$lib/assets/favicon.svg';
+	import icon from '$lib/assets/images/schoolLogo.jpg';
 
 	import Header from './components/Header.svelte';
 	import Footer from './components/Footer.svelte';
@@ -22,7 +22,7 @@
 
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href={icon} />
 	<title>Spring Side Academy</title>
 </svelte:head>
 
